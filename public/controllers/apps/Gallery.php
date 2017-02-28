@@ -192,12 +192,12 @@ class Gallery extends CI_Controller{
         }
     }
 
-    function delete_dir($src) {
+    public function delete_dir($src) {
         $dir = opendir($src);
         while(false !== ( $file = readdir($dir)) ) {
             if (( $file != '.' ) && ( $file != '..' )) {
                 if ( is_dir($src . '/' . $file) ) {
-                    delete_dir($src . '/' . $file);
+                    rmdir($src . '/' . $file);
                 }
                 else {
                     unlink($src . '/' . $file);
@@ -218,6 +218,7 @@ class Gallery extends CI_Controller{
             $path = "./resources/foto_gallery/";
             $folder = url_title(strtolower($query->nama_album));
             if(is_dir($path.$folder)){
+
                 $this->delete_dir($path.$folder);
             }
             $id['id_album'] = $id_album;

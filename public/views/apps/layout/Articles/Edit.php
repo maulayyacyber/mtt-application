@@ -19,6 +19,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <div class="edit-articles">
                         <?php
                         $attributes = array('id' => 'frm_login');
                         echo form_open_multipart('apps/articles/save?source=login&utf8=✓', $attributes)
@@ -56,6 +57,7 @@
                             <button type="reset" class="btn btn-warning btn-reset btn-fill"><i class="fa fa-repeat"></i> Reset</button>
                         </div>
                         <?php echo form_close(); ?>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>

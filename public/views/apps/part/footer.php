@@ -23,6 +23,9 @@
 <script src="<?php echo base_url() ?>resources/backend/plugins/tinymce/tinymce.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() ?>resources/backend/dist/js/app.min.js"></script>
+<!-- Toastr -->
+<script src="<?php echo base_url() ?>resources/backend/dist/js/toastr.min.js"></script>
+<script src="<?php echo base_url() ?>resources/backend/dist/js/ajax_validation.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() ?>resources/backend/dist/js/demo.js"></script>
 <script>
