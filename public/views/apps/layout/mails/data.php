@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <label for="artilces">SMTP Password</label>
-                            <input type="text" class="form-control" name="smtp_password" value="<?php echo mails('smtp_password') ?>" id="articles" placeholder="Enter SMTP Password Email Server">
+                            <input type="password" class="form-control" name="smtp_password" value="<?php echo mails('smtp_password') ?>" id="articles" placeholder="Enter SMTP Password Email Server">
                         </div>
                         <div class="form-group">
                             <label for="artilces">SMTP Port</label>
