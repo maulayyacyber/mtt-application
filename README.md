@@ -1,2 +1,2 @@
-# mtt-application
-Initial
+# Medical Top Team Application
+Web Application
