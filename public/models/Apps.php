@@ -485,6 +485,13 @@ class Apps extends CI_Model
         return $this->db->get_where('tbl_members',$id_member);
     }
 
+    // fungsi slider
+    function index_sliders()
+    {
+        $query = "SELECT * FROM tbl_slider ORDER BY id_slider DESC";
+        return $this->db->query($query);
+    }
+
     //fungsi date ago
     function time_elapsed_string($datetime, $full = false) {
         $today = time();
