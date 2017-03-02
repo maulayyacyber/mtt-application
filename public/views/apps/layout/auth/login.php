@@ -48,7 +48,7 @@
         <?php echo form_close(); ?>
         <div class="social-auth-links text-center">
             <p>- Forgot Password ? -</p>
-            <a href="#" class="btn bg-orange btn-flat" style="text-align: center;width: 100%"><i class="fa fa-envelope"></i> Get new password</a>
+            <a href="<?php echo base_url() ?>apps/login/forgot?source=login&utf8=✓" class="btn bg-orange btn-flat" style="text-align: center;width: 100%"><i class="fa fa-envelope"></i> Get new password</a>
         </div>
     </div>
 </div>

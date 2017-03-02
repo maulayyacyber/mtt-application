@@ -19,6 +19,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <div class="add-articles">
                         <?php
                         $attributes = array('id' => 'frm_login');
                         echo form_open_multipart('apps/articles/save?source=login&utf8=✓', $attributes)
@@ -40,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="artilces">Isi Articles</label>
-                                <textarea class="form-control" id="post" name="isi" rows="6" placeholder="Enter Isi Articles"></textarea>
+                                <textarea class="ckeditor" id="post" name="isi" rows="6" placeholder="Enter Isi Articles"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="artilces">Meta Keywords</label>
@@ -55,6 +56,7 @@
                                 <button type="reset" class="btn btn-warning btn-reset btn-fill"><i class="fa fa-repeat"></i> Reset</button>
                             </div>
                         <?php echo form_close(); ?>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>

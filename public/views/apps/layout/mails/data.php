@@ -20,6 +20,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <div class="update-mail">
                         <?php
                         $attributes = array('id' => 'frm_login');
                         echo form_open_multipart('apps/mails/save?source=update&utf8=✓', $attributes)
@@ -39,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="artilces">SMTP Password</label>
-                            <input type="text" class="form-control" name="smtp_password" value="<?php echo mails('smtp_password') ?>" id="articles" placeholder="Enter SMTP Password Email Server">
+                            <input type="password" class="form-control" name="smtp_password" value="<?php echo mails('smtp_password') ?>" id="articles" placeholder="Enter SMTP Password Email Server">
                         </div>
                         <div class="form-group">
                             <label for="artilces">SMTP Port</label>
@@ -50,6 +51,7 @@
                             <button type="reset" class="btn btn-warning btn-reset btn-fill"><i class="fa fa-repeat"></i> Reset</button>
                         </div>
                         <?php echo form_close(); ?>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
