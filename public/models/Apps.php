@@ -419,6 +419,12 @@ class Apps extends CI_Model
         }
     }
 
+    function detail_users_events($id_user_event)
+    {
+        $id_user_event  =  array('id_user_event'=> $id_user_event);
+        return $this->db->get_where('tbl_users_events',$id_user_event);
+    }
+
     //fungsi date ago
     function time_elapsed_string($datetime, $full = false) {
         $today = time();

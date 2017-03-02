@@ -101,4 +101,45 @@ class Users_events extends CI_Controller{
         }
     }
 
+    public function detail($id_user_event)
+    {
+        $id_user_event = $this->encryption->decode($this->uri->segment(4));
+
+        if($this->apps->apps_id())
+        {
+            $data = array(
+                'title'    => 'Detail Users Events ',
+                'users_events' => TRUE,
+                'type'     => 'edit',
+                'data_users_events'   => $this->apps->detail_users_events($id_user_event)->row_array()
+            );
+            //load view with data
+            $this->load->view('apps/part/header', $data);
+            $this->load->view('apps/part/sidebar');
+            $this->load->view('apps/layout/users_events/detail');
+            $this->load->view('apps/part/footer');
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
+    public function delete()
+    {
+        if($this->apps->apps_id())
+        {
+            $id     = $this->encryption->decode($this->uri->segment(4));
+            $key['id_user_event'] = $id;
+            $this->db->delete("tbl_users_events", $key);
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-check"></i> Data Berhasil Dihapus.
+			                                                </div>');
+            //redirect halaman
+            redirect('apps/users_events?source=delete&utf8=✓');
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
 }
