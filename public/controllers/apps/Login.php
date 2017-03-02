@@ -40,6 +40,7 @@ class Login extends CI_Controller {
                 //jika ditemukan, maka create session
                 if ($checking != FALSE) {
                     foreach ($checking as $apps) {
+
                         $this->session->set_userdata(array(
                             'apps_id' => $apps->id_user,
                             'apps_username' => $apps->username,
@@ -47,6 +48,12 @@ class Login extends CI_Controller {
                             'apps_email' => $apps->email_user,
                             'apps_foto' => $apps->foto_user
                         ));
+                        //create session kcfinder
+                        session_start();
+                        $_SESSION['ses_kcfinder']=array();
+                        $_SESSION['ses_kcfinder']['disabled'] = false;
+                        $_SESSION['ses_kcfinder']['uploadURL'] = "../../content_upload";
+
                         redirect('apps/dashboard/');
                     }
                 } else {
@@ -72,7 +79,7 @@ class Login extends CI_Controller {
 
     public function forgot()
     {
-        $this->load->view('admin/auth/forgot');
+        $this->load->view('apps/layout/auth/forgot');
     }
 
 }

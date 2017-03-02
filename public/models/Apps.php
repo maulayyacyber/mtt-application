@@ -317,4 +317,169 @@ class Apps extends CI_Model
         return $this->db->get_where('tbl_users', $id_user);
     }
 
+    // fungsi events
+    function count_events()
+    {
+        return $this->db->get('tbl_events');
+    }
+
+    function index_events($halaman,$batas)
+    {
+        $query = "SELECT a.id_event, a.judul_event, a.user_id, b.id_user, a.lokasi_event, a.updated_at, a.slug, b.nama_user FROM tbl_events as a JOIN tbl_users as b ON a.user_id = b.id_user ORDER BY a.id_event DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function total_search_events($keyword)
+    {
+        $query = $this->db->like('judul_event',$keyword)->get('tbl_events');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_events($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('a.id_event, a.judul_event, a.user_id, b.id_user, a.lokasi_event, a.updated_at, a.slug, b.nama_user')
+            ->from('tbl_events a')
+            ->join('tbl_users b','a.user_id = b.id_user')
+            ->limit($limit,$offset)
+            ->like('a.judul_event',$keyword)
+            ->or_like('b.nama_user',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_event','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function edit_events($id_events)
+    {
+        $id_events  =  array('id_event'=> $id_events);
+        return $this->db->get_where('tbl_events',$id_events);
+    }
+
+    // fungsi Users events
+    function count_users_events()
+    {
+        return $this->db->get('tbl_users_events');
+    }
+
+    function index_users_events($halaman,$batas)
+    {
+        $query = "SELECT a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event,  b.slug FROM tbl_users_events as a JOIN tbl_events as b ON a.event_id = b.id_event ORDER BY a.id_user_event DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function total_search_users_events($keyword)
+    {
+        $query = $this->db->like('nama',$keyword)->get('tbl_users_events');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_users_events($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event,  b.slug')
+            ->from('tbl_users_events a')
+            ->join('tbl_events b','a.event_id = b.id_event')
+            ->limit($limit,$offset)
+            ->like('b.judul_event',$keyword)
+            ->or_like('a.nama',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_user_event','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //fungsi date ago
+    function time_elapsed_string($datetime, $full = false) {
+        $today = time();
+        $createdday= strtotime($datetime);
+        $datediff = abs($today - $createdday);
+        $difftext="";
+        $years = floor($datediff / (365*60*60*24));
+        $months = floor(($datediff - $years * 365*60*60*24) / (30*60*60*24));
+        $days = floor(($datediff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+        $hours= floor($datediff/3600);
+        $minutes= floor($datediff/60);
+        $seconds= floor($datediff);
+        //year checker
+        if($difftext=="")
+        {
+            if($years>1)
+                $difftext=$years." years ago";
+            elseif($years==1)
+                $difftext=$years." year ago";
+        }
+        //month checker
+        if($difftext=="")
+        {
+            if($months>1)
+                $difftext=$months." months ago";
+            elseif($months==1)
+                $difftext=$months." month ago";
+        }
+        //month checker
+        if($difftext=="")
+        {
+            if($days>1)
+                $difftext=$days." days ago";
+            elseif($days==1)
+                $difftext=$days." day ago";
+        }
+        //hour checker
+        if($difftext=="")
+        {
+            if($hours>1)
+                $difftext=$hours." hours ago";
+            elseif($hours==1)
+                $difftext=$hours." hour ago";
+        }
+        //minutes checker
+        if($difftext=="")
+        {
+            if($minutes>1)
+                $difftext=$minutes." minutes ago";
+            elseif($minutes==1)
+                $difftext=$minutes." minute ago";
+        }
+        //seconds checker
+        if($difftext=="")
+        {
+            if($seconds>1)
+                $difftext=$seconds." seconds ago";
+            elseif($seconds==1)
+                $difftext=$seconds." second ago";
+        }
+        return $difftext;
+    }
+
 }

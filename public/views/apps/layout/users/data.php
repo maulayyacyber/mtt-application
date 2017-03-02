@@ -57,7 +57,7 @@
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td><?php echo $hasil->nama_user ?></td>
                                         <td> <?php echo $hasil->username ?></td>
-                                        <td> <?php echo $hasil->updated_at ?></td>
+                                        <td> <?php echo $this->apps->time_elapsed_string($hasil->updated_at) ?></td>
                                         <td class="text-center">
                                             <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/users/edit/<?php echo $this->encryption->encode($hasil->id_user) ?>'><i class="fa fa-pencil"></i> Edit</a>
                                             <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href='<?php echo base_url() ?>apps/users/delete/<?php echo $this->encryption->encode($hasil->id_user) ?>'><i class="fa fa-trash"></i> Delete</a>

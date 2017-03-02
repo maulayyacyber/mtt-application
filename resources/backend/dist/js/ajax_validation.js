@@ -777,3 +777,232 @@ $(document).ready(function(){
         return false;
     })
 });
+
+//ajax validation form add events
+$(document).ready(function(){
+    $(".add-events form").submit(function() {
+        var thumbnail     = $("[name='userfile']").val();
+        var judul         = $("[name='judul']").val();
+        var isi           = $("[name='isi']").val();
+        var lokasi        = $("[name='lokasi']").val();
+        var keywords      = $("[name='meta_keywords']").val();
+        var descriptions  = $("[name='meta_descriptions']").val();
+        if(thumbnail.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Pilih Gambar Thumbnail.", "ERROR !", opts);
+            }, 1000);
+        }else if(judul.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Judul Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(isi.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Isi Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(lokasi.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Lokasi Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(keywords.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Keywords Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(descriptions.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Descriptions Events.", "ERROR !", opts);
+            }, 1000);
+        }else{
+            return true;
+        }
+        return false;
+    })
+});
+
+//ajax validation form edit events
+$(document).ready(function(){
+    $(".edit-events form").submit(function() {
+        var judul         = $("[name='judul']").val();
+        var isi           = $("[name='isi']").val();
+        var lokasi        = $("[name='lokasi']").val();
+        var keywords      = $("[name='meta_keywords']").val();
+        var descriptions  = $("[name='meta_descriptions']").val();
+        if(judul.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Judul Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(isi.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Isi Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(lokasi.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Lokasi Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(keywords.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Keywords Events.", "ERROR !", opts);
+            }, 1000);
+        }else if(descriptions.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Descriptions Events.", "ERROR !", opts);
+            }, 1000);
+        }else{
+            return true;
+        }
+        return false;
+    })
+});

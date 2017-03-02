@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="artilces">Isi Articles</label>
-                                <textarea class="form-control" id="post" name="isi" rows="6" placeholder="Enter Isi Articles"></textarea>
+                                <textarea class="ckeditor" id="post" name="isi" rows="6" placeholder="Enter Isi Articles"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="artilces">Meta Keywords</label>

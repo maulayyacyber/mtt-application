@@ -42,7 +42,7 @@
                             <textarea class="form-control" name="meta_descriptions" rows="6" placeholder="Enter Meta Descriptions"><?php echo $data_pages['meta_descriptions'] ?></textarea>
                         </div>
                         <div class="submit">
-                            <button type="submit" class="btn btn-success btn-save btn-fill"><i class="fa fa-save"></i> Save</button>
+                            <button type="submit" class="btn btn-success btn-save btn-fill"><i class="fa fa-save"></i> Update</button>
                             <button type="reset" class="btn btn-warning btn-reset btn-fill"><i class="fa fa-repeat"></i> Reset</button>
                         </div>
                         <?php echo form_close(); ?>
