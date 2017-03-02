@@ -124,6 +124,61 @@ class Users_events extends CI_Controller{
         }
     }
 
+    public function send()
+    {
+        if($this->apps->apps_id())
+        {
+            $id_user_event  = $this->encryption->decode($this->uri->segment(4));
+
+            $email_me  = mails('smtp_user');
+            $nama_me   = systems('admin_title');
+            $query     = $this->db->query("SELECT * FROM tbl_users_events WHERE id_user_event='$id_user_event'")->row();
+            $email_to  = $query->email;
+            //create data array
+            $data = array(
+                            'mana' => $query->nama,
+            );
+
+            //config sending mails
+            $config = array(
+                'protocol'  => mails('protocol'),
+                'smtp_host' => mails('smtp_host'),
+                'smtp_user' => mails('smtp_user'),
+                'smtp_pass' => mails('smtp_password'),
+                'smtp_port' => mails('smtp_port'),
+                'mailtype'  => 'html',
+                'starttls'  => true,
+                'newline'   => "\r\n",
+                'charset'   => "utf-8"
+            );
+
+            $this->load->library('email', $config);
+            $this->email->from($email_me, $nama_me);
+            $this->email->to($email_to); // ganti dengan email tujuan
+            $this->email->subject('Ticket Events Medical Top Team');
+
+            $email = $this->load->view('apps/layout/users_events/send_email', $data, TRUE);
+
+            $this->email->message( $email );
+
+            if ($this->email->send()) {
+                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Success ! Email Undangan Berhasil Terkirim.
+			                                                </div>');
+                //redirect halaman
+                redirect('apps/users_events?source=send&utf8=✓');
+            }
+            else {
+                //error message
+                show_error($this->email->print_debugger(), true);
+            }
+
+        }else{
+            show_404();
+            return FALSE;
+        }
+    }
+
     public function delete()
     {
         if($this->apps->apps_id())
