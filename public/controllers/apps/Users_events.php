@@ -136,7 +136,16 @@ class Users_events extends CI_Controller{
             $email_to  = $query->email;
             //create data array
             $data = array(
-                            'mana' => $query->nama,
+                            'nama'          => $query->nama,
+                            'telephone'     => $query->telephone,
+                            'no_ktp'        => $query->no_ktp,
+                            'email'         => $query->email,
+                            'alamat'        => $query->alamat,
+                            'no_hp'         => $query->no_hp,
+                            'institusi'     => $query->institunsi,
+                            'jenis_kelamin' => $query->jenis_kelamin,
+                            'bbm'           => $query->bbm,
+                            'status'        => $query->status
             );
 
             //config sending mails

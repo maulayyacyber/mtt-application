@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label for="artilces">Isi Pages</label>
-                            <textarea class="form-control" id="post" name="isi_page" rows="6" placeholder="Enter Isi Pages"><?php echo $data_pages['isi_page'] ?></textarea>
+                            <textarea class="ckeditor" id="post" name="isi_page" rows="6" placeholder="Enter Isi Pages"><?php echo $data_pages['isi_page'] ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="artilces">Meta Keywords</label>

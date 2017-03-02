@@ -425,6 +425,66 @@ class Apps extends CI_Model
         return $this->db->get_where('tbl_users_events',$id_user_event);
     }
 
+    /* fungsi members */
+    function count_members()
+    {
+        return $this->db->get('tbl_members');
+    }
+
+    function index_members($halaman,$batas)
+    {
+        $query = "SELECT * FROM tbl_members as a JOIN tbl_institusi as b ON a.institusi_id = b.id_institusi  ORDER BY a.id_member DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function total_search_members($keyword)
+    {
+        $query = $this->db->like('nama',$keyword)->get('tbl_members');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_members($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_members a')
+            ->join('tbl_institusi b','a.institusi_id = b.id_institusi')
+            ->limit($limit,$offset)
+            ->like('b.nama_institusi',$keyword)
+            ->or_like('a.nama',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_member','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function select_institusi()
+    {
+        $this->db->order_by('nama_institusi ASC');
+        return $this->db->get('tbl_institusi');
+    }
+
+    function edit_members($id_member)
+    {
+        $id_member  =  array('id_member'=> $id_member);
+        return $this->db->get_where('tbl_members',$id_member);
+    }
+
     //fungsi date ago
     function time_elapsed_string($datetime, $full = false) {
         $today = time();
