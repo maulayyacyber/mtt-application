@@ -19,7 +19,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="add-articles">
+                        <div class="add-members">
                             <?php
                             $attributes = array('id' => 'frm_login');
                             echo form_open_multipart('apps/members/save?source=login&utf8=✓', $attributes)

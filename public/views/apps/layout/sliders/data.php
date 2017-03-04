@@ -21,7 +21,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="add-foto">
+                        <div class="add-slider">
                             <?php
                             $attributes = array('id' => 'frm_login');
                             echo form_open_multipart('apps/sliders/save?source=upload&utf8=✓', $attributes)

@@ -188,6 +188,18 @@ class Users_events extends CI_Controller{
         }
     }
 
+    function test_template()
+    {
+        $data = array(
+            'title'    => 'Detail Users Events ',
+            'users_events' => TRUE,
+        );
+        $this->load->view('apps/part/header', $data);
+        $this->load->view('apps/part/sidebar');
+        $this->load->view('apps/layout/users_events/send_email');
+        $this->load->view('apps/part/footer');
+    }
+
     public function delete()
     {
         if($this->apps->apps_id())

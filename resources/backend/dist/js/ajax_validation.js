@@ -1006,3 +1006,51 @@ $(document).ready(function(){
         return false;
     })
 });
+
+//ajax validation form add foto
+$(document).ready(function(){
+    $(".add-slider form").submit(function() {
+        var userfile          = $("[name='userfile']").val();
+        var link              = $("[name='link']").val();
+        if(userfile.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Pilih Gambar Slider.", "ERROR !", opts);
+            }, 1000);
+        }else if(link.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Link Slider.", "ERROR !", opts);
+            }, 1000);
+        }else{
+            return true;
+        }
+        return false;
+    })
+});
