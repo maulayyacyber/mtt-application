@@ -418,7 +418,7 @@ $(document).ready(function(){
 //ajax validation form add foto
 $(document).ready(function(){
     $(".add-foto form").submit(function() {
-        var userfile          = $("[name='userfile']").val();
+        var userfile          = $("[name='files[]']").val();
         var caption           = $("[name='caption_foto']").val();
         if(userfile.length == 0){
             setTimeout(function() {
@@ -1047,6 +1047,301 @@ $(document).ready(function(){
                     "hideMethod": "fadeOut"
                 };
                 toastr.error("Masukkan Link Slider.", "ERROR !", opts);
+            }, 1000);
+        }else{
+            return true;
+        }
+        return false;
+    })
+});
+
+//ajax validation form add and edit member
+$(document).ready(function(){
+    $(".add-members form").submit(function() {
+        var nama          = $("[name='nama']").val();
+        var institusi     = $("[name='institusi_id']").val();
+        var ttl           = $("[name='ttl']").val();
+        var jenis_kelamin = $("[name='jenis_kelamin']").val();
+        var alamat        = $("[name='alamat']").val();
+        var email         = $("[name='email']").val();
+        var no_telp       = $("[name='no_telp']").val();
+        var line          = $("[name='line']").val();
+        var bbm           = $("[name='bbm']").val();
+        var instagram     = $("[name='instagram']").val();
+        var facebook      = $("[name='facebook']").val();
+        var riwayat_pendidikan = $("[name='riwayat_pendidikan']").val();
+        var riwayat_pengalaman_organisasi = $("[name='riwayat_pengalaman_organisasi']").val();
+        var agama = $("[name='riwayat_pengalaman_organisasi']").val();
+        var telephone_rumah = $("[name='telephone_rumah']").val();
+        if(nama.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Nama Lengkap Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(institusi.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Institusi Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(ttl.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Tempat Tanggal Lahir.", "ERROR !", opts);
+            }, 1000);
+        }else if(jenis_kelamin.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Pilih Jenis Kelamin Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(alamat.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Alamat Asal Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(email.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Alamat Email Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(no_telp.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan No Telp Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(line.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan ID Line Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(bbm.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan PIN BBM Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(instagram.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Username Instagram Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(facebook.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Nama atau alamat Facebook Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(riwayat_pendidikan.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Riwayat Pendidikan Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(riwayat_pengalaman_organisasi.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan Riwayat Pengalaman Organisasi Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(agama.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Pilih Agama Kepercayaan Member.", "ERROR !", opts);
+            }, 1000);
+        }else if(telephone_rumah.length == 0){
+            setTimeout(function() {
+                /*toastr.error('Email is still empty');*/
+                var opts = {
+                    "debug": false,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.error("Masukkan No Telephone Rumah Member.", "ERROR !", opts);
             }, 1000);
         }else{
             return true;

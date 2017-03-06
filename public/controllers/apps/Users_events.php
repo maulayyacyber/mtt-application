@@ -131,20 +131,20 @@ class Users_events extends CI_Controller{
 
             $email_me  = mails('smtp_user');
             $nama_me   = systems('admin_title');
-            $query     = $this->db->query("SELECT * FROM tbl_users_events WHERE id_user_event='$id_user_event'")->row();
+            $query     = $this->db->query("SELECT a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event, a.telephone, a.bbm, a.no_hp, a.no_ktp, a.email, a.institusi, a.jenis_kelamin, a.alamat,  b.slug FROM tbl_users_events as a JOIN tbl_events as b ON a.event_id = b.id_event WHERE a.id_user_event='$id_user_event'")->row();
             $email_to  = $query->email;
             //create data array
             $data = array(
+                            'judul_event'   => $query->judul_event,
                             'nama'          => $query->nama,
                             'telephone'     => $query->telephone,
                             'no_ktp'        => $query->no_ktp,
                             'email'         => $query->email,
                             'alamat'        => $query->alamat,
                             'no_hp'         => $query->no_hp,
-                            'institusi'     => $query->institunsi,
+                            'institusi'     => $query->institusi,
                             'jenis_kelamin' => $query->jenis_kelamin,
-                            'bbm'           => $query->bbm,
-                            'status'        => $query->status
+                            'bbm'           => $query->bbm
             );
 
             //config sending mails
@@ -218,10 +218,7 @@ class Users_events extends CI_Controller{
             'title'    => 'Detail Users Events ',
             'users_events' => TRUE,
         );
-        $this->load->view('apps/part/header', $data);
-        $this->load->view('apps/part/sidebar');
         $this->load->view('apps/layout/users_events/send_email');
-        $this->load->view('apps/part/footer');
     }
 
     public function delete()
