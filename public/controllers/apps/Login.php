@@ -41,19 +41,20 @@ class Login extends CI_Controller {
                 if ($checking != FALSE) {
                     foreach ($checking as $apps) {
 
-                        $this->session->set_userdata(array(
+                        $session_data = array(
                             'apps_id' => $apps->id_user,
                             'apps_username' => $apps->username,
                             'apps_nama' => $apps->nama_user,
                             'apps_email' => $apps->email_user,
                             'apps_foto' => $apps->foto_user
-                        ));
+                        );
                         //create session kcfinder
                         session_start();
                         $_SESSION['ses_kcfinder']=array();
                         $_SESSION['ses_kcfinder']['disabled'] = false;
                         $_SESSION['ses_kcfinder']['uploadURL'] = "../../content_upload";
-
+                        //set session userdata
+                        $this->session->set_userdata($session_data);
                         redirect('apps/dashboard/');
                     }
                 } else {
@@ -79,7 +80,34 @@ class Login extends CI_Controller {
 
     public function forgot()
     {
-        $this->load->view('apps/layout/auth/forgot');
+        if($this->apps->apps_id())
+        {
+            redirect('apps/dashboard/');
+        }else{
+            //get form input
+            $email_address = $check_video  = $this->apps->check_one('tbl_users', array('email_user' => $this->input->post("email")));
+            //set form validation
+            $this->form_validation->set_rules('email', 'Email Address', 'trim|required');
+            $this->form_validation->set_message('required', '<div class="alert alert-danger alert-dismissible">
+                                                                {field} is required.
+                                                              </div>');
+            if($this->form_validation->run() == TRUE)
+            {
+                if($email_address != FALSE)
+                {
+
+                }else{
+                    $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Error! email tidak terdaftar.
+			                                                </div>');
+                    //redirect halaman
+                    redirect('apps/login/forgot?source=send&utf8=✓');
+                }
+            }else{
+                $this->load->view('apps/layout/auth/forgot');
+            }
+        }
+
     }
 
 }

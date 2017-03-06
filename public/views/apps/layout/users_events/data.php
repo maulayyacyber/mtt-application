@@ -50,12 +50,15 @@
 
                                     if($hasil->status == "0"){
 
-                                        $status = '<span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #ff9b2d;">Belum Lunas</span>';
+                                        $status = '<span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #ff9b2d;"><i class="fa fa-ban"></i> Belum Lunas</span>';
+
+                                        $update_status = '<a class="badge badge-primary" style="font-family: Roboto;font-weight: 400;background-color: #1969bc;" data-toggle="tooltip" data-placement="top" title="Belum Lunas ?" href="'.base_url().'apps/users_events/confirm_payment/'.$this->encryption->encode($hasil->id_user_event).'/'.$this->encryption->encode('1').'"><i class="fa fa-check-circle"></i> Update</a>';
 
                                     }elseif($hasil->status == "1"){
 
-                                        $status = '<span class="badge badge-success" style="font-family: Roboto;font-weight: 400;background-color: #358420;">Lunas</span>';
+                                        $status = '<span class="badge badge-success" style="font-family: Roboto;font-weight: 400;background-color: #358420;"><i class="fa fa-check-circle"></i> Lunas</span>';
 
+                                        $update_status = '<a class="badge badge-primary" style="font-family: Roboto;font-weight: 400;background-color: #1969bc;" data-toggle="tooltip" data-placement="top" title="Sudah Lunas ?" href="'.base_url().'apps/users_events/confirm_payment/'.$this->encryption->encode($hasil->id_user_event).'/'.$this->encryption->encode('0').'"><i class="fa fa-ban"></i> Update</a>';
                                     }
 
                                     ?>
@@ -65,6 +68,7 @@
                                         <td><a href="<?php echo base_url() ?>events/<?php echo $hasil->slug ?>/" target="_blank" style="color: #367fa9"><?php echo $hasil->judul_event ?></a></td>
                                         <td class="text-center"> <?php echo $status ?></td>
                                         <td class="text-center">
+                                            <?php echo $update_status ?>
                                             <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Detail" href='<?php echo base_url() ?>apps/users_events/detail/<?php echo $this->encryption->encode($hasil->id_user_event) ?>'><i class="fa fa-external-link"></i> Detail</a>
                                             <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href='<?php echo base_url() ?>apps/users_events/delete/<?php echo $this->encryption->encode($hasil->id_user_event) ?>'><i class="fa fa-trash"></i> Delete</a>
                                         </td>

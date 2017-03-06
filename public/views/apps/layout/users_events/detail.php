@@ -21,18 +21,14 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <?php
-                                if($data_users_events['status'] == "0")
-                                {
-                                    $status = '<span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #ff9b2d;">Belum Lunas</span>';
-                                }else{
-                                    $status = '<span class="badge badge-success" style="font-family: Roboto;font-weight: 400;background-color: #358420;">Lunas</span>';
-                                }
-                            ?>
                             <table class="table table-hover">
                                 <tr>
                                     <th style="font-size: 17px"><i class="fa fa-file-o"></i> Attribute</th>
                                     <th style="font-size: 17px"><i class="fa fa-clone"></i> Value</th>
+                                </tr>
+                                <tr>
+                                    <td style="width: 15%">Nama Event</td>
+                                    <td><?php echo $data_users_events['judul_event'] ?></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 15%">Nama Lengkap</td>
@@ -69,10 +65,6 @@
                                 <tr>
                                     <td style="width: 15%">Alamat Rumah</td>
                                     <td><?php echo $data_users_events['alamat'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 15%">Status</td>
-                                    <td><?php echo $status ?></td>
                                 </tr>
                             </table>
                             <div class="submit" style="margin-bottom: 7px">

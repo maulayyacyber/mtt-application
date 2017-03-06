@@ -26,7 +26,7 @@
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             <?php echo form_error('email'); ?>
         </div>
-        <?php if(isset($error)) { echo $error; }; ?>
+        <?php echo $this->session->flashdata('notif'); ?>
         <div class="row">
             <div class="col-xs-12">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Send new password <i class="fa fa-sign-out"></i> </button>

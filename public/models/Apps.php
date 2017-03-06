@@ -421,8 +421,8 @@ class Apps extends CI_Model
 
     function detail_users_events($id_user_event)
     {
-        $id_user_event  =  array('id_user_event'=> $id_user_event);
-        return $this->db->get_where('tbl_users_events',$id_user_event);
+        $query = $this->db->query("SELECT a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event, a.telephone, a.bbm, a.no_hp, a.no_ktp, a.email, a.institusi, a.jenis_kelamin, a.alamat,  b.slug FROM tbl_users_events as a JOIN tbl_events as b ON a.event_id = b.id_event WHERE a.id_user_event = '$id_user_event'");
+        return $query;
     }
 
     /* fungsi members */

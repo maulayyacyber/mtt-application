@@ -103,15 +103,14 @@ class Users_events extends CI_Controller{
 
     public function detail($id_user_event)
     {
-        $id_user_event = $this->encryption->decode($this->uri->segment(4));
+        $id = $this->encryption->decode($id_user_event);
 
         if($this->apps->apps_id())
         {
             $data = array(
                 'title'    => 'Detail Users Events ',
                 'users_events' => TRUE,
-                'type'     => 'edit',
-                'data_users_events'   => $this->apps->detail_users_events($id_user_event)->row_array()
+                'data_users_events'   => $this->apps->detail_users_events($id)->row_array()
             );
             //load view with data
             $this->load->view('apps/part/header', $data);
@@ -185,6 +184,31 @@ class Users_events extends CI_Controller{
         }else{
             show_404();
             return FALSE;
+        }
+    }
+
+    public function confirm_payment($id, $value)
+    {
+        if($this->apps->apps_id())
+        {
+            $id_user_event  = $this->encryption->decode($id);
+            $value  = $this->encryption->decode($this->uri->segment(5));
+            //where id
+            $key['id_user_event'] = $id_user_event;
+            //update
+            $update = array(
+                        'status' => $value
+            );
+            //update query
+            $this->db->update("tbl_users_events",$update, $key);
+            //deklarasi session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-check"></i> Data Berhasil Diupdate.
+			                                                </div>');
+            //redirect halaman
+            redirect('apps/users_events?source=confirm_payment&utf8=✓');
+        }else{
+
         }
     }
 
