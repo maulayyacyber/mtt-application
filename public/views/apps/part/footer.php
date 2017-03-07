@@ -30,6 +30,8 @@
 <script src="<?php echo base_url() ?>resources/backend/dist/js/demo.js"></script>
 <script>
 
+    $('[data-toggle="tooltip"]').tooltip();
+
     window.base_url = <?php echo json_encode(base_url()); ?>;
 
     <?php if(isset($js_ready)) { echo $js_ready; } ?>
