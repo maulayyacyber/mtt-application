@@ -68,7 +68,7 @@
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
-                                        <td> <?php echo $hasil->link_slider ?></td>
+                                        <td> <a href="<?php echo $hasil->link_slider ?>" target="_blank"><?php echo $hasil->link_slider ?></a></td>
                                         <td class="text-center"> <img src="<?php echo base_url() ?>resources/images/sliders/<?php echo $hasil->image_slider ?>" class="img-responsive" style="width: 600px;height: 200px"></td>
                                         <td class="text-center">
                                             <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href='<?php echo base_url() ?>apps/sliders/delete/<?php echo $this->encryption->encode($hasil->id_slider) ?>'><i class="fa fa-trash"></i> Delete</a>
