@@ -41,18 +41,23 @@ class Login extends CI_Controller {
                 if ($checking != FALSE) {
                     foreach ($checking as $apps) {
 
-                        $this->session->set_userdata(array(
+                        $session_data = array(
                             'apps_id' => $apps->id_user,
                             'apps_username' => $apps->username,
                             'apps_nama' => $apps->nama_user,
                             'apps_email' => $apps->email_user,
                             'apps_foto' => $apps->foto_user
-                        ));
+                        );
                         //create session kcfinder
-                        session_start();
+                        //session_start();
                         $_SESSION['ses_kcfinder']=array();
                         $_SESSION['ses_kcfinder']['disabled'] = false;
                         $_SESSION['ses_kcfinder']['uploadURL'] = "../../content_upload";
+                        //set session userdata
+                        $this->session->set_userdata($session_data);
+
+                        //calback sesion
+                        //return TRUE;
 
                         redirect('apps/dashboard/');
                     }
@@ -79,7 +84,71 @@ class Login extends CI_Controller {
 
     public function forgot()
     {
-        $this->load->view('apps/layout/auth/forgot');
+        if($this->apps->apps_id())
+        {
+            redirect('apps/dashboard/');
+        }else{
+            //get form input
+            $email_address = $check_video  = $this->apps->check_one('tbl_users', array('email_user' => $this->input->post("email")));
+            //set form validation
+            $this->form_validation->set_rules('email', 'Email Address', 'trim|required');
+            $this->form_validation->set_message('required', '<div class="alert alert-danger alert-dismissible">
+                                                                {field} is required.
+                                                              </div>');
+            if($this->form_validation->run() == TRUE)
+            {
+                if($email_address != FALSE)
+                {
+                    $email_me  = mails('smtp_user');
+                    $nama_me   = systems('admin_title');
+                    $email_to  = $this->input->post("email");
+                    $query     = $this->db->query("SELECT id_user FROM tbl_users WHERE email_user='$email_to'")->row();
+                    $this->load->helper('string');
+                    $password= random_string('alnum', 6);
+                    $this->db->where('id_user', $query->id_user);
+                    $this->db->update('tbl_users',array('password'=>SHA1(MD5(MD5(SHA1($password))))));
+                    $config = array(
+                        'protocol'  => mails('protocol'),
+                        'smtp_host' => mails('smtp_host'),
+                        'smtp_user' => mails('smtp_user'),
+                        'smtp_pass' => mails('smtp_password'),
+                        'smtp_port' => mails('smtp_port'),
+                        'mailtype'  => 'html',
+                        'starttls'  => true,
+                        'newline'   => "\r\n"
+                    );
+
+                    $this->load->library('email', $config);
+                    $this->email->from($email_me, $nama_me);
+                    $this->email->to($email_to); // ganti dengan email tujuan
+                    $this->email->subject('Reset Password');
+                    $data = array( 'message' => "Permintaan password baru Anda adalah : <b>".$password."</b>");
+                    $email = $this->load->view('apps/layout/auth/template_reset_password', $data, TRUE);
+
+                    $this->email->message( $email );
+
+                    if ($this->email->send()) {
+                        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Success! silahkan check email anda.
+			                                                </div>');
+                        //redirect halaman
+                        redirect('apps/login/forgot?source=send&utf8=✓');
+                    }
+                    else {
+                        show_error($this->email->print_debugger(), true);
+                    }
+                }else{
+                    $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Error! email tidak terdaftar.
+			                                                </div>');
+                    //redirect halaman
+                    redirect('apps/login/forgot?source=send&utf8=✓');
+                }
+            }else{
+                $this->load->view('apps/layout/auth/forgot');
+            }
+        }
+
     }
 
 }

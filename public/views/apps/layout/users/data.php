@@ -52,6 +52,16 @@
                                 if($users != NULL):
                                 $no = $this->uri->segment(4) + 1;
                                 foreach($users->result() as $hasil):
+
+                                    if($hasil->id_user == $this->session->userdata("apps_id"))
+                                    {
+                                        $restrict = '<a class="badge badge-success" style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href="'.base_url().'apps/users/edit/'.$this->encryption->encode($hasil->id_user).'"><i class="fa fa-pencil"></i> Edit</a>
+                                                     <a class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href="'.base_url().'apps/users/delete/'.$this->encryption->encode($hasil->id_user).'"><i class="fa fa-trash"></i> Delete</a>';
+                                    }else{
+                                        $restrict = '<span class="badge badge-success" style="font-family: Roboto;font-weight: 400;background-color: #358420;cursor: not-allowed;filter: alpha(opacity=65);-webkit-box-shadow: none;box-shadow: none;opacity: .65;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i> Edit</span>
+                                                     <span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #842020;cursor: not-allowed;filter: alpha(opacity=65);-webkit-box-shadow: none;box-shadow: none;opacity: .65;" data-toggle="tooltip" data-placement="top" title="Delete ?"><i class="fa fa-trash"></i> Delete</span>';
+                                    }
+
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
@@ -59,8 +69,7 @@
                                         <td> <?php echo $hasil->username ?></td>
                                         <td> <?php echo $this->apps->time_elapsed_string($hasil->updated_at) ?></td>
                                         <td class="text-center">
-                                            <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/users/edit/<?php echo $this->encryption->encode($hasil->id_user) ?>'><i class="fa fa-pencil"></i> Edit</a>
-                                            <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href='<?php echo base_url() ?>apps/users/delete/<?php echo $this->encryption->encode($hasil->id_user) ?>'><i class="fa fa-trash"></i> Delete</a>
+                                            <?php echo $restrict ?>
                                         </td>
                                     </tr>
                                     <?php

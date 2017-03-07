@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In <i class="fa fa-sign-in"></i> </button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Login <i class="fa fa-unlock"></i> </button>
             </div>
 
         </div>

@@ -419,6 +419,79 @@ class Apps extends CI_Model
         }
     }
 
+    function detail_users_events($id_user_event)
+    {
+        $query = $this->db->query("SELECT a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event, a.telephone, a.bbm, a.no_hp, a.no_ktp, a.email, a.institusi, a.jenis_kelamin, a.alamat,  b.slug FROM tbl_users_events as a JOIN tbl_events as b ON a.event_id = b.id_event WHERE a.id_user_event = '$id_user_event'");
+        return $query;
+    }
+
+    /* fungsi members */
+    function count_members()
+    {
+        return $this->db->get('tbl_members');
+    }
+
+    function index_members($halaman,$batas)
+    {
+        $query = "SELECT * FROM tbl_members as a JOIN tbl_institusi as b ON a.institusi_id = b.id_institusi  ORDER BY a.id_member DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function total_search_members($keyword)
+    {
+        $query = $this->db->like('nama',$keyword)->get('tbl_members');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_members($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_members a')
+            ->join('tbl_institusi b','a.institusi_id = b.id_institusi')
+            ->limit($limit,$offset)
+            ->like('b.nama_institusi',$keyword)
+            ->or_like('a.nama',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_member','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function select_institusi()
+    {
+        $this->db->order_by('nama_institusi ASC');
+        return $this->db->get('tbl_institusi');
+    }
+
+    function edit_members($id_member)
+    {
+        $id_member  =  array('id_member'=> $id_member);
+        return $this->db->get_where('tbl_members',$id_member);
+    }
+
+    // fungsi slider
+    function index_sliders()
+    {
+        $query = "SELECT * FROM tbl_slider ORDER BY id_slider DESC";
+        return $this->db->query($query);
+    }
+
     //fungsi date ago
     function time_elapsed_string($datetime, $full = false) {
         $today = time();
