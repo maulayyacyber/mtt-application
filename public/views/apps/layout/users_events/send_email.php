@@ -20,7 +20,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #f1f1f1;-moz-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.12);webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.12);box-shadow: 1px 1px 2px 0 rgba(0,0,0,.12);">
 <table>
     <tr>
         <th style="font-size: 17px"><i class="fa fa-file-o"></i> Attribute</th>

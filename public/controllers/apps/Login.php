@@ -49,12 +49,16 @@ class Login extends CI_Controller {
                             'apps_foto' => $apps->foto_user
                         );
                         //create session kcfinder
-                        session_start();
+                        //session_start();
                         $_SESSION['ses_kcfinder']=array();
                         $_SESSION['ses_kcfinder']['disabled'] = false;
                         $_SESSION['ses_kcfinder']['uploadURL'] = "../../content_upload";
                         //set session userdata
                         $this->session->set_userdata($session_data);
+
+                        //calback sesion
+                        //return TRUE;
+
                         redirect('apps/dashboard/');
                     }
                 } else {

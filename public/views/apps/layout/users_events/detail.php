@@ -68,8 +68,16 @@
                                 </tr>
                             </table>
                             <div class="submit" style="margin-bottom: 7px">
+                                <?php
+                                    if($data_users_events['status'] == "0")
+                                    {
+                                        $add_class = 'disabled';
+                                    }else{
+                                        $add_class = '';
+                                    }
+                                ?>
                                 <a href="<?php echo base_url() ?>apps/users_events/"  class="btn btn-success btn-save btn-fill"><i class="fa fa-arrow-left"></i> Kembali</a>
-                                <a href="<?php echo base_url() ?>apps/users_events/send/<?php echo $this->encryption->encode($data_users_events['id_user_event']) ?>" type="reset" class="btn btn-primary btn-reset btn-fill"> Send Email <i class="fa fa-send"></i></a>
+                                <a href="<?php echo base_url() ?>apps/users_events/send/<?php echo $this->encryption->encode($data_users_events['id_user_event']) ?>" type="reset" class="btn btn-primary btn-reset btn-fill <?php echo $add_class ?>"> Send Email <i class="fa fa-send"></i></a>
                             </div>
                         </div>
                     </div>
