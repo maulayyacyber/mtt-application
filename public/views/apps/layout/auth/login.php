@@ -41,15 +41,19 @@
                 </div>
             </div>
             <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Login <i class="fa fa-unlock"></i> </button>
+                <button type="submit" class="btn bg-olive btn-block btn-flat">Login <i class="fa fa-unlock"></i> </button>
             </div>
 
         </div>
         <?php echo form_close(); ?>
+        <hr>
         <div class="social-auth-links text-center">
-            <p>- Forgot Password ? -</p>
+            <p> Forgot Password ? </p>
             <a href="<?php echo base_url() ?>apps/login/forgot?source=login&utf8=✓" class="btn bg-orange btn-flat" style="text-align: center;width: 100%"><i class="fa fa-envelope"></i> Get new password</a>
         </div>
+    </div>
+    <div class="text-center" style="margin-top: 10px;font-size: 15px;padding: 6px 6px">
+        <?php echo systems('admin_footer') ?>
     </div>
 </div>
 <script src="<?php echo base_url() ?>resources/backend/plugins/jQuery/jquery-2.2.3.min.js"></script>

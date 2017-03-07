@@ -137,7 +137,7 @@ class Apps extends CI_Model
 
     function index_pages($halaman,$batas)
     {
-        $query = "SELECT * FROM tbl_pages as a JOIN tbl_users as b ON a.user_id = b.id_user  ORDER BY id_page DESC limit $halaman, $batas";
+        $query = "SELECT * FROM tbl_pages as a JOIN tbl_users as b ON a.user_id = b.id_user  ORDER BY judul_page ASC limit $halaman, $batas";
         return $this->db->query($query);
     }
 
@@ -169,7 +169,7 @@ class Apps extends CI_Model
             ->limit($limit,$offset)
             ->like('a.judul_page',$keyword)
             ->limit($limit,$offset)
-            ->order_by('a.id_page','ASC')
+            ->order_by('a.judul_page','ASC')
             ->get();
 
         if($query->num_rows() > 0)
