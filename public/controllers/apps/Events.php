@@ -326,7 +326,7 @@ class Events extends CI_Controller{
                         $this->image_lib->clear();
 
                         $update = array(
-                            'judul_events'      => $this->input->post("judul"),
+                            'judul_event'      => $this->input->post("judul"),
                             'slug'              => url_title(strtolower($this->input->post("judul"))),
                             'user_id'           => $this->session->userdata("apps_id"),
                             'isi_event'         => $this->input->post("isi"),

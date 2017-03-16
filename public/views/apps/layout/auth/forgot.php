@@ -32,7 +32,7 @@
                 <a href="<?php echo base_url() ?>apps/login/?source=forgot&utf8=✓" type="submit" class="btn btn-primary btn-block btn-flat" style="padding: 6px 1px;"><i class="fa fa-arrow-circle-left"></i> Back to login  </a>
             </div>
             <div class="col-xs-6">
-                <button type="submit" class="btn bg-olive btn-block btn-flat" style="padding: 6px 1px;">Send new password <i class="fa fa-sign-out"></i> </button>
+                <button type="submit" class="btn bg-olive btn-block btn-flat" style="padding: 6px 1px;">Get new password <i class="fa fa-sign-out"></i> </button>
             </div>
         </div>
         <?php echo form_close(); ?>
