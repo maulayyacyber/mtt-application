@@ -18,7 +18,7 @@ class Articles extends CI_Controller{
     public function detail($url)
     {
         //library disqus
-        //$this->load->library('disqus');
+        $this->load->library('disqus');
 
         $data = array(
             'detail_articles'  => $this->web->detail_articles($url),
@@ -26,7 +26,7 @@ class Articles extends CI_Controller{
             'keywords'         => $this->web->detail_articles($url)->meta_keywords,
             'descriptions'     => $this->web->detail_articles($url)->meta_descriptions,
             'author'           => $this->web->detail_articles($url)->nama_user,
-            //'disqus'        => $this->disqus->get_html()
+            'disqus'           => $this->disqus->get_html()
         );
         //get id
         $id = $this->web->detail_articles($url)->id_articles;
