@@ -13,7 +13,7 @@
                         <ul class="list-unstyled list-inline blog-info">
                             <li><i class="fa fa-calendar"></i> <?php echo $this->web->tgl_indo_lengkap($detail_articles->created_at) ?></li>
                             <li><i class="fa fa-pencil"></i> <?php echo $detail_articles->nama_user ?></li>
-                            <li><i class="fa fa-comments"></i> <a href="<?php echo base_url() ?>articles/<?php echo $detail_articles->slug ?>/#comments/">Comments</a></li>
+                            <li><i class="fa fa-comments"></i> <a href="<?php echo base_url() ?>articles/<?php echo $detail_articles->slug ?>/#comments">Comments</a></li>
                         </ul>
                         <ul class="list-unstyled list-inline blog-tags">
                             <li>
@@ -42,7 +42,9 @@
                 </div>
 
                 <div class="page-detail" style="margin-top:30px;-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);padding: 15px 15px;background-color: #fff">
-                    <?php echo $disqus ?>
+                    <div id="comments">
+                        <?php echo $disqus ?>
+                    </div>
                 </div>
 
             </div>

@@ -57,6 +57,57 @@ class Web extends CI_Model{
         }
     }
 
+    //get mebers count
+    function count_members()
+    {
+        return $this->db->get('tbl_members');
+    }
+
+    //index members
+    function index_members($halaman,$batas)
+    {
+        $query = "SELECT * FROM tbl_members as a JOIN tbl_institusi as b ON a.institusi_id = b.id_institusi  ORDER BY a.id_member DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    //total search member
+    function total_search_members($keyword)
+    {
+        $query = $this->db->like('nama',$keyword)->get('tbl_members');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //index search member
+    public function search_index_members($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_members a')
+            ->join('tbl_institusi b','a.institusi_id = b.id_institusi')
+            ->limit($limit,$offset)
+            ->like('b.nama_institusi',$keyword)
+            ->or_like('a.nama',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_member','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
     //function date time
     //fungsi date
     // Fungsi GLobal //
