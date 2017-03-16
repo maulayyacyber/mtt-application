@@ -52,7 +52,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped" style="margin-top:10px;font-family: Roboto;font-weight: 300;">
+                            <table class="table table-bordered table-striped table-hover" style="margin-top:10px;font-family: Roboto;font-weight: 300;">
                                 <tbody>
                                 <thead>
                                 <tr>

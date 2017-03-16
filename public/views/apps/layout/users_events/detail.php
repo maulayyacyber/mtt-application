@@ -21,7 +21,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover table-striped table-bordered">
                                 <tr>
                                     <th style="font-size: 17px"><i class="fa fa-file-o"></i> Attribute</th>
                                     <th style="font-size: 17px"><i class="fa fa-clone"></i> Value</th>
@@ -72,12 +72,14 @@
                                     if($data_users_events['status'] == "0")
                                     {
                                         $add_class = 'disabled';
+                                        $tooltip   = 'data-toggle="tooltip" title="Hooray!"';
                                     }else{
                                         $add_class = '';
+                                        $tooltip   = '';
                                     }
                                 ?>
                                 <a href="<?php echo base_url() ?>apps/users_events/"  class="btn btn-success btn-save btn-fill"><i class="fa fa-arrow-left"></i> Kembali</a>
-                                <a href="<?php echo base_url() ?>apps/users_events/send/<?php echo $this->encryption->encode($data_users_events['id_user_event']) ?>" type="reset" class="btn btn-primary btn-reset btn-fill <?php echo $add_class ?>"> Send Email <i class="fa fa-send"></i></a>
+                                <a href="<?php echo base_url() ?>apps/users_events/send/<?php echo $this->encryption->encode($data_users_events['id_user_event']) ?>" <?php echo $tooltip ?> type="reset" class="btn btn-primary btn-reset btn-fill <?php echo $add_class ?>"> Send Email <i class="fa fa-send"></i></a>
                             </div>
                         </div>
                     </div>

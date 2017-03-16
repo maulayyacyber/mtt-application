@@ -8,9 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Login extends CI_Controller {
 
+    var $CI = NULL;
     public function __construct()
     {
         parent::__construct();
+        // get CI's object
+        $this->CI =& get_instance();
         //load library
         $this->load->library('form_validation');
         //load model
@@ -30,7 +33,7 @@ class Login extends CI_Controller {
             $this->form_validation->set_rules('username', 'Username', 'trim|required');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_message('required', '<div class="alert alert-danger alert-dismissible">
-                                                                {field} is required.
+                                                               <i class="fa fa-exclamation-circle"></i> {field} is required.
                                                               </div>');
             if ($this->form_validation->run() == TRUE) {
                 $username = $this->input->post("username", TRUE);
@@ -49,12 +52,12 @@ class Login extends CI_Controller {
                             'apps_foto' => $apps->foto_user
                         );
                         //create session kcfinder
-                        //session_start();
+                        session_start();
                         $_SESSION['ses_kcfinder']=array();
                         $_SESSION['ses_kcfinder']['disabled'] = false;
                         $_SESSION['ses_kcfinder']['uploadURL'] = "../../content_upload";
                         //set session userdata
-                        $this->session->set_userdata($session_data);
+                        $this->CI->session->set_userdata($session_data);
 
                         //calback sesion
                         //return TRUE;
@@ -65,7 +68,7 @@ class Login extends CI_Controller {
                     //create data array
                     $data = array(
                         'error' => '<div class="alert alert-danger alert-dismissible">
-                                      Username or Password is wrong
+                                      <i class="fa fa-exclamation-circle"></i> Username or Password is wrong
                                     </div>',
                         'title' => 'Login &rsaquo; Machine Development.'
                     );
@@ -93,7 +96,7 @@ class Login extends CI_Controller {
             //set form validation
             $this->form_validation->set_rules('email', 'Email Address', 'trim|required');
             $this->form_validation->set_message('required', '<div class="alert alert-danger alert-dismissible">
-                                                                {field} is required.
+                                                                <i class="fa fa-exclamation-circle"></i> {field} is required.
                                                               </div>');
             if($this->form_validation->run() == TRUE)
             {
@@ -129,7 +132,7 @@ class Login extends CI_Controller {
 
                     if ($this->email->send()) {
                         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-exclamation-circle"></i> Success! silahkan check email anda.
+			                                                    <i class="fa fa-check-circle"></i> Success! silahkan check email anda.
 			                                                </div>');
                         //redirect halaman
                         redirect('apps/login/forgot?source=send&utf8=✓');
