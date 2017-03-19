@@ -90,13 +90,13 @@
                     <div class="menu-container">
                         <ul class="nav navbar-nav">
                             <!-- Home -->
-                            <li class="<?php if(isset($home)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>">Home</a></li>
+                            <li class="<?php if(isset($home)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>"><i class="fa fa-home"></i> Home</a></li>
                             <!-- End Home -->
 
                             <!-- Pages -->
                             <li class="dropdown <?php if(isset($profile)) { echo ' active'; } ?>">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                    Profile
+                                    <i class="fa fa-user-circle"></i> Profile
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- About Pages -->
@@ -118,9 +118,9 @@
                                     <!-- End About Pages -->
                                 </ul>
                             </li>
-                            <li class="<?php if(isset($members)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>members/">Member</a></li>
-                            <li class="<?php if(isset($events)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>events/">Event</a></li>
-                            <li class="<?php if(isset($contact)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>contact/">Contact</a></li>
+                            <li class="<?php if(isset($members)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>members/"><i class="fa fa-male"></i> Member</a></li>
+                            <li class="<?php if(isset($events)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>events/"><i class="fa fa-calendar-check-o"></i> Event</a></li>
+                            <li class="<?php if(isset($contact)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>contact/"><i class="fa fa-comments-o"></i> Contact</a></li>
                             <!-- End Pages -->
                         </ul>
                     </div>

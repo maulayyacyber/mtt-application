@@ -108,6 +108,66 @@ class Web extends CI_Model{
         }
     }
 
+    //total search events
+    function total_search_events($keyword)
+    {
+        $query = $this->db->like('judul_event',$keyword)->get('tbl_events');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //index total search events
+    public function search_index_events($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('a.id_event, a.judul_event, a.user_id, a.thumbnail, b.id_user, a.lokasi_event, a.meta_descriptions,  a.updated_at, a.slug, b.nama_user')
+            ->from('tbl_events a')
+            ->join('tbl_users b','a.user_id = b.id_user')
+            ->limit($limit,$offset)
+            ->like('a.judul_event',$keyword)
+            ->or_like('b.nama_user',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_event','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //detail events
+    //get detail articles
+    function detail_events($url)
+    {
+        $query = $this->db->query("SELECT * FROM tbl_events as a JOIN tbl_users as b ON a.user_id = b.id_user WHERE a.slug = '$url'");
+
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
+
+    //articles terbaru
+    function articles_terbaru()
+    {
+        $query = "SELECT * FROM tbl_articles  ORDER BY id_articles DESC limit 0, 5";
+        return $this->db->query($query);
+    }
+
     //function date time
     //fungsi date
     // Fungsi GLobal //

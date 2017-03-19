@@ -7,6 +7,7 @@
 
         <div class="row news-v2">
             <div class="col-md-12" style="margin-bottom: 20px">
+                <?php echo $this->session->flashdata('notif') ?>
                 <div class="search-events" style="text-align: center">
                     <form method="GET" action="<?php echo base_url('events/search');?>" style="margin-top: 10px">
                         <div class = "input-group">
@@ -26,7 +27,7 @@
                 </div>
         </div>
         <div class="row" style="text-align: center;margin-top: 20px">
-            <button class="btn-u btn-u-sea" id="load_more_events" data-val = "0">More events <img style="display: none" id="loader" src="<?php echo base_url('resources/images/loader.svg') ?>" style="width: 5px;height: 5px"></button>
+            <button class="btn-u btn-u-sea rounded" id="load_more_events" data-val = "0">More events <img style="display: none" id="loader" src="<?php echo base_url('resources/images/loader.svg') ?>" style="width: 5px;height: 5px"></button>
         </div>
     </div>
 </div>

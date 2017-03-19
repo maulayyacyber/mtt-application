@@ -25,6 +25,7 @@ class Articles extends CI_Controller{
             'title'            => $this->web->detail_articles($url)->judul_articles,
             'keywords'         => $this->web->detail_articles($url)->meta_keywords,
             'descriptions'     => $this->web->detail_articles($url)->meta_descriptions,
+            'articles_terbaru' => $this->web->articles_terbaru(),
             'author'           => $this->web->detail_articles($url)->nama_user,
             'disqus'           => $this->disqus->get_html()
         );
