@@ -65,7 +65,7 @@
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td> <?php echo $hasil->nama ?></td>
-                                        <td><a href="<?php echo base_url() ?>events/<?php echo $hasil->slug ?>/" target="_blank" style="color: #367fa9"><?php echo $hasil->judul_event ?></a></td>
+                                        <td><a href="<?php echo base_url() ?>events/read/<?php echo $hasil->slug ?>/" target="_blank" style="color: #367fa9"><?php echo $hasil->judul_event ?></a></td>
                                         <td class="text-center"> <?php echo $status ?></td>
                                         <td class="text-center">
                                             <?php echo $update_status ?>

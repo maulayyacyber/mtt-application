@@ -19,6 +19,7 @@ class Contact extends CI_Controller{
     {
         //creat data array
         $data = array(
+            'title'     => 'Contact Us',
             'contact' => TRUE,
         );
         $this->load->view('home/part/header', $data);

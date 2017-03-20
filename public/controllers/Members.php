@@ -89,4 +89,19 @@ class Members extends CI_Controller{
         }
     }
 
+    public function detail($id_member)
+    {
+        $id_member = $this->encryption->decode($id_member);
+        $data = array(
+            'members'          => TRUE,
+            'detail_members'   => $this->web->detail_members($id_member),
+            'title'            => $this->web->detail_members($id_member)->nama,
+            'articles_terbaru' => $this->web->articles_terbaru(),
+        );
+
+        $this->load->view('home/part/header', $data);
+        $this->load->view('home/layout/members/detail');
+        $this->load->view('home/part/footer');
+    }
+
 }

@@ -66,7 +66,7 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <a href="" style="text-decoration: none">
+                            <a href="<?php echo base_url() ?>articles/read/<?php echo $hasil->slug ?>/" style="text-decoration: none">
                                 <h4 class="media-heading" style="font-family: Roboto;font-weight: 400;font-size: 14px"><?php echo $hasil->judul_articles ?></h4>
                             </a>
                             <div class="date" style="color: #333">

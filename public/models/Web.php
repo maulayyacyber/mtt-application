@@ -147,6 +147,7 @@ class Web extends CI_Model{
     }
 
     //detail events
+
     //get detail articles
     function detail_events($url)
     {
@@ -166,6 +167,27 @@ class Web extends CI_Model{
     {
         $query = "SELECT * FROM tbl_articles  ORDER BY id_articles DESC limit 0, 5";
         return $this->db->query($query);
+    }
+
+    //get pages
+    function get_pages($id_pages)
+    {
+        $query = $this->db->query("SELECT * FROM tbl_pages WHERE id_page = '$id_pages'");
+        return $query;
+    }
+
+    //get detail articles
+    function detail_members($id_member)
+    {
+        $query = $this->db->query("SELECT * FROM tbl_members as a JOIN tbl_institusi as b ON a.institusi_id = b.id_institusi WHERE a.id_member = '$id_member'");
+
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
     }
 
     //function date time

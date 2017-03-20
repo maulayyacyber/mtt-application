@@ -21,7 +21,7 @@
                     </form>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover" style="margin-top:20px;">
+                    <table class="table table-bordered table-striped table-hover" style="margin-top:20px;background-color: #fff">
                         <tbody>
                         <thead>
                         <tr>

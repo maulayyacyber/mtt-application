@@ -19,6 +19,7 @@ class Events extends CI_Controller{
     {
         //creat data array
         $data = array(
+            'title'     => 'Events',
             'events' => TRUE
         );
         $this->load->view('home/part/header', $data);

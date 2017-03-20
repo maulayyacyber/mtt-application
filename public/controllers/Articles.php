@@ -38,7 +38,7 @@ class Articles extends CI_Controller{
         //update views articles
         $key['id_articles']  = $id;
         $update['views'] = $this->web->detail_articles($url)->views+1;
-        //$insert = $this->db->update("tbl_videos",$update,$key);
+        $insert = $this->db->update("tbl_articles",$update,$key);
 
         //load view
         $this->load->view('home/part/header', $data);

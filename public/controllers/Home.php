@@ -19,6 +19,7 @@ class Home extends CI_Controller {
 	{
 	    //creat data array
         $data = array(
+                'title'     => 'Home',
                 'home'      => TRUE,
                 'sliders'   => $this->web->get_slider()
         );

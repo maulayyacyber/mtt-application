@@ -146,7 +146,7 @@ class Users_events extends CI_Controller{
                             'jenis_kelamin' => $query->jenis_kelamin,
                             'bbm'           => $query->bbm
             );
-
+/*
             //config sending mails
             $config = array(
                 'protocol'  => mails('protocol'),
@@ -161,6 +161,19 @@ class Users_events extends CI_Controller{
             );
 
             $this->load->library('email', $config);
+*/
+            $config = array(
+                'protocol'  => mails('protocol'),
+                'smtp_host' => mails('smtp_host'),
+                'smtp_user' => mails('smtp_user'),
+                'smtp_pass' => mails('smtp_password'),
+                'smtp_port' => mails('smtp_port'),
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+            );
+            $this->load->library('email', $config);
+            $this->email->set_newline("\r\n");
+
             $this->email->from($email_me, $nama_me);
             $this->email->to($email_to); // ganti dengan email tujuan
             $this->email->subject('Ticket Events Medical Top Team');
