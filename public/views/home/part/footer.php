@@ -5,51 +5,59 @@
             <div class="row">
                 <!-- About Us -->
                 <div class="col-md-3 sm-margin-bottom-40">
-                    <div class="heading-footer"><h2>About Medical Top Team</h2></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ut metus a commodo. Pellentesque congue tellus sed enim sollicitudin, id blandit mauris eleifend.</p>
+                    <div class="heading-footer"><h2><i class="fa fa-user-circle-o"></i> About MTT</h2></div>
+                    <p><?php echo systems('about_me') ?></p>
                 </div>
                 <!-- End About Us -->
 
                 <!-- Recent News -->
                 <div class="col-md-3 sm-margin-bottom-40">
-                    <div class="heading-footer"><h2>Recent News</h2></div>
+                    <div class="heading-footer"><h2><i class="fa fa-book"></i> Recent News</h2></div>
                     <ul class="list-unstyled link-news">
+                        <?php
+                            if(articles_footer() != NULL) :
+                            foreach (articles_footer() as $hasil) :
+                        ?>
                         <li>
-                            <a href="#">Apple Conference</a>
-                            <small>12 July, 2014</small>
+                            <a style="text-decoration: none" href="<?php echo base_url() ?>articles/read/<?php echo $hasil->slug ?>/"><i class="icon-arrow-right"></i> <?php echo $hasil->judul_articles ?></a>
+                            <small><i class="fa fa-calendar-o"></i> <?php echo $this->web->tgl_indo_no_hari($hasil->created_at) ?> <i class="fa fa-eye"></i> Dilihat <?php echo $hasil->views ?> kali</small>
                         </li>
-                        <li>
-                            <a href="#">Bootstrap Update</a>
-                            <small>12 July, 2014</small>
-                        </li>
+                        <?php endforeach; ?>
+                        <?php endif;?>
                     </ul>
                 </div>
                 <!-- End Recent News -->
 
-                <!-- Useful Links -->
+                <!-- Recent News -->
                 <div class="col-md-3 sm-margin-bottom-40">
-                    <div class="heading-footer"><h2>Main Pages</h2></div>
-                    <ul class="list-unstyled footer-link-list">
-                        <li><a href="#">Sitemap</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                    <div class="heading-footer"><h2><i class="fa fa-calendar-check-o"></i> Recent Events</h2></div>
+                    <ul class="list-unstyled link-news">
+                        <?php
+                        if(events_footer() != NULL) :
+                            foreach (events_footer() as $hasil) :
+                                ?>
+                                <li>
+                                    <a style="text-decoration: none" href="<?php echo base_url() ?>events/read/<?php echo $hasil->slug ?>/"><i class="icon-arrow-right"></i> <?php echo $hasil->judul_event ?></a>
+                                    <small>Lokasi : <i class="fa fa-map-marker"></i> <?php echo $hasil->lokasi_event ?></small>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif;?>
                     </ul>
                 </div>
-                <!-- End Useful Links -->
+                <!-- End Recent News -->
 
                 <!-- Contacts -->
                 <div class="col-md-3">
-                    <div class="heading-footer"><h2>Contacts</h2></div>
+                    <div class="heading-footer"><h2><i class="fa fa-comments-o"></i> Contacts</h2></div>
                     <ul class="list-unstyled contacts">
                         <li>
                             <i class="radius-3x fa fa-map-marker"></i>
-                            795 Folsom Ave, Suite 600,
-                            San Francisco, CA 94107
+                            <?php echo systems('alamat') ?>
                         </li>
                         <li>
                             <i class="radius-3x fa fa-phone"></i>
-                            (+123) 456 7890<br>
-                            (+123) 456 7891
+                            <?php echo systems('no_telp') ?><br>
+                            <?php echo systems('no_telp2') ?>
                         </li>
                     </ul>
                 </div>
@@ -79,11 +87,6 @@
                             </a>
                         </li>
                         <li>
-                            <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Vine" href="#">
-                                <i class="fa fa-vine"></i>
-                            </a>
-                        </li>
-                        <li>
                             <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Google plus" href="#">
                                 <i class="fa fa-google-plus"></i>
                             </a>
@@ -99,18 +102,8 @@
                             </a>
                         </li>
                         <li>
-                            <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Tumblr" href="#">
-                                <i class="fa fa-tumblr"></i>
-                            </a>
-                        </li>
-                        <li>
                             <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Youtube" href="#">
                                 <i class="fa fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Soundcloud" href="#">
-                                <i class="fa fa-soundcloud"></i>
                             </a>
                         </li>
                     </ul>

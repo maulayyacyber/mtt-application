@@ -568,7 +568,7 @@
 		border-radius: 0;
 		background: #fff;
 		z-index: 9999 !important;
-		border-top: solid 3px #72c02c;
+		border-top: solid 3px #1abc9c;
 	}
 
 	.header-v6 .dropdown-menu li a {
@@ -580,7 +580,7 @@
 
 	.header-v6 .dropdown-menu .active > a,
 	.header-v6 .dropdown-menu li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 		background: inherit;
 		filter: none !important;
 		transition: all .1s ease-in-out;
@@ -895,12 +895,12 @@
 	.header-v6 .mega-menu .equal-height-list > .active > a,
 	.header-v6 .mega-menu .equal-height-list > .active > a:hover,
 	.header-v6 .mega-menu .equal-height-list > .active > a:focus {
-		color: #72c02c;
+		color: #1abc9c;
 		background-color: transparent;
 	}
 
 	.header-v6 .mega-menu .equal-height-list li a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 		text-decoration: none;
 	}
 }
@@ -940,7 +940,7 @@
 
 	.header-fixed .header-v6.header-fixed-shrink .navbar-nav .active > a,
 	.header-fixed .header-v6.header-fixed-shrink .navbar-nav li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	/*Navbar Brand*/
@@ -1125,7 +1125,7 @@
 
 	.header-fixed .header-v6.header-dark-transparent.header-fixed-shrink .navbar-nav .active > a,
 	.header-fixed .header-v6.header-dark-transparent.header-fixed-shrink .navbar-nav li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	.header-fixed .header-v6.header-dark-transparent.header-fixed-shrink li.menu-icons i.menu-icons-style {
@@ -1179,7 +1179,7 @@
 
 	.header-fixed .header-v6.header-dark-scroll.header-fixed-shrink .navbar-nav .active > a,
 	.header-fixed .header-v6.header-dark-scroll.header-fixed-shrink .navbar-nav li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	.header-fixed .header-v6.header-dark-scroll.header-fixed-shrink li.menu-icons i.menu-icons-style {
@@ -1253,7 +1253,7 @@
 .header-v6.header-dark-dropdown .shopping-cart .shopping-cart-open {
 	background: #2a2b2b;
 	border-color: #555;
-	border-top-color: #72c02c;
+	border-top-color: #1abc9c;
 }
 
 .header-v6.header-dark-dropdown .shopping-cart-open span.shc-title {
@@ -1278,7 +1278,7 @@
 
 	.header-v6.header-dark-dropdown .dropdown-menu .active > a,
 	.header-v6.header-dark-dropdown .dropdown-menu li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	/*Equal Height List Style*/
@@ -1296,7 +1296,7 @@
 
 	.header-v6.header-dark-dropdown .mega-menu .equal-height-list .active > a,
 	.header-v6.header-dark-dropdown .mega-menu .equal-height-list li a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 }
 
@@ -1373,7 +1373,7 @@
 	}
 
 	.header-v6.header-dark-res-nav .navbar-nav > li a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	.header-v6.header-dark-res-nav .navbar-nav > .open > a,
@@ -1388,7 +1388,7 @@
 	}
 
 	.header-v6.header-dark-res-nav .navbar-nav .open .dropdown-menu > li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	/*Submenu*/
@@ -1422,7 +1422,7 @@
 
 	.header-fixed .header-v6.header-classic-white .navbar-nav .active > a,
 	.header-fixed .header-v6.header-classic-white .navbar-nav li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	/*Navbar Brand*/
@@ -1452,7 +1452,7 @@
 .header-v6.header-classic-dark .shopping-cart .shopping-cart-open {
 	background: #2a2b2b;
 	border-color: #555;
-	border-top-color: #72c02c;
+	border-top-color: #1abc9c;
 }
 
 .header-v6.header-classic-dark .shopping-cart-open span.shc-title {
@@ -1499,7 +1499,7 @@
 	.header-fixed .header-v6.header-classic-dark.header-fixed-shrink .navbar-nav .active > a,
 	.header-v6.header-classic-dark .navbar-nav li > a:hover,
 	.header-fixed .header-v6.header-classic-dark.header-fixed-shrink .navbar-nav li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	.header-v6.header-classic-dark li.menu-icons i.menu-icons-style,
@@ -1547,7 +1547,7 @@
 
 	.header-v6.header-classic-dark .dropdown-menu .active > a,
 	.header-v6.header-classic-dark .dropdown-menu li > a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 
 	/*Equal Height List Style*/
@@ -1565,7 +1565,7 @@
 
 	.header-v6.header-classic-dark .mega-menu .equal-height-list .active > a,
 	.header-v6.header-classic-dark .mega-menu .equal-height-list li a:hover {
-		color: #72c02c;
+		color: #1abc9c;
 	}
 }
 

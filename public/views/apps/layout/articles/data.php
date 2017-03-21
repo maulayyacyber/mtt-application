@@ -55,7 +55,7 @@
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
-                                        <td><a href="<?php echo base_url() ?>artilces/<?php echo $hasil->slug ?>/" target="_blank" style="color: #367fa9"><?php echo $hasil->judul_articles ?></a></td>
+                                        <td><a href="<?php echo base_url() ?>artilces/read/<?php echo $hasil->slug ?>/" target="_blank" style="color: #367fa9"><?php echo $hasil->judul_articles ?></a></td>
                                         <td> <?php echo $hasil->nama_user ?></td>
                                         <td title="<?php echo $hasil->views ?> Views Srticles"> <?php echo $hasil->views ?></td>
                                         <td class="text-center">

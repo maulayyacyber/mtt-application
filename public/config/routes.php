@@ -60,7 +60,7 @@ $route['visi-dan-misi'] = "profile/visi_misi";
 $route['struktur-organisasi'] = "profile/struktur_organisasi";
 
 //routing articles
-$route['articles/(:any)'] = "articles/detail/$1";
+$route['articles/read/(:any)'] = "articles/detail/$1";
 
 //routint events
-$route['events/(:any)'] = "events/detail/$1";
+$route['events/read/(:any)'] = "events/detail/$1";

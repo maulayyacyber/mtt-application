@@ -24,13 +24,13 @@ class Members extends CI_Controller{
         //instalasi paging
         $this->pagination->initialize($config);
         //deklare halaman
-        $halaman            =  $this->uri->segment(2);
+        $halaman            =  $this->uri->segment(3);
         $halaman            =  $halaman == '' ? 0 : $halaman;
         //create data array
         $data = array(
             'title'           => 'Members ',
             'members'         => TRUE,
-            'data_members'   => $this->web->index_members($halaman,$config['per_page']),
+            'data_members'    => $this->web->index_members($halaman,$config['per_page']),
             'paging'          => $this->pagination->create_links()
         );
         if($data['data_members'] != NULL)
@@ -55,7 +55,7 @@ class Members extends CI_Controller{
         if(!empty($keyword) && $check > 2)
         {
             $offset = (isset($_GET['page'])) ? $this->security->xss_clean($_GET['page']) : 0 ;
-            $total  = $this->apps->total_search_members($keyword);
+            $total  = $this->web->total_search_members($keyword);
             //config pagination
             $config['base_url'] = base_url().'members/search?q='.$keyword;
             $config['total_rows'] = $total;
@@ -71,7 +71,7 @@ class Members extends CI_Controller{
             $data = array(
                 'title'         => 'Members',
                 'members'      => TRUE,
-                'data_members' => $this->apps->search_index_members(strip_tags($keyword),$limit,$offset),
+                'data_members' => $this->web->search_index_members(strip_tags($keyword),$limit,$offset),
                 'paging'        => $this->pagination->create_links()
             );
             if($data['data_members'] != NULL)
@@ -87,6 +87,21 @@ class Members extends CI_Controller{
         }else{
             redirect('members/');
         }
+    }
+
+    public function detail($id_member)
+    {
+        $id_member = $this->encryption->decode($id_member);
+        $data = array(
+            'members'          => TRUE,
+            'detail_members'   => $this->web->detail_members($id_member),
+            'title'            => $this->web->detail_members($id_member)->nama,
+            'articles_terbaru' => $this->web->articles_terbaru(),
+        );
+
+        $this->load->view('home/part/header', $data);
+        $this->load->view('home/layout/members/detail');
+        $this->load->view('home/part/footer');
     }
 
 }

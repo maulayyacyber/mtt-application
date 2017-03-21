@@ -25,6 +25,7 @@ class Articles extends CI_Controller{
             'title'            => $this->web->detail_articles($url)->judul_articles,
             'keywords'         => $this->web->detail_articles($url)->meta_keywords,
             'descriptions'     => $this->web->detail_articles($url)->meta_descriptions,
+            'articles_terbaru' => $this->web->articles_terbaru(),
             'author'           => $this->web->detail_articles($url)->nama_user,
             'disqus'           => $this->disqus->get_html()
         );
@@ -37,7 +38,7 @@ class Articles extends CI_Controller{
         //update views articles
         $key['id_articles']  = $id;
         $update['views'] = $this->web->detail_articles($url)->views+1;
-        //$insert = $this->db->update("tbl_videos",$update,$key);
+        $insert = $this->db->update("tbl_articles",$update,$key);
 
         //load view
         $this->load->view('home/part/header', $data);

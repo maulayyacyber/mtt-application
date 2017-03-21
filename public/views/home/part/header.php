@@ -3,7 +3,7 @@
 <html lang="en" class="ie9">
 <html lang="en">
 <head>
-    <title><?php echo systems('site_title') ?></title>
+    <title><?php echo $title  ?> - <?php echo systems('site_title') ?></title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -90,37 +90,37 @@
                     <div class="menu-container">
                         <ul class="nav navbar-nav">
                             <!-- Home -->
-                            <li class="<?php if(isset($home)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>">Home</a></li>
+                            <li class="<?php if(isset($home)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>"><i class="fa fa-home"></i> Home</a></li>
                             <!-- End Home -->
 
                             <!-- Pages -->
                             <li class="dropdown <?php if(isset($profile)) { echo ' active'; } ?>">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                    Profile
+                                    <i class="fa fa-user-circle"></i> Profile
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- About Pages -->
                                     <li class="<?php if(isset($sejarah)) { echo 'active'; } ?>">
-                                        <a href="<?php echo base_url() ?>sejarah/">Sejarah</a>
+                                        <a href="<?php echo base_url() ?>sejarah/"><i class="icon-arrow-right"></i> Sejarah</a>
                                     </li>
                                     <li class="<?php if(isset($gallery)) { echo 'active'; } ?>">
-                                        <a href="<?php echo base_url() ?>gallery/">Gallery</a>
+                                        <a href="<?php echo base_url() ?>gallery/"><i class="icon-arrow-right"></i> Gallery</a>
                                     </li>
                                     <li class="<?php if(isset($arti_lgoo)) { echo 'active'; } ?>">
-                                        <a href="<?php echo base_url() ?>arti-logo/">Arti Logo</a>
+                                        <a href="<?php echo base_url() ?>arti-logo/"><i class="icon-arrow-right"></i> Arti Logo</a>
                                     </li>
                                     <li class="<?php if(isset($visi_misi)) { echo 'active'; } ?>">
-                                        <a href="<?php echo base_url() ?>visi-dan-misi/">Visi dan Misi</a>
+                                        <a href="<?php echo base_url() ?>visi-dan-misi/"><i class="icon-arrow-right"></i> Visi dan Misi</a>
                                     </li>
                                     <li class="<?php if(isset($struktur_organisasi)) { echo 'active'; } ?>">
-                                        <a href="<?php echo base_url() ?>struktur-organisasi/">Struktur Organisasi</a>
+                                        <a href="<?php echo base_url() ?>struktur-organisasi/"><i class="icon-arrow-right"></i> Struktur Organisasi</a>
                                     </li>
                                     <!-- End About Pages -->
                                 </ul>
                             </li>
-                            <li class="<?php if(isset($members)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>members/">Member</a></li>
-                            <li class="<?php if(isset($events)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>events/">Event</a></li>
-                            <li class="<?php if(isset($contact)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>contact/">Contact</a></li>
+                            <li class="<?php if(isset($members)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>members/"><i class="fa fa-male"></i> Member</a></li>
+                            <li class="<?php if(isset($events)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>events/"><i class="fa fa-calendar-check-o"></i> Event</a></li>
+                            <li class="<?php if(isset($contact)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>contact/"><i class="fa fa-comments-o"></i> Contact</a></li>
                             <!-- End Pages -->
                         </ul>
                     </div>

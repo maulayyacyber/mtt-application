@@ -21,7 +21,7 @@
                     </form>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover" style="margin-top:20px;">
+                    <table class="table table-bordered table-striped table-hover" style="margin-top:20px;background-color: #fff">
                         <tbody>
                         <thead>
                         <tr>
@@ -33,7 +33,7 @@
                         </thead>
                         <?php
                         if($members != NULL):
-                        $no = $this->uri->segment(2) + 1;
+                        $no = $this->uri->segment(3) + 1;
                         foreach($members->result() as $hasil):
                             ?>
                             <tr>
@@ -41,7 +41,7 @@
                                 <td style="color: #000"> <?php echo $hasil->nama ?></td>
                                 <td style="color: #000"> <?php echo $hasil->nama_institusi ?></td>
                                 <td class="text-center">
-                                    <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>members/detail/<?php echo $this->encryption->encode($hasil->id_member) ?>'><i class="fa fa-external-link"></i> Detail</a>
+                                    <a class='btn-u btn-u-sea btn-block rounded' style="font-family: Roboto;font-weight: 400;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>members/detail/<?php echo $this->encryption->encode($hasil->id_member) ?>'><i class="fa fa-external-link"></i> Detail</a>
                                 </td>
                             </tr>
                             <?php

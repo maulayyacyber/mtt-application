@@ -19,6 +19,7 @@ class Home extends CI_Controller {
 	{
 	    //creat data array
         $data = array(
+                'title'     => 'Home',
                 'home'      => TRUE,
                 'sliders'   => $this->web->get_slider()
         );
@@ -39,9 +40,9 @@ class Home extends CI_Controller {
             //check lenght title
             if(strlen($hasil->judul_articles)<40)
             {
-                $judul = '<h3><a href="'.base_url('articles').'/'.$hasil->slug.'/" style="text-decoration:none">'.$hasil->judul_articles.'</a></h3>';
+                $judul = '<h3><a href="'.base_url('articles/read').'/'.$hasil->slug.'/" style="text-decoration:none">'.$hasil->judul_articles.'</a></h3>';
             }else{
-                $judul = '<h3><a href="'.base_url('articles').'/'.$hasil->slug.'/" style="text-decoration:none" title="'.$hasil->judul_articles.'">'.substr($hasil->judul_articles, 0,40).'...</a></h3>';
+                $judul = '<h3><a href="'.base_url('articles/read').'/'.$hasil->slug.'/" style="text-decoration:none" title="'.$hasil->judul_articles.'">'.substr($hasil->judul_articles, 0,40).'...</a></h3>';
 
             }
 
@@ -82,9 +83,9 @@ class Home extends CI_Controller {
             //check lenght title
             if(strlen($hasil->judul_event)<40)
             {
-                $judul = '<h3><a href="'.base_url('events').'/'.$hasil->slug.'/" style="text-decoration:none">'.$hasil->judul_event.'</a></h3>';
+                $judul = '<h3><a href="'.base_url('events/read').'/'.$hasil->slug.'/" style="text-decoration:none">'.$hasil->judul_event.'</a></h3>';
             }else{
-                $judul = '<h3><a href="'.base_url('events').'/'.$hasil->slug.'/" style="text-decoration:none" title="'.$hasil->judul_event.'">'.substr($hasil->judul_event, 0,40).'...</a></h3>';
+                $judul = '<h3><a href="'.base_url('events/read').'/'.$hasil->slug.'/" style="text-decoration:none" title="'.$hasil->judul_event.'">'.substr($hasil->judul_event, 0,40).'...</a></h3>';
 
             }
 
@@ -103,7 +104,7 @@ class Home extends CI_Controller {
                     <div class="news-v2-desc bg-color-light" style="-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
                         '.$judul.'
                         <small><i class="fa fa-map-marker"></i> '.$hasil->lokasi_event.' </small>
-                       <p><a href="'.base_url().'events/'.$hasil->slug.'/#join-event/" class="btn-u btn-u-sea"><i class="fa fa-shopping-cart"></i> Join Event</a></p>
+                       <p><a href="'.base_url().'events/join/'.$this->encryption->encode($hasil->id_event).'" class="btn-u btn-u-sea rounded"><i class="fa fa-shopping-cart"></i> Join Event</a></p>
                     </div>
                 </div>';
         }

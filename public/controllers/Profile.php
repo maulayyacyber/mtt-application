@@ -19,8 +19,11 @@ class Profile extends CI_Controller{
     {
         //creat data array
         $data = array(
+            'title'     => 'Sejarah',
             'profile' => TRUE,
             'sejarah' => TRUE,
+            'data_pages'=> $this->web->get_pages(2),
+            'articles_terbaru' => $this->web->articles_terbaru(),
         );
         $this->load->view('home/part/header', $data);
         $this->load->view('home/layout/profile/data');
@@ -31,8 +34,11 @@ class Profile extends CI_Controller{
     {
         //creat data array
         $data = array(
+            'title'     => 'Arti Logo',
             'profile'   => TRUE,
             'arti_logo' => TRUE,
+            'data_pages'=> $this->web->get_pages(3),
+            'articles_terbaru' => $this->web->articles_terbaru(),
         );
         $this->load->view('home/part/header', $data);
         $this->load->view('home/layout/profile/data');
@@ -43,8 +49,11 @@ class Profile extends CI_Controller{
     {
         //creat data array
         $data = array(
+            'title'     => 'Visi dan Misi',
             'profile'   => TRUE,
             'visi_misi' => TRUE,
+            'data_pages'=> $this->web->get_pages(1),
+            'articles_terbaru' => $this->web->articles_terbaru(),
         );
         $this->load->view('home/part/header', $data);
         $this->load->view('home/layout/profile/data');
@@ -55,8 +64,11 @@ class Profile extends CI_Controller{
     {
         //creat data array
         $data = array(
+            'title'     => 'Struktur Organisasi',
             'profile'             => TRUE,
             'struktur_organisasi' => TRUE,
+            'data_pages'=> $this->web->get_pages(4),
+            'articles_terbaru' => $this->web->articles_terbaru(),
         );
         $this->load->view('home/part/header', $data);
         $this->load->view('home/layout/profile/data');
