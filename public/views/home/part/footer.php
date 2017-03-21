@@ -6,7 +6,7 @@
                 <!-- About Us -->
                 <div class="col-md-3 sm-margin-bottom-40">
                     <div class="heading-footer"><h2><i class="fa fa-user-circle-o"></i> About MTT</h2></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ut metus a commodo. Pellentesque congue tellus sed enim sollicitudin, id blandit mauris eleifend.</p>
+                    <p><?php echo systems('about_me') ?></p>
                 </div>
                 <!-- End About Us -->
 
@@ -52,13 +52,12 @@
                     <ul class="list-unstyled contacts">
                         <li>
                             <i class="radius-3x fa fa-map-marker"></i>
-                            795 Folsom Ave, Suite 600,
-                            San Francisco, CA 94107
+                            <?php echo systems('alamat') ?>
                         </li>
                         <li>
                             <i class="radius-3x fa fa-phone"></i>
-                            (+123) 456 7890<br>
-                            (+123) 456 7891
+                            <?php echo systems('no_telp') ?><br>
+                            <?php echo systems('no_telp2') ?>
                         </li>
                     </ul>
                 </div>
@@ -88,11 +87,6 @@
                             </a>
                         </li>
                         <li>
-                            <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Vine" href="#">
-                                <i class="fa fa-vine"></i>
-                            </a>
-                        </li>
-                        <li>
                             <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Google plus" href="#">
                                 <i class="fa fa-google-plus"></i>
                             </a>
@@ -108,18 +102,8 @@
                             </a>
                         </li>
                         <li>
-                            <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Tumblr" href="#">
-                                <i class="fa fa-tumblr"></i>
-                            </a>
-                        </li>
-                        <li>
                             <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Youtube" href="#">
                                 <i class="fa fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Soundcloud" href="#">
-                                <i class="fa fa-soundcloud"></i>
                             </a>
                         </li>
                     </ul>

@@ -43,6 +43,22 @@
                             <input type="text" class="form-control" name="site_footer" value="<?php echo systems('site_footer') ?>" id="articles" placeholder="Enter Site Footer">
                         </div>
                         <div class="form-group">
+                            <label for="artilces">About Medical Top Team</label>
+                            <textarea class="form-control" name="about_me" rows="3" placeholder="Enter About Medical Top Team"><?php echo systems('about_me') ?></textarea>
+                        </div>
+                            <div class="form-group">
+                                <label for="artilces">Alamat Kantor</label>
+                                <textarea class="form-control" name="alamat" rows="3" placeholder="Enter Alamat Kantor"><?php echo systems('alamat') ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="artilces">No. Telephone</label>
+                                <input type="text" class="form-control" name="no_telp" value="<?php echo systems('no_telp') ?>" id="articles" placeholder="Enter No. Telephone">
+                            </div>
+                            <div class="form-group">
+                                <label for="artilces">No. Telephone 2</label>
+                                <input type="text" class="form-control" name="no_telp2" value="<?php echo systems('no_telp2') ?>" id="articles" placeholder="Enter No. Telephone 2">
+                            </div>
+                        <div class="form-group">
                             <label for="artilces">Meta Keywords</label>
                             <input type="text" class="form-control" name="keywords" value="<?php echo systems('keywords') ?>" id="articles" placeholder="Enter Meta Keywords">
                         </div>
