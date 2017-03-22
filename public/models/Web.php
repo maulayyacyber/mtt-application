@@ -29,7 +29,7 @@ class Web extends CI_Model{
         return $result;
     }
 
-    //get articles
+    //get event
     function get_events($page){
         //offset
         $offset = 8 * $page;
@@ -37,6 +37,20 @@ class Web extends CI_Model{
         $limit  = 8;
         //query
         $query  = "SELECT * FROM tbl_events ORDER BY id_event DESC limit $offset ,$limit";
+        //get result
+        $result = $this->db->query($query)->result();
+        //callback return
+        return $result;
+    }
+
+    //get articles
+    function get_gallery($page){
+        //offset
+        $offset = 8 * $page;
+        //limit
+        $limit  = 8;
+        //query
+        $query  = "SELECT * FROM tbl_album ORDER BY id_album DESC limit $offset ,$limit";
         //get result
         $result = $this->db->query($query)->result();
         //callback return

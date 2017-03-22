@@ -62,3 +62,33 @@ var events = function(page){
         }
     });
 };
+
+// function gallery
+$(document).ready(function(){
+    gallery(0);
+
+    $("#load_more_gallery").click(function(e){
+        e.preventDefault();
+        var page = $(this).data('val');
+        gallery(page);
+
+    });
+});
+
+var gallery = function(page){
+    $("#loader").show();
+    $("#load_more_gallery").show();
+    $.ajax({
+        url: url+"home/get_gallery",
+        type:'GET',
+        data: {page:page}
+    }).done(function(response){
+        $("#gallery").append(response);
+        $("#loader").hide();
+        $('#load_more_gallery').data('val', ($('#load_more_gallery').data('val')+1));
+        //scroll();
+        if(response == ""){
+            $("#load_more_gallery").hide();
+        }
+    });
+};
