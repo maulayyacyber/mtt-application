@@ -219,7 +219,7 @@ var App = function () {
 	function handleBootstrap() {
 		/* Bootstrap Carousel */
 		jQuery('.carousel').carousel({
-			interval: 15000,
+			interval: 3000,
 			pause: 'hover'
 		});
 

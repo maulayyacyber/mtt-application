@@ -101,7 +101,7 @@
                                 <label for="artilces">Pilih Agama</label>
                                 <select class="form-control"  name="agama" id="sel1">
                                     <option value="Islam">Islam</option>
-                                    <option value="Kristen">kristem</option>
+                                    <option value="Kristen">kristen</option>
                                     <option value="Budha">Budha</option>
                                     <option value="Hindu">Hindu</option>
                                     <option value="Konghucu">Konghucu</option>

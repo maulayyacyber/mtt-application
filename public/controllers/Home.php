@@ -110,4 +110,35 @@ class Home extends CI_Controller {
         }
         exit;
     }
+
+    function get_gallery()
+    {
+        //declare page
+        $page   =  $_GET['page'];
+        //var articles define
+        $events = $this->web->get_gallery($page);
+        //loop
+        foreach($events as $hasil){
+
+            //check lenght title
+            if(strlen($hasil->nama_album)<40)
+            {
+                $judul = '<h3><a href="'.base_url('gallery/foto').'/'.$this->encryption->encode($hasil->id_album).'/" style="text-decoration:none">'.$hasil->nama_album.'</a></h3>';
+            }else{
+                $judul = '<h3><a href="'.base_url('gallery/foto').'/'.$this->encryption->encode($hasil->id_album).'/" style="text-decoration:none" title="'.$hasil->nama_album.'">'.substr($hasil->nama_album, 0,40).'...</a></h3>';
+
+            }
+
+            echo '<div class="col-md-3" style="margin-bottom: 20px">
+                    <div class="news-v2-badge">
+                        <img class="img-responsive" src="'.base_url().'resources/foto_gallery/album.png" alt="">
+                
+                    </div>
+                    <div class="news-v2-desc bg-color-light" style="-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
+                        '.$judul.'
+                    </div>
+                </div>';
+        }
+        exit;
+    }
 }
