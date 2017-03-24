@@ -7,6 +7,10 @@
 
         <div class="row news-v2">
             <div class="col-md-12">
+                <?php echo $this->session->flashdata("notif") ?>
+                <?php
+                        if($this->session->userdata("member_id")) :
+                ?>
                 <div class="search-members" style="text-align: center">
                     <form method="GET" action="<?php echo base_url('members/search');?>" style="margin-top: 10px">
                         <div class = "input-group">
@@ -61,6 +65,13 @@
                         </div>
                     <?php endif; ?>
                 </div>
+
+                <?php else : ?>
+                    <div class="alert alert-danger" style="font-size: 18px">
+                        <span><b> MAAF! </b> Data member terkunci, silahkan <a href="<?php echo base_url() ?>members/daftar/" style="color: #000;text-decoration: none">daftar</a> dan <a href="<?php echo base_url() ?>members/login/" style="color: #000;text-decoration: none">login</a> untuk melihat </span>
+                    </div>
+                <?php endif; ?>
+
             </div>
         </div>
     </div>

@@ -103,6 +103,31 @@ class Members extends CI_Controller{
         }
     }
 
+    public function confirm($id, $value)
+    {
+        if($this->apps->apps_id())
+        {
+            $id_member  = $this->encryption->decode($id);
+            $value  = $this->encryption->decode($this->uri->segment(5));
+            //where id
+            $key['id_member'] = $id_member;
+            //update
+            $update = array(
+                'status' => $value
+            );
+            //update query
+            $this->db->update("tbl_members",$update, $key);
+            //deklarasi session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-check"></i> Status Berhasil Diupdate.
+			                                                </div>');
+            //redirect halaman
+            redirect('apps/members?source=confirm&utf8=✓');
+        }else{
+
+        }
+    }
+
     public function add()
     {
         if($this->apps->apps_id())
