@@ -44,6 +44,7 @@
                                     <th class="text-center" style="color: #000;">No.</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-user-circle-o"></i> NAMA LENGKAP</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-building"></i> INSTITUSI</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-info-circle"></i> STATUS</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
                                 </thead>
@@ -51,12 +52,28 @@
                                 if($members != NULL):
                                 $no = $this->uri->segment(4) + 1;
                                 foreach($members->result() as $hasil):
+
+                                    if($hasil->status == "0"){
+
+                                        $status = '<span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #ff9b2d;"><i class="fa fa-ban"></i> Not Confirm</span>';
+
+                                        $update_status = '<a class="badge badge-primary" style="font-family: Roboto;font-weight: 400;background-color: #1969bc;" data-toggle="tooltip" data-placement="top" title="Confirm ?" href="'.base_url().'apps/members/confirm/'.$this->encryption->encode($hasil->id_member).'/'.$this->encryption->encode('1').'"><i class="fa fa-check-circle"></i> Update</a>';
+
+                                    }elseif($hasil->status == "1"){
+
+                                        $status = '<span class="badge badge-success" style="font-family: Roboto;font-weight: 400;background-color: #358420;"><i class="fa fa-check-circle"></i> Confirmed</span>';
+
+                                        $update_status = '<a class="badge badge-primary" style="font-family: Roboto;font-weight: 400;background-color: #1969bc;" data-toggle="tooltip" data-placement="top" title="Not Confirmed ?" href="'.base_url().'apps/members/confirm/'.$this->encryption->encode($hasil->id_member).'/'.$this->encryption->encode('0').'"><i class="fa fa-ban"></i> Update</a>';
+                                    }
+
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td> <?php echo $hasil->nama ?></td>
                                         <td> <?php echo $hasil->nama_institusi ?></td>
+                                        <td class="text-center"> <?php echo $status ?></td>
                                         <td class="text-center">
+                                            <?php echo $update_status ?>
                                             <a class='badge badge-success' style="font-family: Roboto;font-weight: 400;background-color: #358420;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>apps/members/edit/<?php echo $this->encryption->encode($hasil->id_member) ?>'><i class="fa fa-pencil"></i> Edit</a>
                                             <a class='badge badge-danger' style="font-family: Roboto;font-weight: 400;background-color: #842020;" data-toggle="tooltip" data-placement="top" title="Delete ?" href='<?php echo base_url() ?>apps/members/delete/<?php echo $this->encryption->encode($hasil->id_member) ?>'><i class="fa fa-trash"></i> Delete</a>
                                         </td>

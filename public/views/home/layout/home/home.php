@@ -1,7 +1,7 @@
 <!-- About Info -->
 <div class="container content-sm">
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="carousel slide carousel-v1 margin-bottom-40" id="sliders">
                 <div class="carousel-inner">
                     <?php
@@ -31,27 +31,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="card-form" style="-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);padding: 25px 20px">
-                <form>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon rounded-left"><i class="icon-user color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" placeholder="Nama Lengkap" style="background: transparent;border-left: none;padding-left: 10px;padding-right: 10px;height: 50px;border-color: rgb(204, 204, 204);border-left: none;color: #969595;">
-                    </div>
-
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon rounded-left"><i class="icon-envelope color-sea"></i></span>
-                        <input type="email" class="form-control rounded-right" placeholder="Alamat Email" style="background: transparent;border-left: none;padding-left: 10px;padding-right: 10px;height: 50px;border-color: rgb(204, 204, 204);border-left: none;color: #969595;">
-                    </div>
-
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon rounded-left"><i class="icon-screen-smartphone color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" placeholder="No. HP" style="background: transparent;border-left: none;padding-left: 10px;padding-right: 10px;height: 50px;border-color: rgb(204, 204, 204);border-left: none;color: #969595;">
-                    </div>
-
-                    <button type="submit" class="btn-u btn-u-sea btn-block rounded" style="padding-top: 12px;padding-bottom: 12px;text-transform: uppercase;">Submit <i class="fa fa-send"></i> </button>
-                </form>
-            </div>
+        <div class="col-md-6">
+                <h2 class="title-v2">MEDICAL TOP TEAM</h2>
+                <p style="font-size: 15px">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <p style="font-size: 15px">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p><br>
+                <a href="<?php echo base_url() ?>members/login/" class="btn-u btn-brd btn-brd-hover btn-u-dark"><i class="icon-lock"></i> Login  </a>
+                <a href="<?php echo base_url() ?>members/daftar/" class="btn-u btn-u-sea"><i class="icon-user-follow"></i> Daftar</a>
         </div>
     </div>
 

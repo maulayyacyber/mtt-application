@@ -50,6 +50,23 @@ class Apps extends CI_Model
         }
     }
 
+    //fungsi check login member
+    function check_members($table,$field1,$field2,$field3)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($field1);
+        $this->db->where($field2);
+        $this->db->where($field3);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
     // funsi visitor
     function count_in_today()
     {
