@@ -509,6 +509,57 @@ class Apps extends CI_Model
         return $this->db->query($query);
     }
 
+    // fungsi institusi
+    function count_institusi()
+    {
+        return $this->db->get('tbl_institusi');
+    }
+
+    function index_institusi($halaman,$batas)
+    {
+        $query = "SELECT id_institusi, nama_institusi FROM tbl_institusi ORDER BY id_institusi DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function total_search_institusi($keyword)
+    {
+        $query = $this->db->like('nama_institusi',$keyword)->get('tbl_institusi');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function search_index_institusi($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_institusi')
+            ->like('nama_institusi',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('id_institusi','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    function edit_institusi($id_institusi)
+    {
+        $id_institusi  =  array('id_institusi'=> $id_institusi);
+        return $this->db->get_where('tbl_institusi',$id_institusi);
+    }
+
     //fungsi date ago
     function time_elapsed_string($datetime, $full = false) {
         $today = time();
