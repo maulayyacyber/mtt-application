@@ -50,7 +50,7 @@
 
                                     if($hasil->status == "0"){
 
-                                        $status = '<span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #ff9b2d;"><i class="fa fa-ban"></i> Belum Lunas</span>';
+                                        $status = '<span class="badge badge-danger" style="font-family: Roboto;font-weight: 400;background-color: #ff9b2d;"><i class="fa fa-circle-o-notch fa-spin"></i> Belum Lunas</span>';
 
                                         $update_status = '<a class="badge badge-primary" style="font-family: Roboto;font-weight: 400;background-color: #1969bc;" data-toggle="tooltip" data-placement="top" title="Sudah Lunas ?" href="'.base_url().'apps/users_events/confirm_payment/'.$this->encryption->encode($hasil->id_user_event).'/'.$this->encryption->encode('1').'"><i class="fa fa-check-circle"></i> Update</a>';
 

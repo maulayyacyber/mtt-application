@@ -74,7 +74,7 @@
                                     <td><?php echo $detail_members->telephone_rumah ?></td>
                                 </tr>
                             </table>
-                            <a class="btn-u btn-u-sea btn-block rounded"> <i class="icon-arrow-left"></i> Kembali</a>
+                            <a href="<?php echo base_url() ?>members/" class="btn-u btn-u-sea btn-block rounded"> <i class="icon-arrow-left"></i> Kembali</a>
                         </div>
                     </div>
                 </div>

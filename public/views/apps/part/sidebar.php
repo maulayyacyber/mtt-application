@@ -28,6 +28,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li <?php if(isset($dashboard)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/dashboard/"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/users/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
+            <li <?php if(isset($institusi)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/institusi/"><i class="fa fa-building-o"></i> <span>Institusi</span></a></li>
             <li <?php if(isset($members)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/members/"><i class="fa fa-users"></i> <span>Members</span></a></li>
             <li <?php if(isset($pages)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/pages/"><i class="fa fa-television"></i> <span>Pages</span></a></li>
             <li <?php if(isset($events)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/events/"><i class="fa fa-calendar-o"></i> <span>Events</span></a></li>
