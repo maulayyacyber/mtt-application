@@ -24,6 +24,10 @@
                         <?php echo systems('no_telp') ?><br>
                         <?php echo systems('no_telp2') ?>
                     </div>
+                    <div class="page-detail" style="margin-bottom:10px;-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);padding: 15px 15px;background-color: #fff;color: #000">
+
+                        <img src="<?php echo base_url() ?>resources/images/contact-us/pin-bbm.png" class="img-responsive">
+                    </div>
                 </div>
             </div>
     </div>

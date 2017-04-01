@@ -33,8 +33,15 @@
         </div>
         <div class="col-md-6">
                 <h2 class="title-v2">MEDICAL TOP TEAM</h2>
-                <p style="font-size: 15px">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                <p style="font-size: 15px">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p><br>
+               
+
+                <p style="font-size: 15px">Selamat Datang Di Portal Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT). <p>
+                <p style="font-size: 15px">PERMAKES MTT adalah wadah para mahasiswa kesehatan yang terdiri dari berbagai jurusan kesehatan diantaranyna : Kedokteran, Keperawatan, Kebidanan , Farmasi, Kesehatan Masyarakat, Analis, dll. PERMAKES MTT diharapkan menjadi penghubung antara seluruh mahasiswa kesehatan se-Indonesia. hanya dengan biaya pendaftaran 10.000 anda telah menjadi member, Untuk dapat terhubung silahkan daftarkan diri anda, 
+                </p>
+
+                
+                <br>
+
                 <a href="<?php echo base_url() ?>members/login/" class="btn-u btn-brd btn-brd-hover btn-u-dark"><i class="icon-lock"></i> Login  </a>
                 <a href="<?php echo base_url() ?>members/daftar/" class="btn-u btn-u-sea"><i class="icon-user-follow"></i> Daftar</a>
         </div>
