@@ -1,5 +1,5 @@
 // deklarasi path url host
-var url = window.location.origin+"/~maulayyacyber/mtt/apps/";
+var url = window.location.origin+"/mtt-application/apps/";
 
 // Get data chart
 function GetToday(tgl)

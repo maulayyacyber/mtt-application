@@ -279,8 +279,12 @@ class Members extends CI_Controller{
             $this->db->insert("tbl_members", $insert);
             //deklarasi session flashdata
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-check"></i> Pendaftaran member berhasil.
-			                                                </div>');
+	                                                    <i class="fa fa-check"></i> Pendaftaran member berhasil. akukan pembayaran Administrasi sebesar Rp.10.000 - / Tiap bulannya  Melalui BANK BNI ke  Nomor Rekening: 4112016039 (A.n. Medical Top Team SUMUT) Kirim bukti transfer anda melalui BMM / Line,
+                                                        Demi Kenyamanan Diharapkan membayar iruan per tahun
+	                                                </div>
+                                                    <br>
+
+                                                    ');
             //redirect halaman
             redirect('members?source=register&utf8=✓');
         } else {
