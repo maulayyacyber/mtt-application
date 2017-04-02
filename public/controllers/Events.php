@@ -29,7 +29,7 @@ class Events extends CI_Controller{
 
     public function search()
     {
-        $limit = 10;
+        $limit = 12;
         $this->load->helper('security');
         $keyword = $this->security->xss_clean($_GET['q']);
         $data['keyword'] = strip_tags($keyword);

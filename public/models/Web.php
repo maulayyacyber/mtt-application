@@ -240,6 +240,25 @@ class Web extends CI_Model{
         }
     }
 
+    public function detail_album($id_album)
+    {
+        $query = $this->db->query("SELECT a.id_foto, a.album_id, a.caption_foto, a.foto_gallery, b.id_album, b.nama_album FROM tbl_foto_gallery a LEFT JOIN tbl_album b ON a.album_id = b.id_album WHERE a.album_id = '$id_album'");
+        return $query;
+    }
+
+    public function detail_album_array($id_album)
+    {
+        $query = $this->db->query("SELECT a.id_foto, a.album_id, a.caption_foto, a.foto_gallery, b.id_album, b.nama_album FROM tbl_foto_gallery a LEFT JOIN tbl_album b ON a.album_id = b.id_album WHERE a.album_id = '$id_album'");
+
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }else
+        {
+            return NULL;
+        }
+    }
+
     //function date time
     //fungsi date
     // Fungsi GLobal //

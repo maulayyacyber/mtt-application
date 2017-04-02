@@ -129,10 +129,13 @@
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/counter/jquery.counterup.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+
 <!-- JS Customization -->
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/js/custom.js"></script>
 <!-- JS Page Level -->
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/js/app.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/js/plugins/fancy-box.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/js/plugins/owl-carousel.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/js/plugins/master-slider-fw.js"></script>

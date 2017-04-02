@@ -36,7 +36,7 @@
                         <hr>
 
                         <h4>Belum punya akun ?</h4>
-                        <p>silahkan daftar, <a class="color-green" href="#">disini</a> untuk menjadi member.</p>
+                        <p>silahkan daftar, <a class="color-green" href="<?php echo base_url() ?>members/daftar/">disini</a> untuk menjadi member.</p>
                     <?php echo form_close(); ?>
                 </div>
             </div>

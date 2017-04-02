@@ -32,7 +32,7 @@ class Gallery extends CI_Controller
 
     public function search()
     {
-        $limit = 10;
+        $limit = 12;
         $this->load->helper('security');
         $keyword = $this->security->xss_clean($_GET['q']);
         $data['keyword'] = strip_tags($keyword);
@@ -72,6 +72,22 @@ class Gallery extends CI_Controller
         }else{
             redirect('gallery/');
         }
+    }
+
+    public function foto($id_album)
+    {
+        $id_album = $this->encryption->decode($id_album);
+
+        $data = array(
+                    'title'          => $this->web->detail_album_array($id_album)->nama_album,
+                    'gallery'        => TRUE,
+                    'data_foto'      => $this->web->detail_album($id_album),
+        );
+        //load view with data
+        $this->load->view('home/part/header', $data);
+        $this->load->view('home/layout/gallery/foto');
+        $this->load->view('home/part/footer');
+
     }
 
 

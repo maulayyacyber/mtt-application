@@ -29,11 +29,12 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/animate.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/line-icons/line-icons.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/fancybox/source/jquery.fancybox.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/owl-carousel/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/master-slider/masterslider/style/masterslider.css">
     <link rel='stylesheet' href="<?php echo base_url() ?>resources/frontend/plugins/master-slider/masterslider/skins/black-2/style.css">
-
     <!-- CSS Pages Style -->
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/css/pages/page_one.css">
 
