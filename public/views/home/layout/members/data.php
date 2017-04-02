@@ -2,7 +2,7 @@
 <div class="bg-color-light">
     <div class="container content-sm">
         <div class="text-center margin-bottom-50">
-            <h2 class="title-v2 title-center">DATA MEMBERS</h2>
+            <h2 class="title-v2 title-center">DATA MEMBERS 12</h2>
         </div>
 
         <div class="row news-v2">
@@ -33,6 +33,7 @@
                             <th class="text-center" style="color: #000;">No.</th>
                             <th class="text-center" style="color: #000;"><i class="fa fa-user-circle-o"></i> NAMA LENGKAP</th>
                             <th class="text-center" style="color: #000;"><i class="fa fa-building"></i> INSTITUSI</th>
+                            <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> Foto</th>
                             <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                         </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                 <td class="text-center" style="color: #000"><?php echo $no++; ?></td>
                                 <td style="color: #000"> <?php echo $hasil->nama ?></td>
                                 <td style="color: #000"> <?php echo $hasil->nama_institusi ?></td>
+                                <td style="color: #000"><img src="<?php echo base_url() ?>resources/images/members/<?php echo $hasil->foto ?>" width="100px;"> </td>
                                 <td class="text-center">
                                     <a class='btn-u btn-u-sea btn-block rounded' style="font-family: Roboto;font-weight: 400;" data-toggle="tooltip" data-placement="top" title="Edit" href='<?php echo base_url() ?>members/detail/<?php echo $this->encryption->encode($hasil->id_member) ?>'><i class="fa fa-external-link"></i> Detail</a>
                                 </td>
