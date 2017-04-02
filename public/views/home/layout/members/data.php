@@ -11,6 +11,7 @@
                 <?php
                         if($this->session->userdata("member_id")) :
                 ?>
+
                 <div class="search-members" style="text-align: center">
                     <form method="GET" action="<?php echo base_url('members/search');?>" style="margin-top: 10px">
                         <div class = "input-group">

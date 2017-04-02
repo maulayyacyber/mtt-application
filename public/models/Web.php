@@ -204,6 +204,42 @@ class Web extends CI_Model{
         }
     }
 
+    //total search album
+    function total_search_gallery($keyword)
+    {
+        $query = $this->db->like('nama_album',$keyword)->get('tbl_album');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //index total search events
+    public function search_index_gallery($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('tbl_album')
+            ->limit($limit,$offset)
+            ->like('nama_album',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('id_album','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
     //function date time
     //fungsi date
     // Fungsi GLobal //
