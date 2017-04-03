@@ -80,7 +80,7 @@ class Web extends CI_Model{
     //index members
     function index_members($halaman,$batas)
     {
-        $query = "SELECT * FROM tbl_members as a JOIN tbl_institusi as b ON a.institusi_id = b.id_institusi  ORDER BY a.id_member DESC limit $halaman, $batas";
+        $query = "SELECT * FROM tbl_members as a JOIN tbl_institusi as b ON a.institusi_id = b.id_institusi  ORDER BY a.id_member ASC limit $halaman, $batas";
         return $this->db->query($query);
     }
 

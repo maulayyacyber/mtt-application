@@ -279,8 +279,24 @@ class Members extends CI_Controller{
             $this->db->insert("tbl_members", $insert);
             //deklarasi session flashdata
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-	                                                    <i class="fa fa-check"></i> Pendaftaran member berhasil. akukan pembayaran Administrasi sebesar Rp.10.000 - / Tiap bulannya  Melalui BANK BNI ke  Nomor Rekening: 4112016039 (A.n. Medical Top Team SUMUT) Kirim bukti transfer anda melalui BMM / Line,
-                                                        Demi Kenyamanan Diharapkan membayar iruan per tahun
+	                                                    <i class="fa fa-check"></i>
+                                                        <h5 class="text-center">
+                                                            Terima kasih anda telah melakukan pendaftaran anggota  Perhimpunan Mahasiswa Kesehatan Medical Top Team ( PERMAKES MTT ).
+                                                        </h5>
+                                                        <h5 class="text-center">
+                                                        Selanjutnya, lakukan pembayaran Administrasi sebesar Rp.10.000 - / Tiap bulannya  Melalui BANK BNI ke  Nomor Rekening: 4112016039 (A.n. Medical Top Team SUMUT) 
+                                                        Kirim bukti transfer anda melalui BMM / Line 
+                                                        </h5>
+                                                        <h5 class="text-center">
+                                                             NB :Demi Kenyamanan Diharapkan membayar iruan per tahun
+                                                        </h5>
+                                                        
+
+
+
+                                                       
+
+
 	                                                </div>
                                                     <br>
 

@@ -36,10 +36,19 @@
                
 
                 <p style="font-size: 15px">Selamat Datang Di Portal Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT). <p>
-                <p style="font-size: 15px">PERMAKES MTT adalah wadah para mahasiswa kesehatan yang terdiri dari berbagai jurusan kesehatan diantaranyna : Kedokteran, Keperawatan, Kebidanan , Farmasi, Kesehatan Masyarakat, Analis, dll. PERMAKES MTT diharapkan menjadi penghubung antara seluruh mahasiswa kesehatan se-Indonesia. hanya dengan biaya pendaftaran 10.000 anda telah menjadi member, Untuk dapat terhubung silahkan daftarkan diri anda, 
+                <p style="font-size: 15px">Selamat Datang Di Portal Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT). 
+                PERMAKES MTT adalah wadah para mahasiswa kesehatan yang terdiri dari berbagai jurusan kesehatan diantaranya :
                 </p>
+                <ol style="font-size: 15px">
+                    <li>Kedokteran</li>
+                    <li>Keperawatan</li>
+                    <li>Kebidanan</li>
+                    <li>Farmasi</li>
+                    <li>Kesehatan Masyarakat</li>
+                    <li>Analis, dll</li>
+                </ol>
 
-                
+                  <p style="font-size: 15px">PERMAKES MTT diharapkan menjadi penghubung antara seluruh mahasiswa kesehatan se-Indonesia. Untuk dapat terhubung silahkan daftarkan diri anda</p>
                 <br>
 
                 <a href="<?php echo base_url() ?>members/login/" class="btn-u btn-brd btn-brd-hover btn-u-dark"><i class="icon-lock"></i> Login  </a>
