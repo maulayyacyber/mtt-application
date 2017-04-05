@@ -13,6 +13,8 @@ class Home extends CI_Controller {
         parent::__construct();
         //load model
         $this->load->model('web');
+        //get visitor
+        $this->web->counter_visitor();
     }
 
 	public function index()
@@ -20,6 +22,8 @@ class Home extends CI_Controller {
 	    //creat data array
         $data = array(
                 'title'     => 'Home',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
                 'home'      => TRUE,
                 'sliders'   => $this->web->get_slider()
         );

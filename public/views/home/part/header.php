@@ -8,9 +8,15 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="author" content="<?php if(isset($author)) { echo $author; } else { echo 'Medical Top Team'; } ?>">
+    <meta name="robots" content="no-cache">
+    <meta name="description" content="<?php print $descriptions ?>">
+    <meta name="keywords" content="<?php print $keywords ?>">
+    <meta property="og:url" content="<?php print base_url() ?><?php print $this->uri->uri_string() ?>/">
+    <meta property="og:site_name" content="Pondok Kode">
+    <meta property="og:title" content="<?php print $title ?>">
+    <meta property="og:description" content="<?php print $descriptions ?>">
+    <meta property="og:image" content="<?php print base_url('resources/images/logo_corporate.png') ?>">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 

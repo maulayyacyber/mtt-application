@@ -169,7 +169,8 @@ class Users_events extends CI_Controller{
                 'smtp_pass' => mails('smtp_password'),
                 'smtp_port' => mails('smtp_port'),
                 'mailtype'  => 'html',
-                'charset'   => 'iso-8859-1'
+                'charset'   => 'iso-8859-1',
+                'starttls'  => true,
             );
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");

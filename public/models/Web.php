@@ -259,6 +259,16 @@ class Web extends CI_Model{
         }
     }
 
+    public function counter_visitor()
+    {
+        setcookie("pengunjung", "sudah berkunjung", time()+60*60*24);
+        if (!isset($_COOKIE["pengunjung"])) {
+            $d_in['ip_address'] = $_SERVER['REMOTE_ADDR'];
+            $d_in['date_visit'] = date("Y-m-d H:i:s");
+            $this->db->insert("tbl_counter",$d_in);
+        }
+    }
+
     //function date time
     //fungsi date
     // Fungsi GLobal //

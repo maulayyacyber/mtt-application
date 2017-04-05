@@ -13,6 +13,8 @@ class Profile extends CI_Controller{
         parent::__construct();
         //load model
         $this->load->model('web');
+        //get visitor
+        $this->web->counter_visitor();
     }
 
     public function sejarah()
@@ -20,6 +22,8 @@ class Profile extends CI_Controller{
         //creat data array
         $data = array(
             'title'     => 'Sejarah',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'profile' => TRUE,
             'sejarah' => TRUE,
             'data_pages'=> $this->web->get_pages(2),
@@ -35,6 +39,8 @@ class Profile extends CI_Controller{
         //creat data array
         $data = array(
             'title'     => 'Arti Logo',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'profile'   => TRUE,
             'arti_logo' => TRUE,
             'data_pages'=> $this->web->get_pages(3),
@@ -50,6 +56,8 @@ class Profile extends CI_Controller{
         //creat data array
         $data = array(
             'title'     => 'Visi dan Misi',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'profile'   => TRUE,
             'visi_misi' => TRUE,
             'data_pages'=> $this->web->get_pages(1),
@@ -65,6 +73,8 @@ class Profile extends CI_Controller{
         //creat data array
         $data = array(
             'title'     => 'Struktur Organisasi',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'profile'             => TRUE,
             'struktur_organisasi' => TRUE,
             'data_pages'=> $this->web->get_pages(4),

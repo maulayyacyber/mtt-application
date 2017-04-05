@@ -13,6 +13,8 @@ class Contact extends CI_Controller{
         parent::__construct();
         //load model
         $this->load->model('web');
+        //get visitor
+        $this->web->counter_visitor();
     }
 
     public function index()
@@ -20,6 +22,8 @@ class Contact extends CI_Controller{
         //creat data array
         $data = array(
             'title'     => 'Contact Us',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'contact' => TRUE,
         );
         $this->load->view('home/part/header', $data);

@@ -14,6 +14,8 @@ class Gallery extends CI_Controller
         parent::__construct();
         //load model
         $this->load->model('web');
+        //get visitor
+        $this->web->counter_visitor();
     }
 
     public function index()
@@ -21,6 +23,8 @@ class Gallery extends CI_Controller
         //creat data array
         $data = array(
             'title'   => 'Gallery',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'profile' => TRUE,
             'gallery' => TRUE
         );
@@ -55,6 +59,8 @@ class Gallery extends CI_Controller
 
             $data = array(
                 'title'         => 'Gallery',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
                 'gallery'        => TRUE,
                 'data_gallery'   => $this->web->search_index_gallery(strip_tags($keyword),$limit,$offset),
                 'paging'        => $this->pagination->create_links()
@@ -81,6 +87,8 @@ class Gallery extends CI_Controller
         $data = array(
                     'title'          => $this->web->detail_album_array($id_album)->nama_album,
                     'gallery'        => TRUE,
+                    'keywords'         => systems('keywords'),
+                    'descriptions'     => systems('descriptions'),
                     'data_foto'      => $this->web->detail_album($id_album),
         );
         //load view with data

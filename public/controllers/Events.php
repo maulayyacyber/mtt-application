@@ -13,6 +13,8 @@ class Events extends CI_Controller{
         parent::__construct();
         //load model
         $this->load->model('web');
+        //get visitor
+        $this->web->counter_visitor();
     }
 
     public function index()
@@ -20,6 +22,8 @@ class Events extends CI_Controller{
         //creat data array
         $data = array(
             'title'     => 'Events',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'events' => TRUE
         );
         $this->load->view('home/part/header', $data);
@@ -52,6 +56,8 @@ class Events extends CI_Controller{
 
             $data = array(
                 'title'         => 'Events',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
                 'events'        => TRUE,
                 'data_events'   => $this->web->search_index_events(strip_tags($keyword),$limit,$offset),
                 'paging'        => $this->pagination->create_links()

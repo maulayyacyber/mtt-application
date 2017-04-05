@@ -18,6 +18,8 @@ class Members extends CI_Controller{
         $this->load->library('form_validation');
         //load model
         $this->load->model(array('apps','web'));
+        //get visitor
+        $this->web->counter_visitor();
     }
 
     public function login()
@@ -66,6 +68,8 @@ class Members extends CI_Controller{
                                       <i class="fa fa-exclamation-circle"></i> atau akun anda belum diaktifkan.
                                       
                                     </div>',
+                        'keywords'         => systems('keywords'),
+                        'descriptions'     => systems('descriptions'),
                         'title' => 'Login '
                     );
                     $this->load->view('home/part/header', $data);
@@ -75,7 +79,9 @@ class Members extends CI_Controller{
             } else {
                 //create data array
                 $data = array(
-                    'title' => 'Login '
+                    'title' => 'Login ',
+                    'keywords'         => systems('keywords'),
+                    'descriptions'     => systems('descriptions'),
                 );
                 $this->load->view('home/part/header', $data);
                 $this->load->view('home/layout/members/login');
@@ -92,6 +98,8 @@ class Members extends CI_Controller{
         }else{
             $data = array(
                 'title'           => 'Daftar Members ',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
                 'members'         => TRUE,
                 'select_institusi' => $this->apps->select_institusi()
             );
@@ -104,7 +112,12 @@ class Members extends CI_Controller{
         //config pagination
         $config['base_url'] = base_url().'members/index/';
         $config['total_rows'] = $this->web->count_members()->num_rows();
-        $config['per_page'] = 10;
+        $config['per_page'] = 2;
+        $config['uri_segment'] = 3;
+        $config['full_tag_open'] = '<div class="text-center"><ul class="pagination pagination-lg">';
+        $config['full_tag_close'] = '</ul></div>';
+        $config['cur_tag_open'] = '<li class="active"><a style="background-color: #1abc9c;border-color: #1abc9c">';
+        $config['cur_tag_close'] = "</a></li>";
         //instalasi paging
         $this->pagination->initialize($config);
         //deklare halaman
@@ -113,6 +126,8 @@ class Members extends CI_Controller{
         //create data array
         $data = array(
             'title'           => 'Members ',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
             'members'         => TRUE,
             'data_members'    => $this->web->index_members($halaman,$config['per_page']),
             'paging'          => $this->pagination->create_links()
@@ -154,6 +169,8 @@ class Members extends CI_Controller{
 
             $data = array(
                 'title'         => 'Members',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
                 'members'      => TRUE,
                 'data_members' => $this->web->search_index_members(strip_tags($keyword),$limit,$offset),
                 'paging'        => $this->pagination->create_links()
@@ -180,6 +197,8 @@ class Members extends CI_Controller{
             $id_member = $this->encryption->decode($id_member);
             $data = array(
                 'members'          => TRUE,
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
                 'detail_members'   => $this->web->detail_members($id_member),
                 'title'            => $this->web->detail_members($id_member)->nama,
                 'articles_terbaru' => $this->web->articles_terbaru(),
