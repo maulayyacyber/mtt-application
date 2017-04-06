@@ -43,7 +43,7 @@
         <div class="col-md-612 col-sm-12 form-block equal-height-column">
             <div class="reg-block" style="-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);padding: 20px 15px;">
                 <a href="<?php echo base_url() ?>">
-                    <img src="<?php echo base_url() ?>resources/frontend/img/themes/logo1-default.png" alt="" style="margin-bottom: 30px">
+                    <img src="<?php echo base_url() ?>resources/images/logo.png" alt="" style="margin-bottom: 30px">
                 </a>
                 <h2 class="margin-bottom-30">Form Pendaftaran Member</h2>
                 <?php

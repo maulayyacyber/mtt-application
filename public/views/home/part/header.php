@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="Pondok Kode">
     <meta property="og:title" content="<?php print $title ?>">
     <meta property="og:description" content="<?php print $descriptions ?>">
-    <meta property="og:image" content="<?php print base_url('resources/images/logo_corporate.png') ?>">
+    <meta property="og:image" content="<?php print base_url('resources/images/logo.png') ?>">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 
@@ -71,7 +71,7 @@
                     <!-- Navbar Brand -->
                     <div class="navbar-brand">
                         <a href="<?php echo base_url() ?>">
-                            <img class="shrink-logo" src="<?php echo base_url() ?>resources/frontend/img/logo1-default.png" alt="Logo">
+                            <img class="shrink-logo" src="<?php echo base_url() ?>resources/images/logo.png" alt="Logo">
                         </a>
                     </div>
                     <!-- ENd Navbar Brand -->
