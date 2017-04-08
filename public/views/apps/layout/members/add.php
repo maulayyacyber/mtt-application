@@ -70,7 +70,7 @@
                                 <input type="email" class="form-control" name="email" id="articles" placeholder="Enter Alamat Email">
                             </div>
                             <div class="form-group">
-                                <label for="artilces">No Telp</label>
+                                <label for="artilces">No Telp Keluarga</label>
                                 <input type="text" class="form-control" name="no_telp" id="articles" placeholder="Enter No Telp">
                             </div>
                             <div class="form-group">
@@ -90,12 +90,12 @@
                                 <input type="text" class="form-control" name="facebook" id="articles" placeholder="Enter Facebook">
                             </div>
                             <div class="form-group">
-                                <label for="artilces">Riwayat Pendidikan</label>
-                                <input type="text" class="form-control" name="riwayat_pendidikan" id="articles" placeholder="Enter Riwayat Pendidikan">
+                                <label for="artilces">Jurusan</label>
+                                <input type="text" class="form-control" name="riwayat_pendidikan" id="articles" placeholder="Jurusan">
                             </div>
                             <div class="form-group">
-                                <label for="artilces">Riwayat Pengalaman Organisasi</label>
-                                <input type="text" class="form-control" name="riwayat_pengalaman_organisasi" id="articles" placeholder="Enter Riwayat pengalaman Organisasi">
+                                <label for="artilces">Bakat/Keahian</label>
+                                <input type="text" class="form-control" name="riwayat_pengalaman_organisasi" id="articles" placeholder="Bakat/Keahian">
                             </div>
                             <div class="form-group">
                                 <label for="artilces">Pilih Agama</label>

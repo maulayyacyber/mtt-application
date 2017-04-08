@@ -38,7 +38,7 @@
                                     <td><?php echo $detail_members->email ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%">No. Telp</td>
+                                    <td style="width: 15%">No. Keluarga</td>
                                     <td><?php echo $detail_members->no_telp ?></td>
                                 </tr>
                                 <tr>
@@ -58,11 +58,11 @@
                                     <td><?php echo $detail_members->facebook ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%">Riwayat Pendidikan</td>
+                                    <td style="width: 15%">Jurusan</td>
                                     <td><?php echo $detail_members->riwayat_pendidikan ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%">Riwayat Pengalaman Organisasi</td>
+                                    <td style="width: 15%">Bakat</td>
                                     <td><?php echo $detail_members->riwayat_pengalaman_organisasi ?></td>
                                 </tr>
                                 <tr>

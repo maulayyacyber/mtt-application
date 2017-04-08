@@ -104,7 +104,7 @@
 
                 <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-call-end color-sea"></i></span>
-                    <input type="text" class="form-control rounded-right" name="telephone" placeholder="Telephone" required>
+                    <input type="text" class="form-control rounded-right" name="telephone" placeholder="No telp keluarga yang bisa dihubungi" required>
                 </div>
 
                 <div class="input-group margin-bottom-30">
@@ -138,12 +138,12 @@
 
                 <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-graduation color-sea"></i></span>
-                    <input type="text" class="form-control rounded-right" name="riwayat_pendidikan" placeholder="Riwayat Pendidikan" required>
+                    <input type="text" class="form-control rounded-right" name="riwayat_pendidikan" placeholder="Jurusan" required>
                 </div>
 
                 <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-grid color-sea"></i></span>
-                    <input type="text" class="form-control rounded-right" name="riwayat_pengalaman_organisasi" placeholder="Riwayat Pengalaman Organisasi" required>
+                    <input type="text" class="form-control rounded-right" name="riwayat_pengalaman_organisasi" placeholder="Bakat Keahliaan" required>
                 </div>
 
                 <div class="input-group margin-bottom-30">
