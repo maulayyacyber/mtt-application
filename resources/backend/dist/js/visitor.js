@@ -1,5 +1,5 @@
 // deklarasi path url host
-var url = "http://localhost/~maulayyacyber/mtt/apps/";
+var url = "http://localhost/mtt-application/";
 
 // Get data chart
 function GetToday(tgl)

@@ -1,7 +1,7 @@
 /* Write here your custom javascript codes */
 
 // declare url ajax load data
-var url = 'http://localhost/~maulayyacyber/mtt/'
+var url = 'http://localhost/mtt-application/'
 
 // function articles
 $(document).ready(function(){
