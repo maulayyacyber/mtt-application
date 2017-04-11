@@ -17,6 +17,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /resources/images/members/*
 /resources/backend/dist/js/visitor.js
 /resources/frontend/js/custom.js
+/resources/frontend/js/custom.js
 # IDE Files
 #-------------------------
 /nbproject/

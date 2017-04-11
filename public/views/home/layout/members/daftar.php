@@ -158,6 +158,7 @@
                     </select>
                 </div>
 
+                <label for="files">Upload Foto profil Anda</label>
                 <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-paper-clip color-sea"></i></span>
                     <input type="file" class="form-control rounded-right" name="userfile" placeholder="Foto" required>
