@@ -12,7 +12,7 @@ class Events extends CI_Controller{
     {
         parent::__construct();
         //load model
-        $this->load->model('web');
+        $this->load->model(array('web','apps'));
         //get visitor
         $this->web->counter_visitor();
     }
@@ -109,27 +109,42 @@ class Events extends CI_Controller{
 
     public function save()
     {
-        $insert = array(
-                    'nama'          => $this->input->post("nama"),
-                    'event_id'      => $this->encryption->decode($this->input->post("event_id")),
-                    'telephone'     => $this->input->post("telephone"),
-                    'no_ktp'        => $this->input->post("no_ktp"),
-                    'email'         => $this->input->post("email"),
-                    'alamat'        => $this->input->post("alamat"),
-                    'no_hp'         => $this->input->post("no_hp"),
-                    'institusi'     => $this->input->post("institusi"),
-                    'jenis_kelamin' => $this->input->post("jenis_kelamin"),
-                    'bbm'           => $this->input->post("bbm"),
-                    'status'        => '0'
-        );
-        //insert db
-        $this->db->insert("tbl_users_events", $insert);
-        //create session flashdata
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+
+
+        $check_email = $this->apps->check_one('tbl_users_events', array('email' => $this->input->post("email")));
+
+        if($check_email != FALSE)
+        {
+            $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Error! Alamat Email sudah terdaftar.
+			                                                </div>');
+            //redirect halaman
+            redirect('events?source=error&utf8=✓');
+        }else {
+
+            $insert = array(
+                'nama'          => $this->input->post("nama"),
+                'event_id'      => $this->encryption->decode($this->input->post("event_id")),
+                'telephone'     => $this->input->post("telephone"),
+                'no_ktp'        => $this->input->post("no_ktp"),
+                'email'         => $this->input->post("email"),
+                'alamat'        => $this->input->post("alamat"),
+                'no_hp'         => $this->input->post("no_hp"),
+                'institusi'     => $this->input->post("institusi"),
+                'jenis_kelamin' => $this->input->post("jenis_kelamin"),
+                'bbm'           => $this->input->post("bbm"),
+                'status'        => '0'
+            );
+            //insert db
+            $this->db->insert("tbl_users_events", $insert);
+            //create session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
 			                                                    <i class="fa fa-check"></i> Pendaftaran event berhasil, silahkan lakukan pembayaran ticket.
 			                                                </div>');
-        //redirect halaman
-        redirect('events?source=join&utf8=✓');
+            //redirect halaman
+            redirect('events?source=join&utf8=✓');
+
+        }
     }
 
 }
