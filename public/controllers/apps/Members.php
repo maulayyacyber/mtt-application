@@ -117,12 +117,64 @@ class Members extends CI_Controller{
             );
             //update query
             $this->db->update("tbl_members",$update, $key);
-            //deklarasi session flashdata
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-check"></i> Status Berhasil Diupdate.
+            //send mail
+
+            $query     = $this->db->query("SELECT id_member,email,nama, status FROM tbl_members WHERE id_member='$id_member'")->row();
+
+            if($query->status == "0")
+            {
+                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Status Berhasil Diupdate.
 			                                                </div>');
-            //redirect halaman
-            redirect('apps/members?source=confirm&utf8=✓');
+                //redirect halaman
+                redirect('apps/members?source=send&utf8=✓');
+
+            }else{
+
+                $email_me  = mails('smtp_user');
+                $nama_me   = systems('admin_title');
+
+                $email_to  = $query->email;
+                //create data array
+                $data = array(
+                    'nama'              => $query->nama,
+                    'email'             => $query->email,
+                );
+
+                $config = array(
+                    'protocol'  => mails('protocol'),
+                    'smtp_host' => mails('smtp_host'),
+                    'smtp_user' => mails('smtp_user'),
+                    'smtp_pass' => mails('smtp_password'),
+                    'smtp_port' => mails('smtp_port'),
+                    'mailtype'  => 'html',
+                    'charset'   => 'iso-8859-1',
+                    'starttls'  => true,
+                );
+                $this->load->library('email', $config);
+                $this->email->set_newline("\r\n");
+
+                $this->email->from($email_me, $nama_me);
+                $this->email->to($email_to); // ganti dengan email tujuan
+                $this->email->subject('Registrasi Berhasil');
+
+                $email = $this->load->view('apps/layout/members/send_email', $data, TRUE);
+
+                $this->email->message( $email );
+
+                if ($this->email->send()) {
+                    $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Status Berhasil Diupdate.
+			                                                </div>');
+                    //redirect halaman
+                    redirect('apps/members?source=send&utf8=✓');
+                }
+                else {
+                    //error message
+                    show_error($this->email->print_debugger(), true);
+                }
+
+            }
         }else{
 
         }
