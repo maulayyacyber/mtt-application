@@ -17,6 +17,66 @@ class Articles extends CI_Controller{
         $this->web->counter_visitor();
     }
 
+    public function index()
+    {
+        //creat data array
+        $data = array(
+            'title'     => 'Articles',
+            'keywords'         => systems('keywords'),
+            'descriptions'     => systems('descriptions'),
+            'articles' => TRUE
+        );
+        $this->load->view('home/part/header', $data);
+        $this->load->view('home/layout/articles/data');
+        $this->load->view('home/part/footer');
+    }
+
+    public function search()
+    {
+        $limit = 12;
+        $this->load->helper('security');
+        $keyword = $this->security->xss_clean($_GET['q']);
+        $data['keyword'] = strip_tags($keyword);
+        $check = strlen(preg_replace('/[^a-zA-Z]/', '', $keyword));
+        if(!empty($keyword) && $check > 2)
+        {
+            $offset = (isset($_GET['page'])) ? $this->security->xss_clean($_GET['page']) : 0 ;
+            $total  = $this->web->total_search_articles($keyword);
+            //config pagination
+            $config['base_url'] = base_url().'articles/search?q='.$keyword;
+            $config['total_rows'] = $total;
+            $config['per_page'] = $limit;
+            $config['page_query_string'] = TRUE;
+            $config['use_page_numbers'] = TRUE;
+            $config['display_pages']	= TRUE;
+            $config['query_string_segment'] = 'page';
+            $config['uri_segment']  = 3;
+            //instalasi paging
+            $this->pagination->initialize($config);
+
+            $data = array(
+                'title'         => 'Articles',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
+                'articles'        => TRUE,
+                'data_articles'   => $this->web->search_index_articles(strip_tags($keyword),$limit,$offset),
+                'paging'        => $this->pagination->create_links()
+            );
+            if($data['data_articles'] != NULL)
+            {
+                $data['articles'] = $data['data_articles'];
+            }else{
+                $data['articles'] = '';
+            }
+            //load view with data
+            $this->load->view('home/part/header', $data);
+            $this->load->view('home/layout/articles/search');
+            $this->load->view('home/part/footer');
+        }else{
+            redirect('articles/');
+        }
+    }
+
     public function detail($url)
     {
         //library disqus

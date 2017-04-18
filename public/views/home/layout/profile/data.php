@@ -10,6 +10,13 @@
                     </div>
                     <hr>
                     <div class="content-page" style="font-size: 16px;color: #333">
+                        <?php
+
+                            if(isset($hasil->images))
+                            {
+                              echo '<img src="'.base_url(). 'resources/images/pages/'.$hasil->images.'" style="width:100%;margin-bottom:10px">';
+                            }
+                        ?>
                         <?php echo $hasil->isi_page ?>
                     </div>
                 </div>

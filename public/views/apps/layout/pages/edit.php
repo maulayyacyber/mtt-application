@@ -24,6 +24,16 @@
                         $attributes = array('id' => 'frm_login');
                         echo form_open_multipart('apps/pages/save?source=login&utf8=✓', $attributes)
                         ?>
+                            <div class="form-group">
+                                <label>Images</label>
+                                <input type="file" class="form-control" name="userfile" style="margin-bottom: 10px">
+                                <span class="label label-danger">
+                                   NOTE!
+                                </span>
+                                <span>
+                                    Gambar thumbnail disarankan ukuran 600X300 PX
+                                 </span>
+                            </div>
                         <div class="form-group">
                             <label for="artilces">Judul Pages</label>
                             <input type="text" class="form-control" name="judul" value="<?php echo $data_pages['judul_page'] ?>" id="articles" placeholder="Enter Judul Pages">

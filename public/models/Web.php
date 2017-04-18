@@ -183,6 +183,44 @@ class Web extends CI_Model{
         return $this->db->query($query);
     }
 
+    //total search articles
+    function total_search_articles($keyword)
+    {
+        $query = $this->db->like('judul_articles',$keyword)->get('tbl_articles');
+
+        if($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    //index total search events
+    public function search_index_articles($keyword,$limit,$offset)
+    {
+        $query = $this->db->select('a.id_articles, a.judul_articles, a.user_id, a.thumbnail, b.id_user, a.meta_descriptions, a.created_at,  a.updated_at, a.slug, b.nama_user')
+            ->from('tbl_articles a')
+            ->join('tbl_users b','a.user_id = b.id_user')
+            ->limit($limit,$offset)
+            ->like('a.judul_articles',$keyword)
+            ->or_like('b.nama_user',$keyword)
+            ->limit($limit,$offset)
+            ->order_by('a.id_articles','DESC')
+            ->get();
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
     //get pages
     function get_pages($id_pages)
     {
