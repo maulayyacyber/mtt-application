@@ -82,8 +82,9 @@
                             <li class="menu-icons">
                                 <i class="menu-icons-style search search-close search-btn fa fa-search"></i>
                                 <div class="search-open">
-                                    <form>
-                                        <input type="text" class="animated fadeIn form-control" placeholder="Enter keywords...">
+                                    <form method="GET" action="<?php echo base_url('articles/search');?>">
+                                        <input type="text" name="q" class="animated fadeIn form-control" placeholder="Enter keywords...">
+                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                     </form>
                                 </div>
                             </li>

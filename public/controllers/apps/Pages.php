@@ -130,21 +130,111 @@ class Pages extends CI_Controller{
         if($this->apps->apps_id())
         {
             $id['id_page'] = $this->encryption->decode($this->input->post("id_page"));
-            $update = array(
-                'judul_page'    => $this->input->post("judul"),
-                'isi_page'      => $this->input->post("isi_page"),
-                'user_id'       => $this->session->userdata("apps_id"),
-                'meta_keywords' => $this->input->post("meta_keywords"),
-                'meta_descriptions' => $this->input->post("meta_descriptions"),
-                'updated_at'    => date("Y-m-d H:i:s")
-            );
-            $this->db->update("tbl_pages", $update, $id);
-            //deklarasi session flashdata
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+
+            if(empty($_FILES['userfile']['name']))
+            {
+
+                $update = array(
+                    'judul_page'    => $this->input->post("judul"),
+                    'isi_page'      => $this->input->post("isi_page"),
+                    'user_id'       => $this->session->userdata("apps_id"),
+                    'meta_keywords' => $this->input->post("meta_keywords"),
+                    'meta_descriptions' => $this->input->post("meta_descriptions"),
+                    'updated_at'    => date("Y-m-d H:i:s")
+                );
+                $this->db->update("tbl_pages", $update, $id);
+                //deklarasi session flashdata
+                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
 			                                                    <i class="fa fa-check"></i> Data Berhasil Diupdate.
 			                                                </div>');
-            //redirect halaman
-            redirect('apps/pages?source=edit&utf8=✓');
+                //redirect halaman
+                redirect('apps/pages?source=edit&utf8=✓');
+
+            }else{
+
+                //config upload
+                $config = array(
+                    'upload_path' => realpath('resources/images/pages/'),
+                    'allowed_types' => 'jpg|png|jpeg',
+                    'encrypt_name' => TRUE,
+                    'remove_spaces' => TRUE,
+                    'overwrite' => TRUE,
+                    'max_size' => '5000',
+                    'max_width' => '5000',
+                    'max_height' => '5000'
+                );
+                //load library upload
+                $this->load->library("upload", $config);
+                //load library lib image
+                $this->load->library("image_lib");
+
+                $this->upload->initialize($config);
+                if ($this->upload->do_upload("userfile")) {
+                    $data_upload = $this->upload->data();
+
+                    /* PATH */
+                    $source = realpath('resources/images/pages/' . $data_upload['file_name']);
+                    $destination_thumb = realpath('resources/images/pages/thumb/');
+
+                    // Permission Configuration
+                    chmod($source, 0777);
+
+                    /* Resizing Processing */
+                    // Configuration Of Image Manipulation :: Static
+                    $img['image_library'] = 'GD2';
+                    $img['create_thumb'] = TRUE;
+                    $img['maintain_ratio'] = TRUE;
+
+                    /// Limit Width Resize
+                    $limit_thumb = 600;
+
+                    // Size Image Limit was using (LIMIT TOP)
+                    $limit_use = $data_upload['image_width'] > $data_upload['image_height'] ? $data_upload['image_width'] : $data_upload['image_height'];
+
+                    // Percentase Resize
+                    if ($limit_use > $limit_thumb) {
+                        $percent_thumb = $limit_thumb / $limit_use;
+                    }
+
+                    //// Making THUMBNAIL ///////
+                    $img['width'] = $limit_use > $limit_thumb ? $data_upload['image_width'] * $percent_thumb : $data_upload['image_width'];
+                    $img['height'] = $limit_use > $limit_thumb ? $data_upload['image_height'] * $percent_thumb : $data_upload['image_height'];
+
+                    // Configuration Of Image Manipulation :: Dynamic
+                    $img['thumb_marker'] = '';
+                    $img['quality'] = '100%';
+                    $img['source_image'] = $source;
+                    $img['new_image'] = $destination_thumb;
+
+                    // Do Resizing
+                    $this->image_lib->initialize($img);
+                    $this->image_lib->resize();
+                    $this->image_lib->clear();
+
+                    $update = array(
+                        'judul_page'    => $this->input->post("judul"),
+                        'images'        => $data_upload['file_name'],
+                        'isi_page'      => $this->input->post("isi_page"),
+                        'user_id'       => $this->session->userdata("apps_id"),
+                        'meta_keywords' => $this->input->post("meta_keywords"),
+                        'meta_descriptions' => $this->input->post("meta_descriptions"),
+                        'updated_at'    => date("Y-m-d H:i:s")
+                    );
+                    $this->db->update("tbl_pages", $update, $id);
+                    //deklarasi session flashdata
+                    $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-check"></i> Data Berhasil Diupdate.
+			                                                </div>');
+                    //redirect halaman
+                    redirect('apps/pages?source=edit&utf8=✓');
+                } else {
+                    $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Data Gagal Diupdate ' . $this->upload->display_errors('') . '
+			                                                </div>');
+                    redirect('apps/pages?source=edit&utf8=✓');
+                }
+
+            }
         }else{
             show_404();
             return FALSE;
