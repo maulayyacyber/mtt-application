@@ -1,3 +1,31 @@
+<style type="text/css">
+/*@media print {
+  body * {
+    visibility: hidden;
+  }
+  #frm_login, #frm_login * {
+    visibility: visible;
+  }
+  #frm_login {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }*/
+
+/*  #printable {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }*/
+/*}*/
+</style>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -18,7 +46,10 @@
                         <h3 class="box-title"><i class="fa fa-users"></i> Edit Members</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="box-body" >
+                        <button class="btn btn-primary" onclick="bodyPrint();">
+                          Print data Member
+                        </button>
                         <div class="add-members">
                             <?php
                             $attributes = array('id' => 'frm_login');
@@ -128,3 +159,12 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script type="text/javascript">
+
+function bodyPrint()
+{
+
+  window.print();
+}
+
+</script>
