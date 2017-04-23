@@ -17,6 +17,7 @@
                         <p>PERMAKES MTT adalah wadah para mahasiswa kesehatan yang terdiri dari berbagai jurusan kesehatan diantaranyna : Kedokteran, Keperawatan, Kebidanan , Farmasi, Kesehatan Masyarakat, Analis, dll. PERMAKES MTT diharapkan menjadi penghubung antara seluruh mahasiswa kesehatan se-Indonesia. hanya dengan biaya pendaftaran 10.000 anda telah menjadi member, Untuk dapat terhubung silahkan daftarkan diri anda</p>
                         <p>
                             <a class="btn-u btn-u-red" href="<?php echo base_url() ?>members/logout/">Logout <i class="icon-logout"></i> </a>
+                            <a class="btn-u btn-u-blue" href="<?php echo base_url() ?>members/profile/">Profile </a>
                         </p>
                     </div>
                     <div class="search-members" style="text-align: center">

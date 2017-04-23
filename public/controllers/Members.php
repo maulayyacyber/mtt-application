@@ -108,7 +108,7 @@ class Members extends CI_Controller{
     }
 
     public function index()
-    {
+    {  
         //config pagination
         $config['base_url'] = base_url().'members/index/';
         $config['total_rows'] = $this->web->count_members()->num_rows();
@@ -321,14 +321,7 @@ class Members extends CI_Controller{
                                                         <h5 class="text-center">
                                                              NB :Demi Kenyamanan Diharapkan membayar iruan per tahun
                                                         </h5>
-                                                        
-
-
-
-                                                       
-
-
-	                                                </div>
+                                                  </div>
                                                     <br>
 
                                                     ');
@@ -354,6 +347,224 @@ class Members extends CI_Controller{
             show_404();
             return FALSE;
         }
+    }
+
+    public function profile()
+    {
+        $id_member = $this->session->userdata("member_id");
+        if($id_member != '')
+        {
+            $data = array(
+                'title'           => 'Daftar Members ',
+                'keywords'         => systems('keywords'),
+                'descriptions'     => systems('descriptions'),
+                'members'         => TRUE,
+                'select_institusi' => $this->apps->select_institusi(),
+                'detail_members'   => $this->web->detail_members($id_member),
+            );
+             
+            $this->load->view('home/layout/members/edit', $data);
+        }       
+    }
+    public function updateprofile()
+    {
+       if (empty($_FILES['userfile']['name'])) //tanpa
+       {    
+          $id_member = $this->session->userdata("member_id");
+
+          $password = $this->input->post('password');
+
+          if ($password !== '') //jika password tidak kosong maka update
+          {
+                 $data = array(
+                    'nama'                          => $this->input->post("nama"),
+                    'ttl'                           => $this->input->post("ttl"),
+                    'jenis_kelamin'                 => $this->input->post("jenis_kelamin"),
+                    'alamat'                        => $this->input->post("alamat"),
+                    'institusi_id'                  => $this->input->post("institusi_id"),
+                    'password'                      => SHA1(MD5(MD5(SHA1($this->input->post("password"))))),
+                    'no_telp'                       => $this->input->post("no_hp"),
+                    'line'                          => $this->input->post("line"),
+                    'bbm'                           => $this->input->post("bbm"),
+                    'instagram'                     => $this->input->post("instagram"),
+                    'facebook'                      => $this->input->post("facebook"),
+                    'riwayat_pendidikan'            => $this->input->post("riwayat_pendidikan"),
+                    'riwayat_pengalaman_organisasi' => $this->input->post("riwayat_pengalaman_organisasi"),
+                    'agama'                         => $this->input->post("agama"),
+                    'telephone_rumah'               => $this->input->post("telephone"),
+                 );
+          }
+          else
+          {
+            $data = array(
+                    'nama'                          => $this->input->post("nama"),
+                    'ttl'                           => $this->input->post("ttl"),
+                    'jenis_kelamin'                 => $this->input->post("jenis_kelamin"),
+                    'alamat'                        => $this->input->post("alamat"),
+                    'institusi_id'                  => $this->input->post("institusi_id"),
+                    'no_telp'                       => $this->input->post("no_hp"),
+                    'line'                          => $this->input->post("line"),
+                    'bbm'                           => $this->input->post("bbm"),
+                    'instagram'                     => $this->input->post("instagram"),
+                    'facebook'                      => $this->input->post("facebook"),
+                    'riwayat_pendidikan'            => $this->input->post("riwayat_pendidikan"),
+                    'riwayat_pengalaman_organisasi' => $this->input->post("riwayat_pengalaman_organisasi"),
+                    'agama'                         => $this->input->post("agama"),
+                    'telephone_rumah'               => $this->input->post("telephone"),
+                );
+          }
+
+            $this->db->where('id_member', $id_member);
+            $this->db->update('tbl_members',$data);
+            //deklarasi session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                                                    <i class="fa fa-check"></i>
+                                                    <h5 class="text-center">
+                                                       Data Anda telah berhasil di update
+                                                    </h5>
+                                                    
+                                              </div>');
+            //redirect halaman
+            redirect('members?source=register&utf8=✓');
+       }
+       else
+       {  
+            $id_member = $this->session->userdata("member_id");
+
+            $password = $this->input->post('password');
+
+            //config upload
+            $config = array(
+                'upload_path' => realpath('resources/images/members/'),
+                'allowed_types' => 'jpg|png|jpeg',
+                'encrypt_name' => TRUE,
+                'remove_spaces' => TRUE,
+                'overwrite' => TRUE,
+                'max_size' => '5000',
+                'max_width' => '5000',
+                'max_height' => '5000'
+            );
+            //load library upload
+            $this->load->library("upload", $config);
+            //load library lib image
+            $this->load->library("image_lib");
+
+            $this->upload->initialize($config);
+            if ($this->upload->do_upload("userfile")) {
+                $data_upload = $this->upload->data();
+
+                /* PATH */
+                $source = realpath('resources/images/members/' . $data_upload['file_name']);
+                $destination_thumb = realpath('resources/images/members/thumb/');
+
+                // Permission Configuration
+                chmod($source, 0777);
+
+                /* Resizing Processing */
+                // Configuration Of Image Manipulation :: Static
+                $img['image_library'] = 'GD2';
+                $img['create_thumb'] = TRUE;
+                $img['maintain_ratio'] = TRUE;
+
+                /// Limit Width Resize
+                $limit_thumb = 600;
+
+                // Size Image Limit was using (LIMIT TOP)
+                $limit_use = $data_upload['image_width'] > $data_upload['image_height'] ? $data_upload['image_width'] : $data_upload['image_height'];
+
+                // Percentase Resize
+                if ($limit_use > $limit_thumb) {
+                    $percent_thumb = $limit_thumb / $limit_use;
+                }
+
+                //// Making THUMBNAIL ///////
+                $img['width'] = $limit_use > $limit_thumb ? $data_upload['image_width'] * $percent_thumb : $data_upload['image_width'];
+                $img['height'] = $limit_use > $limit_thumb ? $data_upload['image_height'] * $percent_thumb : $data_upload['image_height'];
+
+                // Configuration Of Image Manipulation :: Dynamic
+                $img['thumb_marker'] = '';
+                $img['quality'] = '100%';
+                $img['source_image'] = $source;
+                $img['new_image'] = $destination_thumb;
+
+                // Do Resizing
+                $this->image_lib->initialize($img);
+                $this->image_lib->resize();
+                $this->image_lib->clear();
+
+
+
+              $password = $this->input->post('password');
+
+              if ($password !== '') //jika password tidak kosong maka update
+              { 
+                    $data = array(
+                    'nama'                          => $this->input->post("nama"),
+                    'ttl'                           => $this->input->post("ttl"),
+                    'jenis_kelamin'                 => $this->input->post("jenis_kelamin"),
+                    'alamat'                        => $this->input->post("alamat"),
+                    'institusi_id'                  => $this->input->post("institusi_id"),
+                    'password'                      => SHA1(MD5(MD5(SHA1($this->input->post("password"))))),
+                    'no_telp'                       => $this->input->post("no_hp"),
+                    'line'                          => $this->input->post("line"),
+                    'bbm'                           => $this->input->post("bbm"),
+                    'instagram'                     => $this->input->post("instagram"),
+                    'facebook'                      => $this->input->post("facebook"),
+                    'riwayat_pendidikan'            => $this->input->post("riwayat_pendidikan"),
+                    'riwayat_pengalaman_organisasi' => $this->input->post("riwayat_pengalaman_organisasi"),
+                    'agama'                         => $this->input->post("agama"),
+                    'telephone_rumah'               => $this->input->post("telephone"),
+                     'foto'                          =>$data_upload['file_name'],
+                 );
+                    
+              }
+              else
+              {
+                    $data = array(
+                    'nama'                          => $this->input->post("nama"),
+                    'ttl'                           => $this->input->post("ttl"),
+                    'jenis_kelamin'                 => $this->input->post("jenis_kelamin"),
+                    'alamat'                        => $this->input->post("alamat"),
+                    'institusi_id'                  => $this->input->post("institusi_id"),
+                    'no_telp'                       => $this->input->post("no_hp"),
+                    'line'                          => $this->input->post("line"),
+                    'bbm'                           => $this->input->post("bbm"),
+                    'instagram'                     => $this->input->post("instagram"),
+                    'facebook'                      => $this->input->post("facebook"),
+                    'riwayat_pendidikan'            => $this->input->post("riwayat_pendidikan"),
+                    'riwayat_pengalaman_organisasi' => $this->input->post("riwayat_pengalaman_organisasi"),
+                    'agama'                         => $this->input->post("agama"),
+                    'telephone_rumah'               => $this->input->post("telephone"),
+                     'foto'                          =>$data_upload['file_name'],
+                 );
+
+                    
+
+              }
+ 
+
+
+             $this->db->where('id_member', $id_member);
+            $this->db->update('tbl_members',$data);
+            //deklarasi session flashdata
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                                                    <i class="fa fa-check"></i>
+                                                    <h5 class="text-center">
+                                                       Data Anda telah berhasil di update
+                                                    </h5>
+                                                    
+                                              </div>');
+            //redirect halaman
+            redirect('members?source=register&utf8=✓');
+
+            } else {
+                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+                                                                <i class="fa fa-exclamation-circle"></i> Pendaftaran member gagal! ' . $this->upload->display_errors() . '
+                                                            </div>');
+                redirect('members/profile');
+            }
+          
+       }
     }
 
 }
