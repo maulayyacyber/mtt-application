@@ -623,4 +623,23 @@ class Apps extends CI_Model
         return $difftext;
     }
 
+    /*adding by freddy*/
+    function count_panitia()
+    {
+        return $this->db->get('tbl_panitia');
+    }
+    function index_panitia($halaman,$batas)
+    {
+        $query = "SELECT `id_panitia`, `nama_panitia` FROM `tbl_panitia` ORDER BY id_panitia DESC limit $halaman, $batas";
+        return $this->db->query($query);
+    }
+
+    function edit_panitia($id_panitia)
+    {
+        $id_panitia  =  array('id_panitia'=> $id_panitia);
+        return $this->db->get_where('tbl_panitia',$id_panitia);
+    }
+
+   
+
 }
