@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <div class="box box-solid">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-building-o"></i> Add Panitia</h3>
+                        <h3 class="box-title"><i class="fa fa-id-card"></i> Add Panitia</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

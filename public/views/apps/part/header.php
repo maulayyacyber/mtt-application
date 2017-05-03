@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/toastr.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/backend/dist/css/skins/_all-skins.min.css">
     <![endif]-->
+    <script>
+        var url = "<?php echo base_url() ?>";
+    </script>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <!-- Site wrapper -->

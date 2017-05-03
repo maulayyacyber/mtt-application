@@ -99,11 +99,39 @@ class Events extends CI_Controller{
 
     public function join($id)
     {
-        $id = $this->encryption->decode($id);
-        $data = array(
-                    'id_event' => $id,
-        );
-        $this->load->view('home/layout/events/form', $data);
+        if($this->session->userdata("member_id"))
+        {
+            $check_user = $this->apps->check_one('tbl_users_events', array('user_id' => $this->session->userdata('member_id')));
+
+            if($check_user != FALSE)
+            {
+                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-exclamation-circle"></i> Error! Anda sudah terdaftar di event ini.
+			                                                </div>');
+                //redirect halaman
+                redirect('events?source=error&utf8=✓');
+            }else{
+
+                $id = $this->encryption->decode($id);
+                $insert = array(
+                    'event_id'      => $id,
+                    'user_id'       => $this->session->userdata('member_id'),
+                    'status'        => '0'
+                );
+                //insert db
+                $this->db->insert("tbl_users_events", $insert);
+                //create session flashdata
+                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+			                                                    <i class="fa fa-check"></i> Pendaftaran event berhasil, silahkan lakukan pembayaran ticket.
+			                                                </div>');
+                //redirect halaman
+                redirect('events?source=join&utf8=✓');
+
+            }
+        }else{
+            redirect('members/login/');
+        }
+
 
     }
 
@@ -111,28 +139,20 @@ class Events extends CI_Controller{
     {
 
 
-        $check_email = $this->apps->check_one('tbl_users_events', array('email' => $this->input->post("email")));
+        $check_user = $this->apps->check_one('tbl_users_events', array('user_id' => $this->input->post("user_id")));
 
-        if($check_email != FALSE)
+        if($check_user != FALSE)
         {
             $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-exclamation-circle"></i> Error! Alamat Email sudah terdaftar.
+			                                                    <i class="fa fa-exclamation-circle"></i> Error! Anda sudah terdaftar di event ini.
 			                                                </div>');
             //redirect halaman
             redirect('events?source=error&utf8=✓');
         }else {
 
             $insert = array(
-                'nama'          => $this->input->post("nama"),
-                'event_id'      => $this->encryption->decode($this->input->post("event_id")),
-                'telephone'     => $this->input->post("telephone"),
-                'no_ktp'        => $this->input->post("no_ktp"),
-                'email'         => $this->input->post("email"),
-                'alamat'        => $this->input->post("alamat"),
-                'no_hp'         => $this->input->post("no_hp"),
-                'institusi'     => $this->input->post("institusi"),
-                'jenis_kelamin' => $this->input->post("jenis_kelamin"),
-                'bbm'           => $this->input->post("bbm"),
+                'event_id'      => '',
+                'user_id'       => '',
                 'status'        => '0'
             );
             //insert db

@@ -396,7 +396,7 @@ class Apps extends CI_Model
 
     function index_users_events($halaman,$batas)
     {
-        $query = "SELECT a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event,  b.slug FROM tbl_users_events as a JOIN tbl_events as b ON a.event_id = b.id_event ORDER BY a.id_user_event DESC limit $halaman, $batas";
+        $query = "SELECT a.id_user_event, a.event_id, a.user_id, a.status, b.id_event, b.judul_event, b.slug, c.id_member, c.nama FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c ON a.event_id = b.id_event AND a.user_id = c.id_member ORDER BY a.id_user_event DESC limit $halaman, $batas";
         return $this->db->query($query);
     }
 
@@ -438,7 +438,7 @@ class Apps extends CI_Model
 
     function detail_users_events($id_user_event)
     {
-        $query = $this->db->query("SELECT a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event, a.telephone, a.bbm, a.no_hp, a.no_ktp, a.email, a.institusi, a.jenis_kelamin, a.alamat,  b.slug FROM tbl_users_events as a JOIN tbl_events as b ON a.event_id = b.id_event WHERE a.id_user_event = '$id_user_event'");
+        $query = $this->db->query("SELECT a.id_user_event, a.event_id, a.event_id, a.status, b.id_event, b.judul_event, b.slug, c.id_member, c.nama, c.bbm, c.no_telp, c.email, c.institusi_id, c.jenis_kelamin, c.alamat, d.id_institusi, d.nama_institusi FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c JOIN tbl_institusi as d ON a.event_id = b.id_event AND a.user_id = c.id_member AND c.institusi_id = d.id_institusi WHERE a.id_user_event = '$id_user_event'");
         return $query;
     }
 
@@ -639,6 +639,39 @@ class Apps extends CI_Model
         $id_panitia  =  array('id_panitia'=> $id_panitia);
         return $this->db->get_where('tbl_panitia',$id_panitia);
     }
+
+        function total_search_panitia($keyword)
+        {
+            $query = $this->db->like('nama_panitia',$keyword)->get('tbl_panitia');
+
+            if($query->num_rows() > 0)
+            {
+                return $query->num_rows();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+
+        public function search_index_panitia($keyword,$limit,$offset)
+        {
+            $query = $this->db->select('*')
+                ->from('tbl_panitia')
+                ->like('nama_panitia',$keyword)
+                ->limit($limit,$offset)
+                ->order_by('id_panitia','DESC')
+                ->get();
+
+            if($query->num_rows() > 0)
+            {
+                return $query;
+            }
+            else
+            {
+                return NULL;
+            }
+        }
 
    
 

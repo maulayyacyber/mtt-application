@@ -50,6 +50,9 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/css/custom.css">
+    <script>
+        var url = "<?php echo base_url() ?>";
+    </script>
 </head>
 
 <body class="header-fixed header-fixed-space">

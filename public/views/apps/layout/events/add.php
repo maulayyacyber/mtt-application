@@ -44,6 +44,10 @@
                                 <textarea class="ckeditor" id="post" name="isi" rows="6" placeholder="Enter Isi Events"></textarea>
                             </div>
                             <div class="form-group">
+                                <label for="artilces">Harga Ticket Events</label>
+                                <input type="text" class="form-control" name="harga" id="articles" placeholder="Enter Harga Ticket Events">
+                            </div>
+                            <div class="form-group">
                                 <label for="artilces">Lokasi Events</label>
                                 <textarea class="form-control" name="lokasi" rows="3" placeholder="Enter Lokasi Events"></textarea>
                             </div>

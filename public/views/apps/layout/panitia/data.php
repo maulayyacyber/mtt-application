@@ -18,7 +18,7 @@
                 <?php echo $this->session->flashdata('notif') ?>
                 <div class="box box-solid">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-building-o"></i> Data panitia</h3>
+                        <h3 class="box-title"><i class="fa fa-id-card"></i> Data Panitia</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -44,7 +44,7 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center" style="color: #000;">No.</th>
-                                    <th class="text-center" style="color: #000;"><i class="fa fa-building-o"></i> NAMA PaNITIA</th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-id-card"></i> NAMA PANITIA</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
                                 </thead>

@@ -1,8 +1,4 @@
 /* Write here your custom javascript codes */
-
-// declare url ajax load data
-var url = 'http://localhost/mtt-application/'
-
 // function articles
 $(document).ready(function(){
     articles(0);

@@ -35,20 +35,12 @@
                                     <td><?php echo $data_users_events['nama'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%">Telephone</td>
-                                    <td><?php echo $data_users_events['telephone'] ?></td>
-                                </tr>
-                                <tr>
                                     <td style="width: 15%">BBM</td>
                                     <td><?php echo $data_users_events['bbm'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%">No HP</td>
-                                    <td><?php echo $data_users_events['no_hp'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 15%">No KTP</td>
-                                    <td><?php echo $data_users_events['no_ktp'] ?></td>
+                                    <td style="width: 15%">No Telp</td>
+                                    <td><?php echo $data_users_events['no_telp'] ?></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 15%">Alamat Email</td>
@@ -56,7 +48,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 15%">Institunsi</td>
-                                    <td><?php echo $data_users_events['institusi'] ?></td>
+                                    <td><?php echo $data_users_events['nama_institusi'] ?></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 15%">Jenis Kelamin</td>

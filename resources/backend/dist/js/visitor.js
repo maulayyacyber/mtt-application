@@ -1,13 +1,10 @@
-// deklarasi path url host
-var url = "http://localhost/mtt-application/";
-
 // Get data chart
 function GetToday(tgl)
 {
     var dataString = 'tgl='+ tgl;
     $.ajax({
         type: "POST",
-        url: url+"dashboard/get_chart_today",
+        url: url+"apps/dashboard/get_chart_today",
         data: dataString,
         dataType: 'json',
         cache: false,
@@ -24,7 +21,7 @@ function GetWeek(tgl1, tgl2)
     var dataString = 'tgl1='+ tgl1 + '&tgl2='+ tgl2;
     $.ajax({
         type: "POST",
-        url: url+"dashboard/get_chart_week",
+        url: url+"apps/dashboard/get_chart_week",
         data: dataString,
         dataType: 'json',
         cache: false,
@@ -41,7 +38,7 @@ function GetMonth(tgl)
     var dataString = 'tgl='+ tgl;
     $.ajax({
         type: "POST",
-        url: url+"dashboard/get_chart_month",
+        url: url+"apps/dashboard/get_chart_month",
         data: dataString,
         dataType: 'json',
         cache: false,
@@ -57,7 +54,7 @@ function GetAllTime()
 {
     $.ajax({
         type: "POST",
-        url: url+"dashboard/get_chart_all",
+        url: url+"apps/dashboard/get_chart_all",
         cache: false,
         dataType: 'json',
         success: function(data){

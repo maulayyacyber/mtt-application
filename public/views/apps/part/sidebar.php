@@ -30,7 +30,7 @@
             <li <?php if(isset($users)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/users/"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
             <li <?php if(isset($institusi)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/institusi/"><i class="fa fa-building-o"></i> <span>Institusi</span></a></li>
 
-            <li <?php if(isset($panitia)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/panitia/"><i class="fa fa-building-o"></i> <span>Panitia</span></a></li>
+            <li <?php if(isset($panitia)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/panitia/"><i class="fa fa-id-card"></i> <span>Panitia</span></a></li>
 
             <li <?php if(isset($members)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/members/"><i class="fa fa-users"></i> <span>Members</span></a></li>
             <li <?php if(isset($pages)) { echo 'class="active"'; } ?>><a href="<?php echo base_url() ?>apps/pages/"><i class="fa fa-television"></i> <span>Pages</span></a></li>

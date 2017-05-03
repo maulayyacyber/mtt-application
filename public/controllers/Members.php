@@ -112,7 +112,7 @@ class Members extends CI_Controller{
         //config pagination
         $config['base_url'] = base_url().'members/index/';
         $config['total_rows'] = $this->web->count_members()->num_rows();
-        $config['per_page'] = 2;
+        $config['per_page'] = 10;
         $config['uri_segment'] = 3;
         $config['full_tag_open'] = '<div class="text-center"><ul class="pagination pagination-lg">';
         $config['full_tag_close'] = '</ul></div>';
