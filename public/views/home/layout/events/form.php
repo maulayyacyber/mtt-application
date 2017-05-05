@@ -50,64 +50,46 @@
                     $attributes = array('id' => 'frm_login');
                     echo form_open_multipart('events/save?source=form&utf8=✓', $attributes)
                 ?>
+
+                    <label>NAMA EVENT YANG DIIKUTI</label>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon rounded-left"><i class="icon-calendar color-sea"></i></span>
+                        <input type="text" class="form-control rounded-right" disabled value="<?php echo $nama_event ?>" name="nama_event" placeholder="Nama Event Yang Diikuti" required>
+                    </div>
+
+                    <label>NAMA LENGKAP</label>
                     <div class="input-group margin-bottom-20">
                         <span class="input-group-addon rounded-left"><i class="icon-user color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="nama" placeholder="Nama Lengkap" required>
+                        <input type="text" class="form-control rounded-right" disabled value="<?php echo $this->session->userdata('member_nama') ?>" name="nama" placeholder="Nama Lengkap" required>
                         <input type="hidden" name="event_id" value="<?php echo $this->encryption->encode($id_event) ?>">
                     </div>
 
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon rounded-left"><i class="icon-calendar color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="ttl" placeholder="Tempat, Tanggal, lahir" required>
-                    </div>
-
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon rounded-left"><i class="icon-grid color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="no_ktp" placeholder="No. KTP" required>
-                    </div>
-
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon rounded-left"><i class="icon-screen-smartphone color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="no_hp" placeholder="No. HP" required>
-                    </div>
-
+                    <label>PILIH PANITIA EVENT</label>
                     <div class="input-group margin-bottom-30">
-                        <span class="input-group-addon rounded-left"><i class="icon-envelope color-sea"></i></span>
-                        <input type="email" class="form-control rounded-right" name="email" placeholder="Alamat Email" required>
-                    </div>
-
-                    <div class="input-group margin-bottom-30">
-                        <span class="input-group-addon rounded-left"><i class="icon-home color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="alamat" placeholder="Alamat Rumah" required>
-                    </div>
-
-                    <div class="input-group margin-bottom-30">
-                        <span class="input-group-addon rounded-left"><i class="icon-call-end color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="telephone" placeholder="Telephone" required>
-                    </div>
-
-                    <div class="input-group margin-bottom-30">
-                        <span class="input-group-addon rounded-left"><i class="icon-briefcase color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="institusi" placeholder="Institusi" required>
-                    </div>
-
-                    <div class="input-group margin-bottom-30">
-                        <span class="input-group-addon rounded-left"><i class="icon-symbol-male color-sea"></i></span>
-                        <select class="form-control rounded-right" name="jenis_kelamin" required style="background: transparent;border-left: none;padding-left: 10px;padding-right: 10px;height: 50px;border-color: rgba(214,214,214,.5);border-left: none;color: #969595;">
-                            <option> -- Pilih Jenis Kelamin --</option>
-                            <option value="Laki - Laki">Laki - Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                        <span class="input-group-addon rounded-left"><i class="icon-users color-sea"></i></span>
+                        <select class="form-control rounded-right" name="panitia_id" required style="background: transparent;border-left: none;padding-left: 10px;padding-right: 10px;height: 50px;border-color: rgba(214,214,214,.5);border-left: none;color: #969595;">
+                            <option value=""> -- Pilih Panitia Event --</option>
+                            <?php
+                            foreach($select_panitia->result_array() as $row)
+                            {
+                                if($row['id_panitia']== $data_panitia)
+                                {
+                                    ?>
+                                    <option value="<?php echo $row['id_panitia']; ?>" selected="selected"><?php echo $row['nama_panitia']; ?></option>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <option value="<?php echo $row['id_panitia']; ?>"><?php echo $row['nama_panitia']; ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
-                    </div>
-
-                    <div class="input-group margin-bottom-30">
-                        <span class="input-group-addon rounded-left"><i class="icon-bubble color-sea"></i></span>
-                        <input type="text" class="form-control rounded-right" name="bbm" placeholder="BBM" required>
                     </div>
 
                     <div class="checkbox margin-bottom-30">
                         <label style="width: 100%;max-width: 100%">
-                            <input type="checkbox"> Saya menyatakan data yang saya ini adalah benar, jika tidak saya siap menerima konsekuensinya
+                            <input type="checkbox" required> Saya menyatakan data yang saya ini adalah benar, jika tidak saya siap menerima konsekuensinya
                         </label>
                     </div>
 

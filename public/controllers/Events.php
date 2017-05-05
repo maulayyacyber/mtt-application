@@ -101,33 +101,18 @@ class Events extends CI_Controller{
     {
         if($this->session->userdata("member_id"))
         {
-            $check_user = $this->apps->check_one('tbl_users_events', array('user_id' => $this->session->userdata('member_id')));
+            $id = $this->encryption->decode($id);
+            $query = $this->db->query("SELECT id_event,judul_event FROM tbl_events WHERE id_event = '$id'");
+            $row   = $query->row();
 
-            if($check_user != FALSE)
-            {
-                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-exclamation-circle"></i> Error! Anda sudah terdaftar di event ini.
-			                                                </div>');
-                //redirect halaman
-                redirect('events?source=error&utf8=✓');
-            }else{
+            $data = array(
+                'id_event'          => $id,
+                'select_panitia'    => $this->web->select_panitia(),
+                'nama_event'        => $row->judul_event
+            );
 
-                $id = $this->encryption->decode($id);
-                $insert = array(
-                    'event_id'      => $id,
-                    'user_id'       => $this->session->userdata('member_id'),
-                    'status'        => '0'
-                );
-                //insert db
-                $this->db->insert("tbl_users_events", $insert);
-                //create session flashdata
-                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-			                                                    <i class="fa fa-check"></i> Pendaftaran event berhasil, silahkan lakukan pembayaran ticket.
-			                                                </div>');
-                //redirect halaman
-                redirect('events?source=join&utf8=✓');
+            $this->load->view('home/layout/events/form', $data);
 
-            }
         }else{
             redirect('members/login/');
         }
@@ -137,22 +122,21 @@ class Events extends CI_Controller{
 
     public function save()
     {
+        $check_user  = $this->apps->check_one('tbl_users_events', array('user_id' => $this->session->userdata('member_id')));
+        $check_event = $this->apps->check_one('tbl_users_events', array('event_id' => $this->encryption->decode($this->input->post("event_id"))));
 
-
-        $check_user = $this->apps->check_one('tbl_users_events', array('user_id' => $this->input->post("user_id")));
-
-        if($check_user != FALSE)
+        if($check_user && $check_event != FALSE)
         {
             $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
 			                                                    <i class="fa fa-exclamation-circle"></i> Error! Anda sudah terdaftar di event ini.
 			                                                </div>');
             //redirect halaman
             redirect('events?source=error&utf8=✓');
-        }else {
-
+        }else{
             $insert = array(
-                'event_id'      => '',
-                'user_id'       => '',
+                'event_id'      => $this->encryption->decode($this->input->post("event_id")),
+                'user_id'       => $this->session->userdata('member_id'),
+                'panitia_id'    => $this->input->post("panitia_id"),
                 'status'        => '0'
             );
             //insert db

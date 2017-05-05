@@ -221,6 +221,12 @@ class Web extends CI_Model{
         }
     }
 
+    function select_panitia()
+    {
+        $this->db->order_by('nama_panitia ASC');
+        return $this->db->get('tbl_panitia');
+    }
+
     //get pages
     function get_pages($id_pages)
     {
