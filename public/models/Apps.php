@@ -396,7 +396,7 @@ class Apps extends CI_Model
 
     function index_users_events($halaman,$batas)
     {
-        $query = "SELECT a.id_user_event, a.event_id, a.user_id, a.status, b.id_event, b.judul_event, b.slug, c.id_member, c.nama FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c ON a.event_id = b.id_event AND a.user_id = c.id_member ORDER BY a.id_user_event DESC limit $halaman, $batas";
+        $query = "SELECT a.id_user_event, a.event_id, a.panitia_id, a.user_id, a.status, b.id_event, b.judul_event, b.slug, c.id_member, c.nama, d.id_panitia, d.nama_panitia FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c JOIN tbl_panitia as d ON a.event_id = b.id_event AND a.user_id = c.id_member AND a.panitia_id = d.id_panitia ORDER BY a.id_user_event DESC limit $halaman, $batas";
         return $this->db->query($query);
     }
 
@@ -416,9 +416,10 @@ class Apps extends CI_Model
 
     public function search_index_users_events($keyword,$limit,$offset)
     {
-        $query = $this->db->select('a.id_user_event, a.event_id, a.nama, a.status, b.id_event, b.judul_event,  b.slug')
+        $query = $this->db->select('a.id_user_event, a.event_id, a.panitia_id a.nama, a.status, b.id_event, b.judul_event,  b.slug, c.id_panitia, c.nama_panitia')
             ->from('tbl_users_events a')
             ->join('tbl_events b','a.event_id = b.id_event')
+            ->join('tbl_user_events a','a.panitia_id = b.id_panitia')
             ->limit($limit,$offset)
             ->like('b.judul_event',$keyword)
             ->or_like('a.nama',$keyword)
@@ -438,7 +439,7 @@ class Apps extends CI_Model
 
     function detail_users_events($id_user_event)
     {
-        $query = $this->db->query("SELECT a.id_user_event, a.event_id, a.event_id, a.status, b.id_event, b.judul_event, b.slug, c.id_member, c.nama, c.bbm, c.no_telp, c.email, c.institusi_id, c.jenis_kelamin, c.alamat, d.id_institusi, d.nama_institusi FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c JOIN tbl_institusi as d ON a.event_id = b.id_event AND a.user_id = c.id_member AND c.institusi_id = d.id_institusi WHERE a.id_user_event = '$id_user_event'");
+        $query = $this->db->query("SELECT a.id_user_event, a.event_id, a.event_id, a.panitia_id, a.status, b.id_event, b.judul_event, b.slug, c.id_member, c.nama, c.bbm, c.no_telp, c.email, c.institusi_id, c.jenis_kelamin, c.alamat, d.id_institusi, d.nama_institusi, e.id_panitia, e.nama_panitia FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c JOIN tbl_institusi as d JOIN tbl_panitia as e ON a.event_id = b.id_event AND a.user_id = c.id_member AND c.institusi_id = d.id_institusi AND a.panitia_id = e.id_panitia WHERE a.id_user_event = '$id_user_event'");
         return $query;
     }
 

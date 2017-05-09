@@ -39,6 +39,7 @@
                                     <th class="text-center" style="color: #000;">No.</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-user-circle-o"></i> NAMA LENGKAP</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-bookmark"></i> JUDUL EVENT </th>
+                                    <th class="text-center" style="color: #000;"><i class="fa fa-id-card"></i> NAMA PANITIA </th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-info-circle"></i> STATUS</th>
                                     <th class="text-center" style="color: #000;"><i class="fa fa-cogs"></i> OPTIONS</th>
                                 </tr>
@@ -66,6 +67,7 @@
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td> <?php echo $hasil->nama ?></td>
                                         <td><a href="<?php echo base_url() ?>events/read/<?php echo $hasil->slug ?>/" target="_blank" style="color: #367fa9"><?php echo $hasil->judul_event ?></a></td>
+                                        <td> <?php echo $hasil->nama_panitia ?></td>
                                         <td class="text-center"> <?php echo $status ?></td>
                                         <td class="text-center">
                                             <?php echo $update_status ?>
