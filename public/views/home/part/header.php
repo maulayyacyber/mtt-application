@@ -130,7 +130,7 @@
                                 </ul>
                             </li>
                             <li class="<?php if(isset($members)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>members/"><i class="fa fa-male"></i> Member</a></li>
-                            <li class="<?php if(isset($events)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>events/"><i class="fa fa-calendar-check-o"></i> Event</a></li>
+                            <li class="<?php if(isset($events)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>events/"><i class="fa fa-calendar-check-o"></i> Event & Store</a></li>
                             <li class="<?php if(isset($contact)) { echo 'active'; } ?>"><a href="<?php echo base_url() ?>contact/"><i class="fa fa-comments-o"></i> Contact</a></li>
                             <!-- End Pages -->
                         </ul>

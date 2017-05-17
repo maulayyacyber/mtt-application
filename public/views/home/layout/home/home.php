@@ -36,14 +36,14 @@
                   
                       <div class="row">
                          
-                          <img style="float:right" src="<?php echo base_url() ?>resources/images/gif/giphy-downsized.gif" width="80px;" class="img-circle img-responsive"/>
+ 
                           <div class="content-heading">
-                              <h2 class="title-v2">HELLO SEJAWAT</h2>
+                              <h2 class="title-v2">SALAM SEJAWAT</h2>
                           </div>
                          
                       </div>
                
-                <p style="font-size: 15px">Selamat Datang Di Portal Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT). <p>
+                 
                 <p style="font-size: 15px">Selamat Datang Di Portal Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT). 
                 PERMAKES MTT adalah wadah para mahasiswa kesehatan yang terdiri dari berbagai jurusan kesehatan diantaranya :
                 </p>
