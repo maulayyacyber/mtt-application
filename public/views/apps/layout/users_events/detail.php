@@ -31,6 +31,10 @@
                                     <td><?php echo $data_users_events['judul_event'] ?></td>
                                 </tr>
                                 <tr>
+                                    <td style="width: 15%">Nama Panitia</td>
+                                    <td><?php echo $data_users_events['nama_panitia'] ?></td>
+                                </tr>
+                                <tr>
                                     <td style="width: 15%">Nama Lengkap</td>
                                     <td><?php echo $data_users_events['nama'] ?></td>
                                 </tr>
@@ -53,6 +57,10 @@
                                 <tr>
                                     <td style="width: 15%">Jenis Kelamin</td>
                                     <td><?php echo $data_users_events['jenis_kelamin'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 15%">Harga</td>
+                                    <td><?php echo $data_users_events['harga'] ?></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 15%">Alamat Rumah</td>

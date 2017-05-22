@@ -131,7 +131,7 @@ class Users_events extends CI_Controller{
 
             $email_me  = mails('smtp_user');
             $nama_me   = systems('admin_title');
-            $query     = $this->db->query("SELECT a.id_user_event, a.event_id, a.event_id, a.panitia_id, a.status, a.tgl_register, b.id_event, b.judul_event, b.slug, c.id_member, c.nama, c.bbm, c.no_telp, c.email, c.institusi_id, c.jenis_kelamin, c.alamat, d.id_institusi, d.nama_institusi, e.id_panitia, e.nama_panitia FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c JOIN tbl_institusi as d JOIN tbl_panitia as e ON a.event_id = b.id_event AND a.user_id = c.id_member AND c.institusi_id = d.id_institusi AND a.panitia_id = e.id_panitia WHERE a.id_user_event='$id_user_event'")->row();
+            $query     = $this->db->query("SELECT a.id_user_event, a.event_id, a.event_id, a.tgl_register, a.panitia_id, a.status, b.id_event, b.judul_event, b.harga, b.slug, c.id_member, c.nama, c.bbm, c.no_telp, c.email, c.institusi_id, c.jenis_kelamin, c.alamat, d.id_institusi, d.nama_institusi, e.id_panitia, e.nama_panitia FROM tbl_users_events as a JOIN tbl_events as b JOIN tbl_members as c JOIN tbl_institusi as d JOIN tbl_panitia as e ON a.event_id = b.id_event AND a.user_id = c.id_member AND c.institusi_id = d.id_institusi AND a.panitia_id = e.id_panitia WHERE a.id_user_event='$id_user_event'")->row();
             $email_to  = $query->email;
             //create data array
             $data = array(

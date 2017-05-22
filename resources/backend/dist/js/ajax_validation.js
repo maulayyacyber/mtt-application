@@ -9,7 +9,7 @@ $(document).ready(function(){
     $(".add-articles form").submit(function() {
         var thumbnail     = $("[name='userfile']").val();
         var judul         = $("[name='judul']").val();
-        var isi           = $("[name='isi']").val();
+        //var isi           = $("[name='isi']").val();
         var keywords      = $("[name='meta_keywords']").val();
         var descriptions  = $("[name='meta_descriptions']").val();
         if(thumbnail.length == 0){
@@ -47,24 +47,6 @@ $(document).ready(function(){
                     "hideMethod": "fadeOut"
                 };
                 toastr.error("Masukkan Judul Articles.", "ERROR !", opts);
-            }, 1000);
-        }else if(isi.length == 0){
-            setTimeout(function() {
-                /*toastr.error('Email is still empty');*/
-                var opts = {
-                    "debug": false,
-                    "positionClass": "toast-top-right",
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "2000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                };
-                toastr.error("Masukkan Isi Articles.", "ERROR !", opts);
             }, 1000);
         }else if(keywords.length == 0){
             setTimeout(function() {
@@ -113,7 +95,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".edit-articles form").submit(function() {
         var judul         = $("[name='judul']").val();
-        var isi           = $("[name='isi']").val();
+        //var isi           = $("[name='isi']").val();
         var keywords      = $("[name='meta_keywords']").val();
         var descriptions  = $("[name='meta_descriptions']").val();
         if(judul.length == 0){
@@ -133,24 +115,6 @@ $(document).ready(function(){
                     "hideMethod": "fadeOut"
                 };
                 toastr.error("Masukkan Judul Articles.", "ERROR !", opts);
-            }, 1000);
-        }else if(isi.length == 0){
-            setTimeout(function() {
-                /*toastr.error('Email is still empty');*/
-                var opts = {
-                    "debug": false,
-                    "positionClass": "toast-top-right",
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "2000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                };
-                toastr.error("Masukkan Isi Articles.", "ERROR !", opts);
             }, 1000);
         }else if(keywords.length == 0){
             setTimeout(function() {
@@ -783,7 +747,7 @@ $(document).ready(function(){
     $(".add-events form").submit(function() {
         var thumbnail     = $("[name='userfile']").val();
         var judul         = $("[name='judul']").val();
-        var isi           = $("[name='isi']").val();
+        //var isi           = $("[name='isi']").val();
         var lokasi        = $("[name='lokasi']").val();
         var keywords      = $("[name='meta_keywords']").val();
         var descriptions  = $("[name='meta_descriptions']").val();
@@ -822,24 +786,6 @@ $(document).ready(function(){
                     "hideMethod": "fadeOut"
                 };
                 toastr.error("Masukkan Judul Events.", "ERROR !", opts);
-            }, 1000);
-        }else if(isi.length == 0){
-            setTimeout(function() {
-                /*toastr.error('Email is still empty');*/
-                var opts = {
-                    "debug": false,
-                    "positionClass": "toast-top-right",
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "2000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                };
-                toastr.error("Masukkan Isi Events.", "ERROR !", opts);
             }, 1000);
         }else if(lokasi.length == 0){
             setTimeout(function() {
@@ -906,7 +852,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".edit-events form").submit(function() {
         var judul         = $("[name='judul']").val();
-        var isi           = $("[name='isi']").val();
+        //var isi           = $("[name='isi']").val();
         var lokasi        = $("[name='lokasi']").val();
         var keywords      = $("[name='meta_keywords']").val();
         var descriptions  = $("[name='meta_descriptions']").val();
@@ -927,24 +873,6 @@ $(document).ready(function(){
                     "hideMethod": "fadeOut"
                 };
                 toastr.error("Masukkan Judul Events.", "ERROR !", opts);
-            }, 1000);
-        }else if(isi.length == 0){
-            setTimeout(function() {
-                /*toastr.error('Email is still empty');*/
-                var opts = {
-                    "debug": false,
-                    "positionClass": "toast-top-right",
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "2000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                };
-                toastr.error("Masukkan Isi Events.", "ERROR !", opts);
             }, 1000);
         }else if(lokasi.length == 0){
             setTimeout(function() {
