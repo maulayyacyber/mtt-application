@@ -106,6 +106,10 @@
                                 <input type="text" class="form-control" name="no_telp" value="<?php echo $data_members['no_telp'] ?>" id="articles" placeholder="Enter No Telp">
                             </div>
                             <div class="form-group">
+                                <label for="artilces">Alamat Blog</label>
+                                <input type="text" class="form-control" name="blog" value="<?php echo $data_members['blog'] ?>" id="articles" placeholder="Alamat Blog">
+                            </div>
+                            <div class="form-group">
                                 <label for="artilces">Line</label>
                                 <input type="text" class="form-control" name="line" value="<?php echo $data_members['line'] ?>" id="articles" placeholder="Enter ID Line">
                             </div>

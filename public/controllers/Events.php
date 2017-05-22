@@ -137,7 +137,8 @@ class Events extends CI_Controller{
                 'event_id'      => $this->encryption->decode($this->input->post("event_id")),
                 'user_id'       => $this->session->userdata('member_id'),
                 'panitia_id'    => $this->input->post("panitia_id"),
-                'status'        => '0'
+                'status'        => '0',
+                'tgl_register'  => date("Y-m-d H:i:s")
             );
             //insert db
             $this->db->insert("tbl_users_events", $insert);

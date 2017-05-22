@@ -120,6 +120,11 @@
                 </div>
 
                 <div class="input-group margin-bottom-30">
+                    <span class="input-group-addon rounded-left"><i class="icon-social-dribbble color-sea"></i></span>
+                    <input type="text" class="form-control rounded-right" name="blog" value="<?php echo $detail_members->blog ?>" placeholder="Alamat Blog" required>
+                </div>
+
+                <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-bubbles color-sea"></i></span>
                     <input type="text" class="form-control rounded-right" name="bbm" placeholder="BBM" value="<?php echo $detail_members->bbm ?>"  required>
                 </div>

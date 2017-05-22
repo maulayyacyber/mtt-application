@@ -30,6 +30,12 @@
                             <label>Pilih Gambar</label>
                             <input type="file" class="form-control" name="files[]" style="margin-bottom: 10px">
                             <input type="hidden" name="id_album" value="<?php echo $this->encryption->encode($id_album) ?>">
+                            <span class="label label-danger">
+                                       NOTE!
+                                    </span>
+                            <span>
+                                        Gambar thumbnail disarankan ukuran 600X600 PX
+                                     </span>
                         </div>
                         <div class="form-group">
                             <label for="artilces">Caption Gambar</label>

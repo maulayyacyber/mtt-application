@@ -29,6 +29,12 @@
                             <div class="form-group">
                                 <label>Pilih Gambar</label>
                                 <input type="file" class="form-control" name="userfile" style="margin-bottom: 10px">
+                                <span class="label label-danger">
+                                       NOTE!
+                                    </span>
+                                <span>
+                                        Gambar slider disarankan ukuran 600X600 PX
+                                     </span>
                             </div>
                             <div class="form-group">
                                 <label for="artilces">Link Sliders</label>

@@ -28,7 +28,7 @@
                             <i class="fa fa-cc-paypal"></i>  Harga Ticket Event :
                             <?php echo $detail_events->harga ?>
                             <hr>
-                            <a href="<?php echo base_url() ?>events/join/<?php echo $this->encryption->encode($detail_events->id_event) ?>" class="btn-u btn-u-sea btn-block rounded" style="padding-top: 12px;padding-bottom: 12px;text-transform: uppercase;">Join event <i class="fa fa-calendar-check-o"></i> </a>
+                            <a href="<?php echo base_url() ?>events/join/<?php echo $this->encryption->encode($detail_events->id_event) ?>" class="btn-u btn-u-sea btn-block rounded" style="padding-top: 12px;padding-bottom: 12px;text-transform: uppercase;">BELI <i class="fa fa-calendar-check-o"></i> </a>
                         </div>
                     </div>
                 </div>

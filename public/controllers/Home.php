@@ -108,7 +108,7 @@ class Home extends CI_Controller {
                     <div class="news-v2-desc bg-color-light" style="-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
                         '.$judul.'
                         <small><i class="fa fa-map-marker"></i> '.$hasil->lokasi_event.' </small>
-                       <p><a href="'.base_url().'events/join/'.$this->encryption->encode($hasil->id_event).'" class="btn-u btn-u-sea rounded"><i class="fa fa-shopping-cart"></i> Join Event</a></p>
+                       <p><a href="'.base_url().'events/join/'.$this->encryption->encode($hasil->id_event).'" class="btn-u btn-u-sea rounded"><i class="fa fa-shopping-cart"></i> BELI</a></p>
                     </div>
                 </div>';
         }

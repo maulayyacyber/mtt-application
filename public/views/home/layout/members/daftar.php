@@ -117,6 +117,11 @@
                 </div>
 
                 <div class="input-group margin-bottom-30">
+                    <span class="input-group-addon rounded-left"><i class="icon-social-dribbble color-sea"></i></span>
+                    <input type="text" class="form-control rounded-right" name="blog" placeholder="Alamat Blog" required>
+                </div>
+
+                <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-bubbles color-sea"></i></span>
                     <input type="text" class="form-control rounded-right" name="bbm" placeholder="BBM" required>
                 </div>

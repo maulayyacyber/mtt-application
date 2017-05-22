@@ -66,6 +66,10 @@
         <td style="width: 15%">Alamat Rumah</td>
         <td><?php echo $alamat ?></td>
     </tr>
+    <tr>
+        <td style="width: 15%">Tanggal Pembelian Ticket</td>
+        <td><?php echo $tgl_register ?></td>
+    </tr>
 </table>
 
 </body>
