@@ -71,7 +71,7 @@
 <div class="bg-color-light">
 <div class="container content-sm">
     <div class="text-center margin-bottom-50">
-        <h2 class="title-v2 title-center">RECENT ARTICLES</h2>
+        <h2 class="title-v2 title-center">BERITA HARI INI</h2>
     </div>
 
     <div class="row news-v2">
@@ -89,7 +89,7 @@
 <!--=== News Block ===-->
     <div class="container content-sm">
         <div class="text-center margin-bottom-50">
-            <h2 class="title-v2 title-center">RECENT EVENTS</h2>
+            <h2 class="title-v2 title-center">EVENT & STORE</h2>
         </div>
 
         <div class="row news-v2">
