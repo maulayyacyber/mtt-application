@@ -30,7 +30,7 @@
 
                 <!-- Recent News -->
                 <div class="col-md-3 sm-margin-bottom-40">
-                    <div class="heading-footer"><h2><i class="fa fa-calendar-check-o"></i> Recent Events</h2></div>
+                    <div class="heading-footer"><h2><i class="fa fa-calendar-check-o"></i> EVENT & STORE</h2></div>
                     <ul class="list-unstyled link-news">
                         <?php
                         if(events_footer() != NULL) :

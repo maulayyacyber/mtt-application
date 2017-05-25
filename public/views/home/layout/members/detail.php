@@ -70,7 +70,7 @@
                                     <td><?php echo $detail_members->agama ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 15%">Telephone Rumah</td>
+                                    <td style="width: 15%">Handphone</td>
                                     <td><?php echo $detail_members->telephone_rumah ?></td>
                                 </tr>
                             </table>
