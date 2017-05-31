@@ -137,16 +137,17 @@ class Users_events extends CI_Controller{
             $data = array(
                             'judul_event'   => $query->judul_event,
                             'nama'          => $query->nama,
-                            'telephone'     => $query->telephone,
-                            'no_ktp'        => $query->no_ktp,
+                            //'telephone'     => $query->telephone,
+                            //'no_ktp'        => $query->no_ktp,
                             'email'         => $query->email,
                             'alamat'        => $query->alamat,
-                            'no_hp'         => $query->no_hp,
-                            'institusi'     => $query->institusi,
+                            'no_hp'         => $query->no_telp,
+                            'institusi'     => $query->nama_institusi,
                             'jenis_kelamin' => $query->jenis_kelamin,
                             'bbm'           => $query->bbm,
                             'tgl_register'  => $query->tgl_register
             );
+
 /*
             //config sending mails
             $config = array(

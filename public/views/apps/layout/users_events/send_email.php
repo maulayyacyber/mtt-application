@@ -35,20 +35,12 @@
         <td><?php echo $nama ?></td>
     </tr>
     <tr>
-        <td style="width: 15%">Telephone</td>
-        <td><?php echo $telephone ?></td>
-    </tr>
-    <tr>
         <td style="width: 15%">BBM</td>
         <td><?php echo $bbm ?></td>
     </tr>
     <tr>
         <td style="width: 15%">No HP</td>
-        <td><?php echo $no_hp ?></td>
-    </tr>
-    <tr>
-        <td style="width: 15%">No KTP</td>
-        <td><?php echo $no_ktp ?></td>
+        <td><?php echo $no_telp ?></td>
     </tr>
     <tr>
         <td style="width: 15%">Alamat Email</td>
