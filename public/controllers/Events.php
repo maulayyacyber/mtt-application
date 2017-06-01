@@ -155,10 +155,10 @@ class Events extends CI_Controller{
     public function data()
     {
         $this->load->library('Datatables');
-        $this->datatables->select('d.judul_event, a.event_id, b.nama_user, c.nama_panitia, a.status')
+        $this->datatables->select('d.judul_event, a.event_id, b.nama, c.nama_panitia, a.status')
         ->unset_column('id_user_event')
         ->from('tbl_users_events a')
-        ->join('tbl_users b', 'a.user_id = b.id_user')
+        ->join('tbl_members b', 'a.user_id = b.id_member')
         ->join('tbl_panitia c', 'a.panitia_id = c.id_panitia')
         ->join('tbl_events d', 'a.event_id = d.id_event');
       

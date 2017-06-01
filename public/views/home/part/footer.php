@@ -162,7 +162,7 @@
                 ajax: '<?php echo site_url('events/data')  ?>',
                 columns: [
                     { data: 'judul_event', name: 'judul_event' },
-                    { data: 'nama_user', name: 'nama_user' },
+                    { data: 'nama', name: 'nama' },
                     { data: 'nama_panitia', name: 'nama_panitia' },
                     { data: 'status', name: 'status' },
                 ],
