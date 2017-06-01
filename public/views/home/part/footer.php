@@ -119,6 +119,12 @@
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/smoothScroll.js"></script>
@@ -149,6 +155,24 @@
         MSfullWidth.initMSfullWidth();
         OwlCarousel.initOwlCarousel();
         StyleSwitcher.initStyleSwitcher();
+
+
+         $("#table-peserta").DataTable({
+                processing: true,
+                ajax: '<?php echo site_url('events/data')  ?>',
+                columns: [
+                    { data: 'judul_event', name: 'judul_event' },
+                    { data: 'nama_user', name: 'nama_user' },
+                    { data: 'nama_panitia', name: 'nama_panitia' },
+                    { data: 'status', name: 'status' },
+                ],
+
+            
+
+                
+        });
+
+
     });
 </script>
 <!--[if lt IE 9]>

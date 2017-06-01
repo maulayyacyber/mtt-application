@@ -29,7 +29,10 @@
                             <?php echo $detail_events->harga ?>
                             <hr>
                             <a href="<?php echo base_url() ?>events/join/<?php echo $this->encryption->encode($detail_events->id_event) ?>" class="btn-u btn-u-sea btn-block rounded" style="padding-top: 12px;padding-bottom: 12px;text-transform: uppercase;">BELI <i class="fa fa-calendar-check-o"></i> </a>
+                       
+                            <a href="" class="btn-block btn btn-info rounded" type="button" data-toggle="modal" data-target="#myModal">Lihat Yang Mendaftar</a>
                         </div>
+
                     </div>
                 </div>
                 <?php
@@ -41,3 +44,38 @@
     </div>
 </div>
 <!--=== End News Block ===-->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">PESERTA YANG MENDAFTAR</h4>
+      </div>
+      <div class="modal-body ">
+        
+            <table id="table-peserta" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Nama Peserta</th>
+                    <th>Panitia Membawa</th>
+                    <th>status</th>
+                  </tr>
+                </thead>
+            </table>  
+
+            
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

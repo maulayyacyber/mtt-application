@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/css/style.css">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/plugins//datatables/dataTables.bootstrap.css">
+  
+    
     <!-- CSS Header and Footer -->
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/css/headers/header-v6.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>resources/frontend/css/footers/footer-v6.css">
