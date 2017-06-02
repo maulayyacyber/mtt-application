@@ -1,3 +1,4 @@
+
 <!--=== News Block ===-->
 <div class="bg-color-light">
     <div class="container content-sm">
@@ -29,7 +30,12 @@
                             <?php echo $detail_events->harga ?>
                             <hr>
                             <a href="<?php echo base_url() ?>events/join/<?php echo $this->encryption->encode($detail_events->id_event) ?>" class="btn-u btn-u-sea btn-block rounded" style="padding-top: 12px;padding-bottom: 12px;text-transform: uppercase;">BELI <i class="fa fa-calendar-check-o"></i> </a>
+                            
+                            <a href="#" class="btn-block btn btn-info rounded open-modal-data-peserta" type="button" data-id="<?php echo $detail_events->id_event ?>">Lihat Yang Mendaftar</a>
+
+                           <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                         </div>
+
                     </div>
                 </div>
                 <?php
@@ -41,3 +47,32 @@
     </div>
 </div>
 <!--=== End News Block ===-->
+
+<div id="myModal-data-peserta" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">PESERTA YANG MENDAFTAR EVENT</h4>
+      </div>
+      <div class="modal-body ">       
+              <table id="table" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Nama Peserta</th>
+                    <th>Panitia Membawa</th>
+                    <th>status</th>
+                  </tr>
+                </thead>
+            </table>     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

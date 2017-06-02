@@ -79,6 +79,7 @@ class Events extends CI_Controller{
 
     public function detail($url)
     {
+       //echo  $this->uri->segment(3);die();
         //library disqus
         $this->load->library('disqus');
 
@@ -150,6 +151,34 @@ class Events extends CI_Controller{
             redirect('events?source=join&utf8=✓');
 
         }
+    }
+
+    public function data()
+    {
+         
+        $this->load->library('Datatables');
+        $this->datatables->select('d.judul_event, a.event_id, b.nama, c.nama_panitia, a.status')
+        ->unset_column('id_user_event')
+        ->from('tbl_users_events a')
+        ->join('tbl_members b', 'a.user_id = b.id_member')
+        ->join('tbl_panitia c', 'a.panitia_id = c.id_panitia')
+        ->join('tbl_events d', 'a.event_id = d.id_event');
+        echo $this->datatables->generate(); 
+    }
+
+    public function datawithVariable()
+    {
+        $id = $this->input->post('id');  
+        $this->load->library('Datatables');
+        $this->datatables->select('d.judul_event, a.event_id, b.nama, c.nama_panitia, a.status')
+        ->unset_column('id_user_event')
+        ->from('tbl_users_events a')
+        ->join('tbl_members b', 'a.user_id = b.id_member')
+        ->join('tbl_panitia c', 'a.panitia_id = c.id_panitia')
+        ->join('tbl_events d', 'a.event_id = d.id_event')
+        ->where('a.event_id', $id);
+        echo $this->datatables->generate();
+        
     }
 
 }

@@ -119,6 +119,12 @@
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>resources/frontend/plugins/smoothScroll.js"></script>
@@ -149,7 +155,45 @@
         MSfullWidth.initMSfullWidth();
         OwlCarousel.initOwlCarousel();
         StyleSwitcher.initStyleSwitcher();
+
+        /* begin handling token */
+        var csfrData = {};
+        csfrData['<?php echo $this->security->get_csrf_token_name(); ?>']
+                   = '<?php echo $this->security->get_csrf_hash(); ?>';
+
+        $.ajaxSetup({
+           data: csfrData
+        });
+
+   
+
+        /*end handling token */
+    $('.open-modal-data-peserta').on('click', function(e) {
+           e.stopPropagation();
+           $('#myModal-data-peserta').modal('show');
+           var id = $(this).data('id');
+           $("#table").DataTable({
+                processing: true,
+                serverSide: true,
+                retrieve: true,
+                ajax: {
+                        url : '<?php echo site_url('events/datawithVariable');?>',
+                        type: 'POST',
+                        data : {
+                            'id' : id,
+                        }
+                }, 
+                columns: [
+                    { data: 'judul_event', name: 'judul_event' },
+                    { data: 'nama', name: 'nama' },
+                    { data: 'nama_panitia', name: 'nama_panitia' },
+                    { data: 'status', name: 'status' },
+                ],       
+        });
     });
+
+ });
+        
 </script>
 <!--[if lt IE 9]>
 <script src="<?php echo base_url() ?>resources/frontend/plugins/respond.js"></script>
