@@ -156,24 +156,44 @@
         OwlCarousel.initOwlCarousel();
         StyleSwitcher.initStyleSwitcher();
 
+        /* begin handling token */
+        var csfrData = {};
+        csfrData['<?php echo $this->security->get_csrf_token_name(); ?>']
+                   = '<?php echo $this->security->get_csrf_hash(); ?>';
 
-         $("#table-peserta").DataTable({
+        $.ajaxSetup({
+           data: csfrData
+        });
+
+   
+
+        /*end handling token */
+    $('.open-modal-data-peserta').on('click', function(e) {
+           e.stopPropagation();
+           $('#myModal-data-peserta').modal('show');
+           var id = $(this).data('id');
+           $("#table").DataTable({
                 processing: true,
-                ajax: '<?php echo site_url('events/data')  ?>',
+                serverSide: true,
+                retrieve: true,
+                ajax: {
+                        url : '<?php echo site_url('events/datawithVariable');?>',
+                        type: 'POST',
+                        data : {
+                            'id' : id,
+                        }
+                }, 
                 columns: [
                     { data: 'judul_event', name: 'judul_event' },
                     { data: 'nama', name: 'nama' },
                     { data: 'nama_panitia', name: 'nama_panitia' },
                     { data: 'status', name: 'status' },
-                ],
-
-            
-
-                
+                ],       
         });
-
-
     });
+
+ });
+        
 </script>
 <!--[if lt IE 9]>
 <script src="<?php echo base_url() ?>resources/frontend/plugins/respond.js"></script>
