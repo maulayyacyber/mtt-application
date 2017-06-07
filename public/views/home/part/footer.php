@@ -157,15 +157,13 @@
         StyleSwitcher.initStyleSwitcher();
 
         /* begin handling token */
-        var csfrData = {};
-        csfrData['<?php echo $this->security->get_csrf_token_name(); ?>']
-                   = '<?php echo $this->security->get_csrf_hash(); ?>';
+        // var csfrData = {};
+        // csfrData['<?php echo $this->security->get_csrf_token_name(); ?>']
+        //            = '<?php echo $this->security->get_csrf_hash(); ?>';
 
-        $.ajaxSetup({
-           data: csfrData
-        });
-
-   
+        // $.ajaxSetup({
+        //    data: csfrData
+        // });
 
         /*end handling token */
     $('.open-modal-data-peserta').on('click', function(e) {
@@ -187,9 +185,25 @@
                     { data: 'judul_event', name: 'judul_event' },
                     { data: 'nama', name: 'nama' },
                     { data: 'nama_panitia', name: 'nama_panitia' },
-                    { data: 'status', name: 'status' },
-                ],       
-        });
+                    {
+                         "render": function (data, type, JsonResultRow, meta) 
+                            {
+                             
+                                if (JsonResultRow.status == '1')
+                                {
+                                    return "Lunas";
+                                }
+                                else
+                                {
+                                    return 'Belum Bayar';
+                                }
+
+                            }
+                    }
+
+                ],     
+
+          });
     });
 
  });

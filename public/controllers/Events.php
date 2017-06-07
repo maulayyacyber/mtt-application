@@ -143,6 +143,9 @@ class Events extends CI_Controller{
             );
             //insert db
             $this->db->insert("tbl_users_events", $insert);
+
+            echo $this->db->error();die();
+             
             //create session flashdata
             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
 			                                                    <i class="fa fa-check"></i> Pendaftaran event berhasil, silahkan lakukan pembayaran ticket.

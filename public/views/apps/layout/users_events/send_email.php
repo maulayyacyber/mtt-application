@@ -21,14 +21,11 @@
     </style>
 </head>
 <body style="background-color: #f1f1f1;-moz-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.12);webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.12);box-shadow: 1px 1px 2px 0 rgba(0,0,0,.12);">
+        
 <table>
     <tr>
-        <th style="font-size: 17px"><i class="fa fa-file-o"></i> Attribute</th>
-        <th style="font-size: 17px"><i class="fa fa-clone"></i> Value</th>
-    </tr>
-    <tr>
-        <td style="width: 15%">Nama Event</td>
-        <td><?php echo $judul_event ?></td>
+        <th style="font-size: 17px"><i class="fa fa-file-o"></i> TIKET EVENT </th>
+        <th style="font-size: 17px"><i class="fa fa-clone"></i> <?php echo  $judul_event  ?> </th>
     </tr>
     <tr>
         <td style="width: 15%">Nama Lengkap</td>
@@ -47,7 +44,7 @@
         <td><?php echo $email ?></td>
     </tr>
     <tr>
-        <td style="width: 15%">Institunsi</td>
+        <td style="width: 15%">Institusi</td>
         <td><?php echo $institusi ?></td>
     </tr>
     <tr>
@@ -57,6 +54,14 @@
     <tr>
         <td style="width: 15%">Alamat Rumah</td>
         <td><?php echo $alamat ?></td>
+    </tr>
+     <tr>
+        <td style="width: 15%">Nama Event</td>
+        <td><?php echo $judul_event ?></td>
+    </tr>
+     <tr>
+        <td style="width: 15%">Harga Tiket</td>
+        <td><?php echo $harga ?></td>
     </tr>
     <tr>
         <td style="width: 15%">Tanggal Pembelian Ticket</td>
