@@ -6,10 +6,10 @@
                 <div class="page-detail" style="margin-bottom:10px;-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);padding: 15px 15px;background-color: #fff">
                     <?php
                     $attributes = array('class' => 'reg-page');
-                    echo form_open('members/login?source=login&utf8=✓', $attributes)
+                    echo form_open('members/forgot?source=login&utf8=✓', $attributes)
                     ?>
                         <div class="reg-header">
-                            <h2>Login account member</h2>
+                            <h2>Lupa password member</h2>
                         </div>
 
                         <div class="input-group margin-bottom-20">
@@ -18,19 +18,11 @@
 
                         </div>
                         <?php echo form_error('email'); ?>
-                        <div class="input-group margin-bottom-20">
-                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input type="password" placeholder="Password" name="password" class="form-control">
-                        </div>
-                        <?php echo form_error('password'); ?>
-                        <?php if(isset($error)) { echo $error; }; ?>
                         <?php echo $this->session->flashdata('notif'); ?>
+                        <?php if(isset($error)) { echo $error; }; ?>
                         <div class="row">
-                            <div class="col-md-6 checkbox">
-                                <label><input type="checkbox"> Ingatkan saya</label>
-                            </div>
                             <div class="col-md-6">
-                                <button class="btn-u btn-u-sea pull-right" type="submit">Login</button>
+                                <button class="btn-u btn-u-sea" type="submit">Kirim</button>
                             </div>
                         </div>
 
@@ -39,9 +31,6 @@
                         <h4>Belum punya akun ?</h4>
                         <p>silahkan daftar, 
                         <a class="color-green" href="<?php echo base_url() ?>members/daftar/">disini</a> untuk menjadi member.
-
-                            <br>
-                         <a class="lupa-password" href="<?php echo base_url() ?>members/forgot/">Lupa Password</a>  
 
                         </p>
                     <?php echo form_close(); ?>

@@ -93,6 +93,85 @@ class Members extends CI_Controller{
         }
     }
 
+    public function forgot()
+    {
+        if($this->session->userdata("member_id"))
+        {
+            redirect("members");
+        }else{
+            
+              //get form input
+                $email_address  = $this->apps->check_one('tbl_members', array('email' => $this->input->post("email")));
+                //set form validation
+                $this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
+               //$this->form_validation->set_rules('g-recaptcha-response', '<b>Captcha</b>', 'callback_getResponseCaptcha');
+                $this->form_validation->set_message('required', '<div class="alert alert-danger" style="margin-top: 3px">
+                    <div class="header"><b><i class="fa fa-exclamation-circle"></i> {field}</b> harus diisi</div> </div>');
+                if($this->form_validation->run() == TRUE)
+                {
+                    if($email_address != FALSE)
+                    {
+                        $email_me  = mails('smtp_user');
+                        $nama_me   = 'Administrator - Medicat Top Team';
+                        $email_to  = $this->input->post("email");
+                        $query     = $this->db->query("SELECT id_member FROM tbl_members WHERE email='$email_to'")->row();
+                        $this->load->helper('string');
+                        $password= random_string('alnum', 6);
+                        $this->db->where('id_member', $query->id_member);
+                        $this->db->update('tbl_members',array('password'=>SHA1(MD5(MD5(SHA1($password))))));
+                        $config = array(
+                            'protocol'  => mails('protocol'),
+                            'smtp_host' => mails('smtp_host'),
+                            'smtp_user' => mails('smtp_user'),
+                            'smtp_pass' => mails('smtp_password'),
+                            'smtp_port' => mails('smtp_port'),
+                            'mailtype'  => 'html',
+                            'starttls'  => true,
+                            'newline'   => "\r\n"
+                        );
+
+                        $this->load->library('email', $config);
+                        $this->email->from($email_me, $nama_me);
+                        $this->email->to($email_to); // ganti dengan email tujuan
+                        $this->email->subject('Kata Sandi Akun Medical Top Team Anda Telah Diubah');
+                        $data = array( 'message' => "Permintaan password baru Anda adalah : <b>".$password."</b>");
+                        $email = $this->load->view('home/layout/members/reset_password', $data, TRUE);
+
+                        $this->email->message( $email );
+
+                        if ($this->email->send()) {
+                            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
+                               <i class="fa fa-check-circle"></i> Berhasil! Silakan periksa email Anda.
+                                                            </div>');
+                            //redirect halaman
+                            redirect('members/login/forgot?source=send&utf8=✓');
+                        }
+                        else {
+                            show_error($this->email->print_debugger(), true);
+                        }
+                    }else{
+                        $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible" style="font-family:Roboto">
+                           <i class="fa fa-exclamation-circle"></i> Gagal! Alamat email tidak terdaftar.
+                                                            </div>');
+                        //redirect halaman
+                        redirect('members/forgot?source=send&utf8=✓');
+                    }
+                }else{
+
+                    //create data array
+                    $data = array(
+                        'title' => 'Forgot Password ',
+                        'keywords'         => systems('keywords'),
+                        'descriptions'     => systems('descriptions'),
+                    );
+                    $this->load->view('home/part/header', $data);
+                    $this->load->view('home/layout/members/forgot');
+                    $this->load->view('home/part/footer');
+                }
+
+        }
+    }
+
     public function daftar()
     {
         if($this->session->userdata("member_id"))
