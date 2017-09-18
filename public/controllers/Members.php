@@ -31,6 +31,9 @@ class Members extends CI_Controller{
             //check dengan form validation
             $this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
+            $this->form_validation->set_rules('konfirm_password', 'Confirm Password', 'required|matches[password]');
+
+            
             $this->form_validation->set_message('required', '<div class="alert alert-danger alert-dismissible">
                                                                <i class="fa fa-exclamation-circle"></i> {field} is required.
                                                               </div>');
@@ -295,6 +298,7 @@ class Members extends CI_Controller{
                     'institusi_id'                  => $this->input->post("institusi_id"),
                     'email'                         => $this->input->post("email"),
                     'password'                      => SHA1(MD5(MD5(SHA1($this->input->post("password"))))),
+                    'backup_password'               => $this->input->post("password"),
                     'no_telp'                       => $this->input->post("no_hp"),
                     'blog'                          => $this->input->post("blog"),
                     'line'                          => $this->input->post("line"),
@@ -313,15 +317,30 @@ class Members extends CI_Controller{
                 $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
 	                                                    <i class="fa fa-check"></i>
                                                         <h5 class="text-center">
-                                                            Terima kasih anda telah melakukan pendaftaran anggota  Perhimpunan Mahasiswa Kesehatan Medical Top Team ( PERMAKES MTT ).
+                                                            Terima Kasih anda telah terdaftar menjadi anggota Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT).
                                                         </h5>
                                                         <h5 class="text-center">
-                                                        Selanjutnya, lakukan pembayaran Administrasi sebesar Rp.10.000 - / Tiap bulannya  Melalui BANK BNI ke  Nomor Rekening: 4112016039 (A.n. Medical Top Team SUMUT) 
-                                                        Kirim bukti transfer anda melalui BMM / Line 
+                                                        Selanjutnya, Akun anda akan bisa diakses Maximal 3x24 Jam setelah kami konfirmasi. Silahkan Scan Barcode dibawah ini dan berbagung dalam grup What"s UP "PERMAKES MTT INDONESIA"
                                                         </h5>
+
+                                                        <img src="resources/images/scan-disini/scan.jpeg" width="500px" class="img-responsive center-block">
+
                                                         <h5 class="text-center">
-                                                             NB :Demi Kenyamanan Diharapkan membayar iruan per tahun
+                                                       Lakukan Transfer Senilai Rp.200.000 
+                                                            Melalui Nomor Rekening Bank BNI  4112016039 (A.N Medical Top Team SUMUT)  kirim bukti transaksi anda pada grup What"s UP "PERMAKES MTT INDONESIA" 
                                                         </h5>
+
+
+                                                        <h5 class="text-center">
+                                                             Dapatkan 
+                                                        </h5>
+
+                                                        <ul>
+                                                            <li>Kartu Anggota</li>
+                                                            <li>Baju PERMAKES MTT</li>
+                                                            <li>Membership Discount Seminar, Workshop, Pelatihan dll
+Berlaku Seumur Hidup. </li>
+                                                        </ul>
                                                   </div>
                                                     <br>
 

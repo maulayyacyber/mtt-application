@@ -56,7 +56,7 @@
                     <li>Analis, dll</li>
                 </ol>
 
-                  <p style="font-size: 15px">PERMAKES MTT diharapkan menjadi penghubung antara seluruh mahasiswa kesehatan se-Indonesia. Untuk dapat terhubung silahkan daftarkan diri anda</p>
+                 <p style="font-size: 15px">Telah Dibuka Program Medical Enterpeuner School (MES) . informasi lebih lanjut hubungi 085359803740 (dr.Bram)</p>
                 <br>
 
                 <a href="<?php echo base_url() ?>members/login/" class="btn-u btn-brd btn-brd-hover btn-u-dark"><i class="icon-lock"></i> Login  </a>
