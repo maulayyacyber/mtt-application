@@ -46,6 +46,9 @@
                     <img src="<?php echo base_url() ?>resources/images/logo.png" alt="" style="margin-bottom: 30px">
                 </a>
                 <h2 class="margin-bottom-30">Form Pendaftaran Member</h2>
+
+                <h5>Halo selamat bergabung di Permakes indonesia kami membutuhkan data kamu, diantaranya</h5>
+
                 <?php
                 $attributes = array('id' => 'frm_login');
                 echo form_open_multipart('members/save?source=form&utf8=✓', $attributes)
@@ -96,6 +99,13 @@
                     <span class="input-group-addon rounded-left"><i class="icon-lock color-sea"></i></span>
                     <input type="password" class="form-control rounded-right" name="password" placeholder="Password" required>
                 </div>
+
+                 <div class="input-group margin-bottom-30">
+                    <span class="input-group-addon rounded-left"><i class="icon-lock color-sea"></i></span>
+                    <input type="password" class="form-control rounded-right" name="konfirm_password" placeholder="Konfirm Password" required>
+                </div>
+
+
 
                 <div class="input-group margin-bottom-30">
                     <span class="input-group-addon rounded-left"><i class="icon-home color-sea"></i></span>
