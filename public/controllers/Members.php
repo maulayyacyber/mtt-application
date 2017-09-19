@@ -31,7 +31,7 @@ class Members extends CI_Controller{
             //check dengan form validation
             $this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
-            $this->form_validation->set_rules('konfirm_password', 'Confirm Password', 'required|matches[password]');
+            //$this->form_validation->set_rules('konfirm_password', 'Confirm Password', 'required|matches[password]');
 
             
             $this->form_validation->set_message('required', '<div class="alert alert-danger alert-dismissible">
