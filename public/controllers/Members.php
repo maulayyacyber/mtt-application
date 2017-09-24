@@ -377,7 +377,6 @@ class Members extends CI_Controller{
                     'institusi_id'                  => $this->input->post("institusi_id"),
                     'email'                         => $this->input->post("email"),
                     'password'                      => SHA1(MD5(MD5(SHA1($this->input->post("password"))))),
-                    'backup_password'               => $this->input->post("password"),
                     'no_telp'                       => $this->input->post("no_hp"),
                     'blog'                          => $this->input->post("blog"),
                     'line'                          => $this->input->post("line"),
