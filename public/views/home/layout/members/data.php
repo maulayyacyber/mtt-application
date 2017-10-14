@@ -1,4 +1,4 @@
-<!--=== News Block ===-->
+=== News Block ===-->
 <div class="bg-color-light">
     <div class="container content-sm">
         <div class="text-center margin-bottom-50">
@@ -74,11 +74,14 @@
                                                 src="<?php echo base_url() ?>resources/images/members/<?php echo $hasil->foto ?>" class="img-responsive img-circle text-center"
                                                 width="100px;"></td>
                                     <td class="text-center">
-                                        <a class='btn-u btn-u-sea btn-block rounded'
+                                        
+                                    <a class='btn-u btn-u-sea btn-block rounded'
                                            style="font-family: Roboto;font-weight: 400;" data-toggle="tooltip"
                                            data-placement="top" title="Edit"
-                                           href='<?php echo base_url() ?>members/detail/<?php echo $this->encryption->encode($hasil->id_member) ?>'><i
-                                                    class="fa fa-external-link"></i> Detail</a>
+                                           href='https://api.whatsapp.com/send?phone=62<?php echo substr($hasil->no_telp,1);?>&text=Halo%20Salam,%20Saya%20WA%20kamu%20dari%20PERMAKES%20MTT'><i
+                                                    class="fa fa-external-link"></i> Whatshapp</a>
+
+                                                 
                                     </td>
                                 </tr>
                                 <?php
@@ -116,4 +119,4 @@
         </div>
     </div>
 </div>
-<!--=== End News Block ===-->
+<!--=== End News Block ===
