@@ -57,9 +57,25 @@ class Home extends CI_Controller {
                 $descriptions = '<p>'.substr($hasil->meta_descriptions, 0,50).'...</p>';
             }
 
-            echo '<div class="col-md-3" style="margin-bottom: 20px">
+            // echo '<div class="col-md-3" style="margin-bottom: 20px">
+            //         <div class="news-v2-badge">
+            //              <img class="img-responsive" src="'.base_url().'resources/images/articles/thumb/'.$hasil->thumbnail.'" alt="">
+            //             <p>
+            //                 <span>'.$this->web->tgl_tunggal($hasil->created_at).'</span>
+            //                 <small>'.$this->web->bulan_inggris($hasil->created_at).'</small>
+            //             </p>
+            //         </div>
+            //         <div class="news-v2-desc bg-color-light" style="-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);">
+            //             '.$judul.'
+            //             <small><i class="fa fa-user-circle"></i> '.$hasil->nama_user.' </small>
+            //             '.$descriptions.'
+            //         </div>
+            //     </div>';
+
+                /*request client fotonya di hilangkan*/
+             echo '<div class="col-md-3" style="margin-bottom: 20px">
                     <div class="news-v2-badge">
-                        <img class="img-responsive" src="'.base_url().'resources/images/articles/thumb/'.$hasil->thumbnail.'" alt="">
+                          
                         <p>
                             <span>'.$this->web->tgl_tunggal($hasil->created_at).'</span>
                             <small>'.$this->web->bulan_inggris($hasil->created_at).'</small>

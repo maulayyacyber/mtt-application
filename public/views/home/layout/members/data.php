@@ -14,7 +14,16 @@
                     <div class="alert alert-success fade in">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <h4>Selamat datang <b><?php echo $this->session->userdata("member_nama") ?></b></h4>
-                        <p>PERMAKES MTT adalah wadah para mahasiswa kesehatan yang terdiri dari berbagai jurusan kesehatan diantaranyna : Kedokteran, Keperawatan, Kebidanan , Farmasi, Kesehatan Masyarakat, Analis, dll. PERMAKES MTT diharapkan menjadi penghubung antara seluruh mahasiswa kesehatan se-Indonesia. hanya dengan biaya pendaftaran 10.000 anda telah menjadi member, Untuk dapat terhubung silahkan daftarkan diri anda</p>
+                        <p>Ini adalah akun spesial milik kamu !  Sekarang rekomendasikan teman kamu bergabung  dan Cari serta temukan teman sewajat kamu disini . Klik “Event & Store” Dapatkan Harga Spesial untuk  bergabung di Pelatihan, SEMINAR dan WORKSHOP.</p>
+
+                        <p>
+                             lebih dekat dengan join GRUP WA klik.. 
+                             <a href="https://chat.whatsapp.com/1mQSk1zi43O8yVX9OXIloe">Disini</a>
+                        </p>
+
+                                             
+
+
                         <p>
                             <a class="btn-u btn-u-red" href="<?php echo base_url() ?>members/logout/">Logout <i class="icon-logout"></i> </a>
                             <a class="btn-u btn-u-blue" href="<?php echo base_url() ?>members/profile/">Profile </a>

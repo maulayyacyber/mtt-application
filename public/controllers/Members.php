@@ -141,7 +141,7 @@ class Members extends CI_Controller{
 
                         if ($this->email->send()) {
                             $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
-                               <i class="fa fa-check-circle"></i> Berhasil! Silakan periksa email Anda.
+                               <i class="fa fa-check-circle"></i> Berhasil! Silakan periksa email Anda atau di folder spam
                                                             </div>');
                             //redirect halaman
                             redirect('members/login/forgot?source=send&utf8=✓');
@@ -377,7 +377,6 @@ class Members extends CI_Controller{
                     'institusi_id'                  => $this->input->post("institusi_id"),
                     'email'                         => $this->input->post("email"),
                     'password'                      => SHA1(MD5(MD5(SHA1($this->input->post("password"))))),
-                    'backup_password'               => $this->input->post("password"),
                     'no_telp'                       => $this->input->post("no_hp"),
                     'blog'                          => $this->input->post("blog"),
                     'line'                          => $this->input->post("line"),
@@ -395,31 +394,40 @@ class Members extends CI_Controller{
                 //deklarasi session flashdata
                 $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" style="font-family:Roboto">
 	                                                    <i class="fa fa-check"></i>
-                                                        <h5 class="text-center">
+                                                        <h5 class="text-left">
                                                             Terima Kasih anda telah terdaftar menjadi anggota Perhimpunan Mahasiswa Kesehatan Medical Top Team (PERMAKES MTT).
                                                         </h5>
-                                                        <h5 class="text-center">
+                                                        <h5 class="text-left">
                                                         Selanjutnya, Akun anda akan bisa diakses Maximal 3x24 Jam setelah kami konfirmasi. Silahkan Scan Barcode dibawah ini dan berbagung dalam grup What"s UP "PERMAKES MTT INDONESIA"
                                                         </h5>
 
                                                         <img src="resources/images/scan-disini/scan.jpeg" width="500px" class="img-responsive center-block">
 
-                                                        <h5 class="text-center">
+
+                                                        
+
+                                                        <ul>
+                                                            <li>
+                                                                <h5 class="text-left">
+                                                                 Dapatkan 
+                                                                </h5>
+                                                            </li>
+                                                            <li>
+                                                                <h5 class="text-left">Kartu Anggota</h5>
+                                                            </li>
+                                                            <li>
+                                                                <h5 class="text-left">Baju PERMAKES MTT</h5>
+                                                            </li>
+                                                            <li>
+                                                                <h5 class="text-left">Membership Discount Seminar, Workshop, Pelatihan dll
+                                                                Berlaku Seumur Hidup.</h5>
+                                                            </li>
+                                                        </ul>
+
+                                                        <h5 class="text-left">
                                                        Lakukan Transfer Senilai Rp.200.000 
                                                             Melalui Nomor Rekening Bank BNI  4112016039 (A.N Medical Top Team SUMUT)  kirim bukti transaksi anda pada grup What"s UP "PERMAKES MTT INDONESIA" 
                                                         </h5>
-
-
-                                                        <h5 class="text-center">
-                                                             Dapatkan 
-                                                        </h5>
-
-                                                        <ul>
-                                                            <li>Kartu Anggota</li>
-                                                            <li>Baju PERMAKES MTT</li>
-                                                            <li>Membership Discount Seminar, Workshop, Pelatihan dll
-Berlaku Seumur Hidup. </li>
-                                                        </ul>
                                                   </div>
                                                     <br>
 

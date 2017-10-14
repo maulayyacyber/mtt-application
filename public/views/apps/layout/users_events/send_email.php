@@ -35,10 +35,10 @@
         <td style="width: 15%">BBM</td>
         <td><?php echo $bbm ?></td>
     </tr>
-    <tr>
+<!--     <tr>
         <td style="width: 15%">No HP</td>
         <td><?php echo $no_telp ?></td>
-    </tr>
+    </tr> -->
     <tr>
         <td style="width: 15%">Alamat Email</td>
         <td><?php echo $email ?></td>
