@@ -77,7 +77,7 @@ class Profile extends CI_Controller{
             'descriptions'     => systems('descriptions'),
             'profile'             => TRUE,
             'struktur_organisasi' => TRUE,
-            'data_pages'=> $this->web->get_pages(4),
+            'data_pages'=> $this->web->get_pages(5),
             'articles_terbaru' => $this->web->articles_terbaru(),
         );
         $this->load->view('home/part/header', $data);
